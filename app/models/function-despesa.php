@@ -31,7 +31,7 @@ function searchDateRecord(){
     
     while($date = $operation->listar($qrySearchRecord)){
        $valor = $date["dataDespesa"];
-       echo $idDespesaPOST = $date["idDespesa"];
+       $idDespesaPOST = $date["idDespesa"];
     };
 }
 

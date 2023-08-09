@@ -30,7 +30,7 @@ function searching(){
     global $orderByType;
 
     $numTotalB = 1;
-    $quantidade = 10;
+    $quantidade = 7;
     $pagina = (isset($_GET["pagina"]) ? (int)$_GET["pagina"] : 1);
     $inicio = ($quantidade * $pagina) - $quantidade;
     $pageAtual = $_GET["page"];

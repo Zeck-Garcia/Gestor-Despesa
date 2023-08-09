@@ -28,7 +28,18 @@ searching();
         <form action="#" class="form row  d-flex justify-content-around align-items-center align-self-center">
             <div class="form-group col">
                 <label for="">Titular</label>
-                <select class="form-control" name="">
+                <select class="custom-select" name="">
+                    <option value="">Selecione</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                </select>
+            </div>
+
+            <div class="form-group col">
+                <label for="">Modulo</label>
+                <select class="custom-select" name="">
                     <option value="">Selecione</option>
                     <option value="">2</option>
                     <option value="">3</option>
@@ -39,7 +50,7 @@ searching();
 
             <div class="form-group col">
                 <label for="">Tipo</label>
-                <select class="form-control" name="">
+                <select class="custom-select" name="">
                     <option value="">Selecione</option>
                     <option value="">2</option>
                     <option value="">3</option>
@@ -50,7 +61,7 @@ searching();
 
             <div class="form-group col">
                 <label for="">Mês</label>
-                <select class="form-control" name="monthCampoFilter">
+                <select class="custom-select" name="monthCampoFilter">
                     <option value="">Selecione</option>
                     <option value="1">Janeiro</option>
                     <option value="2">Fevereiro</option>
@@ -69,7 +80,7 @@ searching();
 
             <div class="form-group col">
                 <label for="">Ano</label>
-                <select class="form-control" name="">
+                <select class="custom-select" name="">
                     <option value="" selected>Selecione</option>
                     <?php
                         $sqlFilterAllYear = "SELECT DISTINCT anoDespesa FROM tbdespesa GROUP BY anoDespesa ORDER BY anoDespesa ASC";
@@ -91,11 +102,12 @@ searching();
     </div>
 
         <table class="table table-striped table-hover">
-            <thead class="thead-light">
-                <tr>
-                    <th>Nome</th>
+            <thead class="thead-dark text-center ">
+                <tr class="">
+                    <th>Conta</th>
                     <th>Valor</th>
                     <th>Data de PGTO</th>
+                    <th>Forma de<br>cobrança</th>
                     <th>Tipo</th>
                     <th>Titular</th>
                     <th>Situação</th>
@@ -103,7 +115,7 @@ searching();
                 </tr>
             </thead>
         
-            <tbody>
+            <tbody class="text-center">
                 <?php
                     while($dados = $operation->listar(($qry)))
                     {
@@ -117,6 +129,7 @@ searching();
                                     $date = new DateTime($dados["dataPagamentoDespesaDescricao"]);
                                     echo $date->format("d/m/Y");
                                 ?></td>
+                                <td><?= $dados["metodoPagamentoDescricaoDescricao"]?></td>
                             <td><?= $dados["tipoDespesaDescricao"]?></td>
                             <td><?= $dados["titularDespesaDescricao"]?></td>
                             <td><?= $dados["situacaoDespesaDescricao"]?></td>
@@ -161,12 +174,9 @@ searching();
 
 
 <?php
-
-// include_once "app/views/pages/forms/form-despesa-descricao.php";
-// searchDateRecord();
-// validRegister();
-
-
-
+    include_once "app/models/paginador.php";
 ?>
+
+
+
 

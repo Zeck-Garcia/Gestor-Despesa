@@ -95,13 +95,21 @@ $operation = new manipulacaoDeDados();
     </div>
 
 
-    <div class="col">
+    <div class="container col-7 shadow bg-white">
         <article>
         <?php
         include_once "app/models/filter.php";
             include_once "app/models/link.php";
             
 
+            ?>
+        </article>
+    </div>
+
+    <div class="col shadow-sm rounded bg-light">
+        <article>
+            <?php
+                include_once "app/views/pages/aside/info-despesa-geral.php";
             ?>
         </article>
     </div>

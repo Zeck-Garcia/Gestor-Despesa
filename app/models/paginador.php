@@ -1,3 +1,4 @@
+<ul class="pagination justify-content-center">
 <?php
 
 if($numTotalB){
@@ -46,3 +47,5 @@ if($paginaB < ($totalPagina - 1)){
 // echo "<li class='page-item'><a class='page-link' href='?page=contatos&pagina=$totalPagina'>Última página</a></li>";
 
 
+?>
+</ul>
