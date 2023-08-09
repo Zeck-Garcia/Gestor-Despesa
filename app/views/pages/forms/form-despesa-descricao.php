@@ -6,6 +6,10 @@
 ?>
 
 <div class="container">
+<div class="row bg-secondary text-light text-center mb-3">
+    <h2>Não sei o que colocar no titulo do cabeçalho</h2>
+</div>
+
 <form class="needs-validation" action="index.php?page=<?php
                                         if($page == "a-cadastro-despesa"){
                                             echo "a-inserir-cadastro-despesa";
@@ -46,18 +50,6 @@
                 Tudo certo!
             </div>
         </div>
-
-        <div class="form-group col-auto">
-            <label class="" for="valorDespesa">Metodo de Pagamento</label>
-            <select class="custom-select" required>
-                <option value="">1</option>
-            </select>
-            <!-- <input type="double" class="form-control" id="metodoPagamentoDescricaoDescricao" name="metodoPagamentoDescricaoDescricao" value="" placeholder="nome" required> -->
-    
-            <div class="valid-feedback">
-                Tudo certo!
-            </div>
-        </div>
     </div>
 
 
@@ -91,13 +83,13 @@
     
         <div class="row">
             <div class="col">
-                <input type="text" class="btn btn-danger" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Cancelar">
-                <input type="submit" class="btn btn-danger" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Cancelar">
+                <input type="hidden" class="btn btn-danger" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Cancelar">
+                <input type="submit" class="btn btn-danger btn-block" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Cancelar">
             </div>
 
             <div class="col">
-                <input type="text" class="btn btn-primary" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Adicionar">
-                <input type="submit" class="btn btn-primary" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Adicionar">
+                <input type="hidden" class="btn btn-primary" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Adicionar">
+                <input type="submit" class="btn btn-primary btn-block" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Adicionar">
             </div>
         </div>
     </div>

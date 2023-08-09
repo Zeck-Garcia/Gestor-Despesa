@@ -96,18 +96,20 @@ searching();
             </div>
 
             <div class="col"">
-                <button class="btn btn-success type="submit" value="Filtar">Filtar <i class="bi bi-funnel"></i></button>
+                <button class="btn btn-success" type="submit" value="Filtar">Filtar <i class="bi bi-funnel"></i></button>
+            </div>
+            <div class="col"">
+                <button class="btn btn-danger" type="submit" value="limparFiltar">Limpar <i class="bi bi-trash"></i></button>
             </div>
         </form>
     </div>
 
         <table class="table table-striped table-hover">
-            <thead class="thead-dark text-center ">
+            <thead class="thead-dark text-center">
                 <tr class="">
-                    <th>Conta</th>
+                    <th>Despesa</th>
                     <th>Valor</th>
                     <th>Data de PGTO</th>
-                    <th>Forma de<br>cobrança</th>
                     <th>Tipo</th>
                     <th>Titular</th>
                     <th>Situação</th>
@@ -129,7 +131,6 @@ searching();
                                     $date = new DateTime($dados["dataPagamentoDespesaDescricao"]);
                                     echo $date->format("d/m/Y");
                                 ?></td>
-                                <td><?= $dados["metodoPagamentoDescricaoDescricao"]?></td>
                             <td><?= $dados["tipoDespesaDescricao"]?></td>
                             <td><?= $dados["titularDespesaDescricao"]?></td>
                             <td><?= $dados["situacaoDespesaDescricao"]?></td>
