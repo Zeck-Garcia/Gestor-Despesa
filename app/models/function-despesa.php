@@ -147,7 +147,7 @@ function searchBDTitular(){
     global $camposSelect;
     global $tabelaTitular;
     global $camposWherePesquisaPrincipal;
-    $camposWherePesquisaPrincipal = $dados['idTitularDespesa'];
+    $camposWherePesquisaPrincipal = $_SESSION["idUser"];
     global $txtPesquisa;
     global $camposPesquisaAdd;
     global $orderBy;

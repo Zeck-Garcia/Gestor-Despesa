@@ -49,11 +49,15 @@ $imgPerfil = $_SESSION["imgUser"];
                     </a> 
                 </li> 
 
-                <li> 
-                    <a href="#" class="nav-link text-white"> 
-                        <i class="fa fa-dashboard"></i><span class="ms-2">Dashboard</span> 
-                    </a> 
-                </li> 
+                <li>
+                    <div class="dropdown nav-link"> 
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Dashboard</a> 
+                        <!-- <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
+                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                        </ul>  -->
+                    </div>
+                </li>
 
                 <li> 
                     <div class="dropdown nav-link"> 
@@ -68,19 +72,65 @@ $imgPerfil = $_SESSION["imgUser"];
                     </div>
                 </li> 
 
-                <li> 
-                    <a href="index.php?page=2" class="nav-link text-white"> 
-                        <i class="fa fa-cog"></i>
-                        <span class="ms-2">Receitas</span> 
-                    </a> 
-                </li> 
+                <li>
+                    <div class="dropdown nav-link"> 
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Receita</a> 
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
+                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                        </ul> 
+                    </div>
+                </li>
 
-                <li> 
-                    <a href="#" class="nav-link text-white"> 
-                        <i class="fa fa-bookmark"></i>
-                        <span class="ms-2">Balanço</span> 
-                    </a> 
-                </li> 
+                <li>
+                    <div class="dropdown nav-link"> 
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Balanço</a> 
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
+                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                        </ul> 
+                    </div>
+                </li>
+
+                <li>
+                <div class="dropdown nav-link"> 
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Titular</a> 
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
+                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                        </ul> 
+                    </div>
+                </li>
+
+                <li>
+                    <div class="dropdown nav-link"> 
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Tipo de receita</a> 
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
+                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                        </ul> 
+                    </div>
+                </li>
+
+                <li>
+                    <div class="dropdown nav-link"> 
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Tipo de despesa</a> 
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
+                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                        </ul> 
+                    </div>
+                </li>
+
+                <li>
+                    <div class="dropdown nav-link"> 
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Bancos</a> 
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
+                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                        </ul> 
+                    </div>
+                </li>
             </ul> 
 
             <hr> 
@@ -88,7 +138,6 @@ $imgPerfil = $_SESSION["imgUser"];
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> 
                     <img src="<?= $imgPerfil?>" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> <?= $nomeUser?></strong> </a> 
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                        <li><a class="dropdown-item" href="#">New project</a></li> 
                         <li><a class="dropdown-item" href="#">Settings</a></li> 
                         <li><a class="dropdown-item" href="#">Profile</a></li> 
                         <li> <hr class="dropdown-divider"> </li> 
