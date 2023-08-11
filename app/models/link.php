@@ -39,6 +39,20 @@ if(!empty($page)){
             case "a-inserir-cadastro-despesa":
                 include_once "app/models/filter.php";
             break;
+
+            case "editar-cadastro-despesa":
+                include_once "app/views/pages/forms/form-despesa-descricao.php";
+            break;
+
+            case "validation";
+            // echo "deu bom";
+                include_once "app/models/session.php";
+            break;
+
+            case "login":
+                include_once "../../login.php";
+            break;
+
         }
 
 } else {

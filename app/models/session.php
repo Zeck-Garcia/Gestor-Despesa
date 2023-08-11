@@ -7,12 +7,14 @@ if($loginUser == null || $passwordUser == null){
     // echo "<script>Alert('Você deve digitar seu nome e senha');</script>";
     // echo "<script>window.location.href='./app/views/login.php'</script>";
 
-    $alertMsg = "não deu bom";
+    // header('Location: ././teste.php');
+    header('Location: link.php?page=login');
+
+
+    echo $msg_error = "não deu bom";
     echo "01";
 
-    // header('Location: ../../app/views/login.php');
     exit;
 } else {
     require_once "auth.php";
 }
-
