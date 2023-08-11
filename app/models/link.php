@@ -53,6 +53,10 @@ if(!empty($page)){
                 include_once "../../login.php";
             break;
 
+            case "a-cadastro-situacao-receita";
+                include_once "app/views/pages/forms/tipo-situacao-receita.php";
+            break;
+
         }
 
 } else {
