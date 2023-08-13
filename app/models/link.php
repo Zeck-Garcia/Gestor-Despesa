@@ -57,6 +57,10 @@ if(!empty($page)){
                 include_once "app/views/pages/forms/tipo-situacao-receita.php";
             break;
 
+            case "a-inserir-cadastro-situacao-receita":
+                salveSituacaoReceita();
+            break;
+
         }
 
 } else {

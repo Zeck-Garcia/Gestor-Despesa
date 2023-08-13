@@ -35,7 +35,7 @@
     } else if($pageative == "editar-situacao-receita"){
         $camposWherePesquisaPrincipal = "idSituacaoReceita";
         $txtPesquisa = $id;
-        searchBDdespesa();
+        // searchBDdespesa();
 
         echo $dados["nomeSituacaoReceita"];
 
@@ -52,44 +52,7 @@
     </div>
 
 <div class="row">
-    <div class="col">
-        <form class="needs-validation" action="index.php?page=<?php
-                                                if($page == "a-cadastro-situacao-receita"){
-                                                    echo "a-inserir-cadastrosituacao-receita";
-                                                } else if($page == "editar-cadastro-situacao-receita"){
-                                                    echo "atualizar-cadastro-situacao-receita";
-                                                } else if($page == "a-excluir-cadastro-situacao-receita"){
-                                                    echo "excluir-cadastro-situacao-receita";
-                                                }
-                                                    ?>
-                                                    " method="post" >
 
-
-            <div class="row">
-                <div class="form-group col-auto">
-                    <label class="" for="valorDespesa">Valor</label>
-                    <input type="double" class="form-control" id="valorDespesaDescricao" name="valorDespesaDescricao" value="<?= $dados['nomeSituacaoReceita']?>" placeholder="Digite um nome nome" required>
-
-                    <div class="valid-feedback">
-                        Tudo certo!
-                    </div>
-                </div>
-            
-                <div class="row">
-                    <div class="col">
-                        <input type="hidden" class="btn btn-danger" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Cancelar">
-                        <input type="reset" class="btn btn-danger btn-block" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Cancelar">
-                    </div>
-
-                    <div class="col">
-                        <input type="hidden" class="btn btn-primary" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Adicionar">
-                        <input type="submit" class="btn btn-primary btn-block" id="btnAcaoFormDespesa" name="btnAcaoFormDespesa" value="Adicionar">
-                    </div>
-                </div>
-            </div>
-
-        </form>
-    </div>
 
         <div class="col">
             <table class="table table-striped table-hover mt-5">
@@ -114,25 +77,50 @@
 </div>
 </div>
 
-<button id="btnShowModal" class="btnShowModal">Ver modal</button>
+<button id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição</button>
 
 <div class="modal" tabindex="-1" role="dialog">
+    
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+    <div class="modal-fluid">
+
       <div class="modal-header">
-        <h5 class="modal-title">Título do modal</h5>
+        <h5 class="modal-title">Cadastro de situacao de receita</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <p>Texto do corpo do modal, é aqui.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar mudanças</button>
-      </div>
+
+        <div class="modal-body">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <form class="needs-validation" action="index.php?page=<?php
+                                                if($page == "a-cadastro-situacao-receita"){
+                                                    echo "a-inserir-cadastro-situacao-receita";
+                                                } else if($page == "editar-cadastro-situacao-receita"){
+                                                    echo "atualizar-cadastro-situacao-receita";
+                                                } else if($page == "a-excluir-cadastro-situacao-receita"){
+                                                    echo "excluir-cadastro-situacao-receita";
+                                                }
+                                                    ?>
+                                                    " method="post" >
+                        <label>Nome</label>
+                        <input type="text" class="form-control" class="" id="" name="nomeSituacaoReceita" placeholder="Digite um novo titulo">
+                        <button type="sumit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <div class="modal-footer">
+        <button type="reset" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="sumit" class="btn btn-primary">Salvar</button>
     </div>
-  </div>
 </div>
+</div>
+</div>
+
+
 
