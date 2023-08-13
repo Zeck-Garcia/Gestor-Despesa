@@ -37,13 +37,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
      // Your code to run since DOM is loaded and ready
     });
 
+
+
     // const btn = document.querySelector("#submit");
 
     const btn = document.querySelector(".btn");
     
     btn.addEventListener("click", function(e) {
-        
       e.preventDefault();
-      
-      console.log("Insira aqui seu código!");
     });
+
+    var btnShowModal = document.querySelector(".btnShowModal");
+
+    btnShowModal.addEventListener("click", function(){
+      $('.modal').modal('show'); 
+    });
+
+    var btnCloseModal = document.querySelector(".btnCloseModal");
+
+    btnCloseModal.addEventListener("click", function(){
+      $('.modal').modal('hide');
+    })

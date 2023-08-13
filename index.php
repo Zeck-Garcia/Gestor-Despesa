@@ -7,6 +7,16 @@ $operation = new manipulacaoDeDados();
 $nomeUser = $_SESSION["loginUser"];
 $imgPerfil = $_SESSION["imgUser"];
 
+if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
+    echo "sessão apagada";
+    session_unset();
+    echo $msg_error = "não deu bom";
+    // session_destroy();
+        
+    header('Location: ././login.php');
+    exit();
+}
+
 ?>
 
 
