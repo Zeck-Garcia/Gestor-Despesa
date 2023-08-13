@@ -2,10 +2,10 @@
 
 // include_once "app/models/manipulacaoDeDados.php";
 // $operation = new manipulacaoDeDados();
-echo $url = $_SERVER["HTTP_HOST"] . "<br>";
-echo $url = $_SERVER["SCRIPT_NAME"] . "<br>";
-echo $url = $_SERVER["QUERY_STRING"] . "<br>";
-echo $url = $_SERVER["REQUEST_URI"] . "<br>";
+$url = $_SERVER["HTTP_HOST"] . "<br>";
+$url = $_SERVER["SCRIPT_NAME"] . "<br>";
+$url = $_SERVER["QUERY_STRING"] . "<br>";
+$url = $_SERVER["REQUEST_URI"] . "<br>";
 
 include_once "app/models/searching.php";
 // include_once "app/models/filter.php";
@@ -176,6 +176,7 @@ searching();
 $pageative = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
 $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "");
 
+
 // searchBDdespesa();
 
 if($pageative == "list-despesa"){
@@ -208,7 +209,8 @@ if($pageative == "list-despesa"){
 
     <div class="row">
         <div class="col">
-            <button class="btn btn-success btnShowModal">Cadastrar nova despesa <i class="bi bi-plus-circle"></i></button>
+        <!-- <a href=""><button class="btn btn-success btnShowModal">Cadastrar nova despesa <i class="bi bi-plus-circle"></i></button></a>     -->
+        <button class="btn btn-success btnShowModal">Cadastrar nova despesa <i class="bi bi-plus-circle"></i></button>
         </div>
         
         <div class="col">
@@ -216,6 +218,7 @@ if($pageative == "list-despesa"){
         <?php
 
         ?>
+        
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-fluid">
@@ -229,7 +232,8 @@ if($pageative == "list-despesa"){
                     
                             <div class="modal-body">
                                 <div class="container-fluid">
-                    
+                                    <input type="" class="" name="statusModal" value="Novo">
+                                    <?php echo $statusModal = $_POST["statusModal"];?>
                                     <div class="row">
                                         <form class="needs-validation" action="index.php?page=<?php
                                             if($page == "a-cadastro-despesa"){

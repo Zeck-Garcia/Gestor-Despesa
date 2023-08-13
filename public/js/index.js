@@ -48,13 +48,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 
     var btnShowModal = document.querySelector(".btnShowModal");
+    // var btnShowModal = document.querySelector(".btnShowModal");
 
     btnShowModal.addEventListener("click", function(){
       $('.modal').modal('show'); 
+   
     });
-
+    
+    
     var btnCloseModal = document.querySelector(".btnCloseModal");
-
+    
     btnCloseModal.addEventListener("click", function(){
       $('.modal').modal('hide');
     })
+    
