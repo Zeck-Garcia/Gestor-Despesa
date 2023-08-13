@@ -2,18 +2,28 @@
 
 // include_once "app/models/manipulacaoDeDados.php";
 // $operation = new manipulacaoDeDados();
-
+echo $url = $_SERVER["HTTP_HOST"] . "<br>";
+echo $url = $_SERVER["SCRIPT_NAME"] . "<br>";
+echo $url = $_SERVER["QUERY_STRING"] . "<br>";
+echo $url = $_SERVER["REQUEST_URI"] . "<br>";
 
 include_once "app/models/searching.php";
 // include_once "app/models/filter.php";
+include_once "app/models/function-despesa.php";
 
-$tabela = "tbdespesadescricao";
-$camposPesquisaPrincipal = "idDespesaDescricao";
-$camposPesquisaAdd = "nomeDespesaDescricao";
-$orderBy = "idDespesaDescricao";
-$orderBuType = "ASC"; //ASC DESC
+//SEARCH TABLE
+$txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
+$tabela = "tbdespesadescricao"; //nome da tabela a ser pesquisado
+$camposSelect = "*"; //campo principal a ser pesquisado 
+$camposWherePesquisaPrincipal = "idDespesaDescricao"; //filtro para exibir um campo da busca
+$camposPesquisaAdd = "OR nomeDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
+
+$orderBy = "idDespesaDescricao"; //campo que será feita a ordem
+$orderByType = "ASC"; //ASC DESC
+$quantidade = "7"; //qtd de registro a ser exibido por busca
 
 searching();
+
 
 ?>
     <?php 
@@ -107,6 +117,7 @@ searching();
         <table class="table table-striped table-hover">
             <thead class="thead-dark text-center">
                 <tr class="">
+                    <th>ID</th>
                     <th>Despesa</th>
                     <th>Valor</th>
                     <th>Data de PGTO</th>
@@ -124,8 +135,9 @@ searching();
                 ?>
         
                         <tr>
+                            <td><?= $dados["idDespesaDescricao"]?></td>
                             <td><?= $dados["nomeDespesaDescricao"]?></td>
-                            <td><?= $moeda. " ". number_format($dados["valorDespesaDescricao"], 2, ',', '.') ?></td>
+                            <td><?= $moeda. number_format($dados["valorDespesaDescricao"], 2, ',', '.') ?></td>
                             <td><?php 
                                     $dados["dataPagamentoDespesaDescricao"];
                                     $date = new DateTime($dados["dataPagamentoDespesaDescricao"]);
@@ -156,22 +168,147 @@ searching();
         
         </table>
     </div>
-    <!-- <div class="col-3 bg-dark position-relative">
-        <div class="dropdown"> 
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> 
 
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> John W </strong> </a> 
 
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                        <li><a class="dropdown-item" href="#">Cadastrar</a></li> 
-                        <li><a class="dropdown-item" href="#">xxxxx</a></li> 
-                        <li><a class="dropdown-item" href="#">xxxx</a></li> 
-                        <li> <hr class="dropdown-divider"> </li> 
-                        <li><a class="dropdown-item" href="#">Sign out</a></li> 
-                    </ul> 
-        </div>      
-    </div> -->
-</div>
+<?php
+
+//ACTION CAD
+$pageative = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
+$id = (isset($_GET["id"]) != "" ? $_GET["id"] : "");
+
+// searchBDdespesa();
+
+if($pageative == "list-despesa"){
+    // echo "novo contato";
+    // $moeda = "";
+   echo $dados['idDespesaDescricao'] = "";
+   $dados['nomeDespesaDescricao'] = "";
+   $dados['valorDespesaDescricao'] = "";
+   $dados['dataPagamentoDespesaDescricao'] = "";
+   $dados['tipoDespesaDescricao'] = "";
+   $dados['titularDespesaDescricao'] = "";
+   $dados['situacaoDespesaDescricao'] = "";
+   $dados['idDespesaDescricaoIdDespesa'] = "";
+   $dados['metodoPagamentoDescricaoDescricao'] = "";
+
+} else if($pageative == "editar-cadastro-despesa"){
+    $camposWherePesquisaPrincipal = "idDespesaDescricao";
+    $txtPesquisa = $id;
+    searchBDdespesa();
+
+    echo $dados["nomeDespesaDescricao"];
+
+} else if($pageative == "a-excluir-cadastro-despesa"){
+
+
+}
+
+?>
+
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-success btnShowModal">Cadastrar nova despesa <i class="bi bi-plus-circle"></i></button>
+        </div>
+        
+        <div class="col">
+            <div class="modal" tabindex="-1" role="dialog">
+        <?php
+
+        ?>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-fluid">
+                    
+                            <div class="modal-header">
+                            <h5 class="modal-title">Cadastro nova despesa</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                    
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                    
+                                    <div class="row">
+                                        <form class="needs-validation" action="index.php?page=<?php
+                                            if($page == "a-cadastro-despesa"){
+                                                echo "a-inserir-cadastro-despesa";
+                                            } else if($page == "editar-cadastro-despesa"){
+                                                echo "atualizar-cadastro-despesa";
+                                            } else if($page == "a-excluir-cadastro-despesa"){
+                                                echo "excluir-cadastro-despesa";
+                                            }
+                                                ?>
+                                                " method="post" >
+                                                <!-- CORPO DO FORM -->
+                                                    <div class="row">
+                                                        
+                                                            <div class="form-group">
+                                                                <label class="" for="valorDespesa">Valor</label>
+                                                                <input type="double" class="form-control" id="valorDespesaDescricao" name="valorDespesaDescricao" value="<?php $moeda . $dados['valorDespesaDescricao'];?>" placeholder="R$ 10,00" required>
+
+                                                                <div class="valid-feedback">
+                                                                    Tudo certo!
+                                                                </div>
+                                                            </div>
+                                                                
+                                                            <div class="form-group">
+                                                                <label class="" for="dataDespesa">Data de PGTO</label>
+                                                                <input type="date" class="form-control" id="dataPagamentoDespesaDescricao" name="dataPagamentoDespesaDescricao" value="<?= $dados['dataPagamentoDespesaDescricao']?>" placeholder="" required>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="" for="valorDespesa">Nome</label>
+                                                                <input class="form-control" name="nomeDespesaDescricao" type="text" value="<?= $dados['nomeDespesaDescricao']?>">
+                                                                
+                                                                <div class="valid-feedback">
+                                                                    Tudo certo!
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="" for="">Categoria</label>
+                                                                <select class="custom-select" id="tipoDespesaDescricao" name="tipoDespesaDescricao" required>
+                                                                    <option class="" value="2" selected><?= $dados["tipoDespesaDescricao"]?></option>
+                                                                </select>
+                                                                <div class="valid-feedback">
+                                                                    Tudo certo!
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="" for="">Titular</label>
+                                                                <select class="custom-select" id="titularDespesaDescricao" name="titularDespesaDescricao" required>
+                                                                    <option class="form-control" id="" name="" value="jose" selected><?= $dados["titularDespesaDescricao"]?></option>
+                                                                </select>
+                                                            </div>
+                                                            
+                                                            
+                                                            <div class="form-group">
+                                                                <label class="" for="">Situação</label>
+                                                                <select class="custom-select" id="situacaoDespesaDescricao" name="situacaoDespesaDescricao" required>
+                                                                    <option class="" value="1"><?= $dados["situacaoDespesaDescricao"]?></option>
+                                                                </select>
+                                                            </div>
+
+                                                    </div>
+
+
+                                                <!-- FIM DO CORPO DO FORM -->
+                                            <div class="modal-footer mt-3">
+                                                <button type="reset" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="sumit" class="btn btn-primary">Salvar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
 
 
 <?php

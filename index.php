@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "app/models/config.php";
+// include_once "app/models/config.php";
 include_once "./public/php/group-link-php.php";
 include_once "app/models/manipulacaoDeDados.php";
 $operation = new manipulacaoDeDados();

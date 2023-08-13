@@ -13,5 +13,5 @@ $qryConfig = $operation->executarSQL($sqlConfig); //1
 
 while($dados = $operation->listar($qryConfig)){
     // $yeara = $year["anoDespesa"];
-    $moeda = $dados['moedaConfig'];
+    $moeda = $dados['moedaConfig'] . " ";
 }; 

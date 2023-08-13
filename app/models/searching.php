@@ -21,7 +21,8 @@ function searching(){
     global $qrTotalB;
     global $dados;
     global $tabela;
-    global $camposPesquisaPrincipal;
+    global $camposSelect;
+    global $camposWherePesquisaPrincipal;
     global $camposPesquisaAdd;
     global $numTotal;
     global $numTotalB;
@@ -30,7 +31,7 @@ function searching(){
     global $orderByType;
 
     $numTotalB = 1;
-    $quantidade = 7;
+    // $quantidade = 7;
     $pagina = (isset($_GET["pagina"]) ? (int)$_GET["pagina"] : 1);
     $inicio = ($quantidade * $pagina) - $quantidade;
     $pageAtual = $_GET["page"];
@@ -43,10 +44,10 @@ function searching(){
     }
 
     //sql1
-    $sql = "SELECT * FROM $tabela 
+   $sql = "SELECT $camposSelect FROM $tabela 
     WHERE 
-        $camposPesquisaPrincipal='$txtPesquisa'
-        OR $camposPesquisaAdd LIKE '%$txtPesquisa%'
+        $camposWherePesquisaPrincipal='$txtPesquisa'
+        $camposPesquisaAdd
         ORDER BY $orderBy $orderByType
 
         LIMIT $inicio, $quantidade
@@ -59,11 +60,14 @@ function searching(){
     // echo $numTotal = mysqli_num_rows($qrTotal);
 
     //sql2
-    $sqlB = "SELECT * FROM $tabela 
+    $sqlB = "SELECT $camposSelect FROM $tabela 
     WHERE 
-        $camposPesquisaPrincipal='$txtPesquisa'
-        OR $camposPesquisaAdd LIKE '%$txtPesquisa%'
+        $camposWherePesquisaPrincipal='$txtPesquisa'
+        $camposPesquisaAdd
+        
     ";
+        // OR $camposPesquisaAdd LIKE '%$txtPesquisa%'
+
 
     $qryB = $operation->executarSQL($sqlB); //1
     $numTotalB = mysqli_num_rows($qryB);//2-------

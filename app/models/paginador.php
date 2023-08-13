@@ -27,8 +27,10 @@ if($paginaB > 2){
 
 for($i = 1 ; $i <= $totalPagina ; $i++ ){
     
-    if($i >= ($paginaB - 4) && $i <= ($paginaB + 4)){
+    if($i >= ($paginaB - 4) && $i <= ($paginaB + 5)){
         if($i == $pagina){
+        // if($i == $pagina){
+
             echo "<li class='page-item active'><span class='page-link'>$i</span></li> ";
             // echo $inicioB;
         } else {
