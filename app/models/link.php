@@ -29,7 +29,7 @@ $page = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
 if(!empty($page)){
         switch($page){
             case "list-despesa":
-                include_once "app/views/pages/table/table-despesa.php";
+                include_once "app/views/pages/table/list-table-despesa.php";
             break;
 
             case "a-cadastro-despesa":
@@ -54,7 +54,7 @@ if(!empty($page)){
             break;
 
             case "a-cadastro-situacao-receita";
-                include_once "app/views/pages/forms/tipo-situacao-receita.php";
+                include_once "app/views/pages/table/list-tipo-situacao-receita.php";
             break;
 
             case "a-inserir-cadastro-situacao-receita":

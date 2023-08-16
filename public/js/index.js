@@ -47,18 +47,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
       e.preventDefault();
     });
 
-    var btnShowModal = document.querySelector(".btnShowModal");
-    // var btnShowModal = document.querySelector(".btnShowModal");
+      let btnShowModal = document.querySelectorAll(".btnShowModal");
+  
+      for(var i = 0 ; i < btnShowModal.length; i++){
+        btnShowModal[i].addEventListener("click", function showModal(){
+          $('.modal').modal('show'); 
+          console.log("deu bom");   
+        });
+      };
+    
+     
+    let btnCloseModal = document.querySelectorAll(".btnCloseModal");
+    
+    for(var i = 0 ; i < btnCloseModal.length; i++){
+      btnCloseModal[i].addEventListener('click', function(){
+        $('.modal').modal('hide');
+      });
+    };
 
-    btnShowModal.addEventListener("click", function(){
-      $('.modal').modal('show'); 
-   
-    });
     
-    
-    var btnCloseModal = document.querySelector(".btnCloseModal");
-    
-    btnCloseModal.addEventListener("click", function(){
-      $('.modal').modal('hide');
-    })
-    
+    async function listTeste(id_produto){
+      console.log("deu bom na busca dos dados" + id_produto);
+      
+      const dadoListar = await fetch("index.php?page=list-despesa" + "&teste=" + "25");
+      
+      // const respostaProd = await dadoListar.json();
+      const listarJanelaModal = await new bootstrap.Modal(document.querySelector(".modal"));
+      
+      listarJanelaModal.show();
+      var statusModal = await document.querySelector(".statusModal");
+      
+      statusModal.value = id_produto;
+    }
