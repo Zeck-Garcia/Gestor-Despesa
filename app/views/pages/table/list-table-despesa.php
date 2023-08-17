@@ -152,8 +152,9 @@ searching();
                                     
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Excluir</a>
-                                        <a class="dropdown-item" href="#">Alterar</a>
-                                        <!-- <a class="dropdown-item btnShowModal" href="<?= $_SERVER['REQUEST_URI'] . '&id=' . $dados['idDespesaDescricao']?>">Alterar</a> -->
+                                        
+                                        <a class="dropdown-item" href="#" onclick="listTeste(<?= $dados['idDespesaDescricao']?>)">Alterar</a>
+
                                         <a class="dropdown-item" href="#"><button onclick="listTeste(<?= $dados['idDespesaDescricao']?>)">Teste</button></a>
                                         
                                         <a class="dropdown-item" href="#"></a>
@@ -163,7 +164,6 @@ searching();
                                 </div>
                             </td>
                         </tr>
-
                         <?php }?>
         
             </tbody>
@@ -181,9 +181,7 @@ searching();
     <div class="row">
         <div class="col">
             <button class="btn btn-success btnShowModal" id="btnShowModal" value="novo">Cadastrar nova despesa <i class="bi bi-plus-circle"></i></button>
-
-            <button class="btn btn-success" onclick="listTeste(<?= $dados['idDespesaDescricao']?>)">Cadastrar nova despesa <i class="bi bi-plus-circle"></i></button>
-
+                        
         </div>
         
         <div class="modal" tabindex="-1" role="dialog">        

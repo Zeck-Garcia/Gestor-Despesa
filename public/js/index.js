@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       
       listarJanelaModal.show();
       var statusModal = await document.querySelector(".statusModal");
-      
+      var statusModalTeste = await document.querySelector(".statusModalTeste");
       statusModal.value = id_produto;
+      statusModalTeste.textContent = id_produto;
     }

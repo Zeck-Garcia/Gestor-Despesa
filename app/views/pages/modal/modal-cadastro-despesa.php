@@ -1,12 +1,18 @@
 <input type="text" class="statusModal" name="statusModal" value=""> 
 
+
 <?php
+echo $statusModalTeste = "<p class='statusModalTeste'></p>";
+
 
 //ACTION CAD
-$statusModalTeste = 0;
+
 $pageative = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
-$id = (isset($_GET["id"]) != "" ? $_GET["id"] : "");
-echo $statusModalTeste;
+echo $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "");
+
+echo $teste = (isset($_POST["teste"]) == "" ? "" : $_POST["teste"]);
+
+
 
 
 // searchBDdespesa();
@@ -50,7 +56,11 @@ if($pageative == "list-despesa"){
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             </div>
-                    
+                            <?php
+                             $statusModalTeste;
+                             preg_match_all("#<p>.*</p>#", $statusModalTeste, $resultado);
+                             $ultimo = array($resultado[0]);
+                             ?>
                             <div class="modal-body">
                                 <div class="container-fluid">
                                     <!-- <input type="text" class="statusModal" name="statusModal" value=""> -->

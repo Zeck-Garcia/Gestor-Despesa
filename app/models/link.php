@@ -5,6 +5,7 @@
 // $desc = isset($_POST["action"]) == "" ? "" : $_POST["action"];
 
 $page = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
+$id = (isset($_GET["id"]) == "" ? "" : $_GET["id"]);
 
 // $page[1] = "app/views/pages/table/table-despesa.php";
 // $page[] = "app/views/pages/forms/form-despesa-descricao.php";
@@ -65,4 +66,19 @@ if(!empty($page)){
 
 } else {
     echo "pagina não encontrada";
+}
+
+$urlAtual = $_SERVER["REQUEST_URI"];
+$urlQuery = $id;
+
+
+$url = $_SERVER["REQUEST_URI"] . "&id";
+
+if(!empty($id)){
+    switch($id){
+    case "27":
+    // case $_SERVER["REQUEST_URI"] . "&id=" . ($id != "" ? $id : ""):
+        include_once "app/views/pages/modal/modal-cadastro-despesa.php";
+        break;
+    }
 }
