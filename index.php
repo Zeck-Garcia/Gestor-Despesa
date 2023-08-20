@@ -102,46 +102,6 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
                         </ul> 
                     </div>
                 </li>
-
-                <li>
-                <div class="dropdown nav-link"> 
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Titular</a> 
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
-                            <li><a class="dropdown-item" href="#">Listar</a></li>  
-                        </ul> 
-                    </div>
-                </li>
-
-                <li>
-                    <div class="dropdown nav-link"> 
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Tipo de receita</a> 
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
-                            <li><a class="dropdown-item" href="#">Listar</a></li>  
-                        </ul> 
-                    </div>
-                </li>
-
-                <li>
-                    <div class="dropdown nav-link"> 
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Tipo de despesa</a> 
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
-                            <li><a class="dropdown-item" href="#">Listar</a></li>  
-                        </ul> 
-                    </div>
-                </li>
-
-                <li>
-                    <div class="dropdown nav-link"> 
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Bancos</a> 
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
-                            <li><a class="dropdown-item" href="#">Listar</a></li>  
-                        </ul> 
-                    </div>
-                </li>
             </ul> 
 
             <hr> 
@@ -149,10 +109,24 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> 
                     <img src="<?= $imgPerfil?>" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> <?= $nomeUser?></strong> </a> 
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                        <li><a class="dropdown-item" href="#">Settings</a></li> 
-                        <li><a class="dropdown-item" href="#">Profile</a></li> 
+                    
+                        <li><a class="dropdown-item" href="#">Titular</a></li>
                         <li> <hr class="dropdown-divider"> </li> 
-                        <li><a class="dropdown-item" href="#">Sign out</a></li> 
+                        <li><a class="dropdown-item" href="#">Banco</a></li>
+                        <li> <hr class="dropdown-divider"> </li> 
+                        <li><a class="dropdown-item" href="index.php?page=list-tipo-situacao-despesa">Situação despesa</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=list-situacao-receita">Situação receita</a></li>
+                        <li> <hr class="dropdown-divider"> </li> 
+                        <li><a class="dropdown-item" href="#">Tipo de despesa</a></li>
+                        <li><a class="dropdown-item" href="#">Tipo de receita</a></li>
+                        <li> <hr class="dropdown-divider"> </li> 
+                        
+                        <li><a class="dropdown-item" href="#">Configuração</a></li> 
+                        <li><a class="dropdown-item" href="#">Perfil</a></li> 
+                    
+                        <li> <hr class="dropdown-divider"> </li> 
+                    
+                        <li><a class="dropdown-item" href="#">Sair</a></li> 
                     </ul> 
             </div>
         </div>

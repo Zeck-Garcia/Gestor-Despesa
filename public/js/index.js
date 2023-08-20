@@ -41,11 +41,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // const btn = document.querySelector("#submit");
 
-    const btn = document.querySelector(".btn");
-    
-    btn.addEventListener("click", function(e) {
-      e.preventDefault();
-    });
+    // const btnAcao = document.querySelectorAll(".btnAcao");
+    // for(var i = 0 ; i < btnAcao.length; i++){
+    //   btnAcao.addEventListener("click", function(e) {
+    //     e.preventDefault();
+    //   });
+    // };
 
       let btnShowModal = document.querySelectorAll(".btnShowModal");
   
@@ -57,26 +58,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
       };
     
      
-    let btnCloseModal = document.querySelectorAll(".btnCloseModal");
-    
-    for(var i = 0 ; i < btnCloseModal.length; i++){
-      btnCloseModal[i].addEventListener('click', function(){
-        $('.modal').modal('hide');
-      });
-    };
+      let btnCloseModal = document.querySelectorAll(".btnCloseModal");
+      
+      for(var i = 0 ; i < btnCloseModal.length; i++){
+        btnCloseModal[i].addEventListener('click', function(){
+          $('.modal').modal('hide');
+        });
+      };
 
-    
+
+    function submit(){
+      document.querySelector(".agora").submit()
+      alert("deu bom")
+    }
+
+
+
     async function listTeste(id_produto){
-      console.log("deu bom na busca dos dados" + id_produto);
+      console.log("deu bom na busca dos dados " + id_produto);
       
-      const dadoListar = await fetch("index.php?page=list-despesa" + "&teste=" + "25");
+      // const dadoListar = await this("index.php?page=list-despesa" + "&id=" + id_produto);
+      // const dadoListar = await fetch("index.php?page=list-despesa" + "&id=" + id_produto);
       
-      // const respostaProd = await dadoListar.json();
+
+      // const respostaProd = await dadoListar.length;
       const listarJanelaModal = await new bootstrap.Modal(document.querySelector(".modal"));
       
       listarJanelaModal.show();
+
       var statusModal = await document.querySelector(".statusModal");
-      var statusModalTeste = await document.querySelector(".statusModalTeste");
       statusModal.value = id_produto;
-      statusModalTeste.textContent = id_produto;
     }
+

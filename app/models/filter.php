@@ -4,7 +4,8 @@ include_once "manipulacaoDeDados.php";
 include_once "function-despesa.php";
 $operation = new manipulacaoDeDados();
 
-$page = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
+$page = (isset($_REQUEST["page"]) == "" ? "" : $_REQUEST["page"]);
+// $pagePOST = (isset($_POST["page"]) == "" ? "" : $_POST["page"]);
 
 // $_POST["nomeDespesaDescricao"] == "";
 // $_POST["valorDespesaDescricao"] == "";
@@ -24,7 +25,7 @@ if($page == "a-inserir-cadastro-despesa"){
     
     searchDateRecord();
 
-    echo $linha = mysqli_num_rows($qrySearchRecord);
+    $linha = mysqli_num_rows($qrySearchRecord);
 
     if($linha != 0){
         cadDespesaDescricao();
@@ -33,8 +34,9 @@ if($page == "a-inserir-cadastro-despesa"){
         searchDateRecord();
         cadDespesaDescricao();
     }
-    include_once "app/views/pages/table/table-despesa.php";
+    include_once "app/views/pages/table/list-table-despesa.php";
 }
+
 
 // function searchDateRecord(){
 

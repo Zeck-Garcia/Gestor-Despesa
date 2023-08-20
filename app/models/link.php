@@ -54,31 +54,20 @@ if(!empty($page)){
                 include_once "../../login.php";
             break;
 
-            case "a-cadastro-situacao-receita";
-                include_once "app/views/pages/table/list-tipo-situacao-receita.php";
+            case "list-tipo-situacao-despesa";
+                include_once "app/views/pages/table/list-tipo-situacao-despesa.php";
             break;
+
+            case "list-situacao-receita";
+            include_once "app/views/pages/table/list-tipo-situacao-receita.php";
+            break;
+
 
             case "a-inserir-cadastro-situacao-receita":
                 salveSituacaoReceita();
             break;
-
         }
 
 } else {
     echo "pagina não encontrada";
-}
-
-$urlAtual = $_SERVER["REQUEST_URI"];
-$urlQuery = $id;
-
-
-$url = $_SERVER["REQUEST_URI"] . "&id";
-
-if(!empty($id)){
-    switch($id){
-    case "27":
-    // case $_SERVER["REQUEST_URI"] . "&id=" . ($id != "" ? $id : ""):
-        include_once "app/views/pages/modal/modal-cadastro-despesa.php";
-        break;
-    }
 }

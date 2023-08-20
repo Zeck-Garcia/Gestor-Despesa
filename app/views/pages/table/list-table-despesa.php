@@ -25,6 +25,7 @@ $quantidade = "7"; //qtd de registro a ser exibido por busca
 searching();
 
 
+
 ?>
     <?php 
         include_once "app/views/pages/search/search.php";
@@ -130,6 +131,7 @@ searching();
         
             <tbody class="text-center">
                 <?php
+                
                     while($dados = $operation->listar(($qry)))
                     {
                 ?>
@@ -143,7 +145,9 @@ searching();
                                     $date = new DateTime($dados["dataPagamentoDespesaDescricao"]);
                                     echo $date->format("d/m/Y");
                                 ?></td>
-                            <td><?= $dados["tipoDespesaDescricao"]?></td>
+                            <td>
+                                <?= $dados["tipoDespesaDescricao"]?>
+                            </td>
                             <td><?= $dados["titularDespesaDescricao"]?></td>
                             <td><?= $dados["situacaoDespesaDescricao"]?></td>
                             <td>
@@ -152,14 +156,8 @@ searching();
                                     
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Excluir</a>
-                                        
-                                        <a class="dropdown-item" href="#" onclick="listTeste(<?= $dados['idDespesaDescricao']?>)">Alterar</a>
-
-                                        <a class="dropdown-item" href="#"><button onclick="listTeste(<?= $dados['idDespesaDescricao']?>)">Teste</button></a>
-                                        
-                                        <a class="dropdown-item" href="#"></a>
                                         <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Link isolado</a>
+                                        <a class="dropdown-item" href="#">Ver descrição</a>
                                     </div>
                                 </div>
                             </td>
@@ -172,7 +170,6 @@ searching();
         </table>
     </div>
 
-
 <?php
     include_once "app/models/paginador.php";
 ?>
@@ -180,17 +177,10 @@ searching();
 
     <div class="row">
         <div class="col">
-            <button class="btn btn-success btnShowModal" id="btnShowModal" value="novo">Cadastrar nova despesa <i class="bi bi-plus-circle"></i></button>
-                        
+            <button id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
         </div>
         
         <div class="modal" tabindex="-1" role="dialog">        
             <?= include_once "app/views/pages/modal/modal-cadastro-despesa.php"?>
         </div>
     </div>
-
-
-
-
-
-

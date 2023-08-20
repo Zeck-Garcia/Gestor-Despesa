@@ -5,7 +5,7 @@
     <div class="modal-fluid">
 
       <div class="modal-header">
-        <h5 class="modal-title">Cadastro de situacao de receita</h5>
+        <h5 class="modal-title">Cadastro de situacao de despesa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -16,17 +16,17 @@
 
                 <div class="row">
                     <form class="needs-validation" action="index.php?page=<?php
-                                                if($page == "list-situacao-receita"){
-                                                    echo "a-inserir-cadastro-situacao-receita";
-                                                } else if($page == "editar-cadastro-situacao-receita"){
-                                                    echo "atualizar-cadastro-situacao-receita";
-                                                } else if($page == "a-excluir-cadastro-situacao-receita"){
-                                                    echo "excluir-cadastro-situacao-receita";
+                                                if($page == "list-situacao-despesa"){
+                                                    echo "a-inserir-cadastro-situacao-despesa";
+                                                } else if($page == "editar-cadastro-situacao-despesa"){
+                                                    echo "atualizar-cadastro-situacao-despesa";
+                                                } else if($page == "a-excluir-cadastro-situacao-despesa"){
+                                                    echo "excluir-cadastro-situacao-despesa";
                                                 }
                                                     ?>
                                                     " method="post" >
                         <label>Situação</label>
-                        <input type="text" class="form-control" class="" id="" name="nomeSituacaoReceita" placeholder="Digite um novo titulo">
+                        <input type="text" class="form-control" class="" id="" name="nomeSituacaoDespesa" placeholder="Digite um novo titulo">
 
                         <div class="modal-footer mt-3">
                             <button type="reset" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Cancelar</button>

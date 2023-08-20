@@ -20,4 +20,8 @@ function salveSituacaoReceita(){
     $operation->inserir();
 
     echo $operation->getMsg();
+    
+    
 }
+
+?>

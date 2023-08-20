@@ -46,7 +46,6 @@ function cadDespesaDescricao(){
     global $titularDespesaDescricao;
     global $situacaoDespesaDescricao;
     global $idDespesaDescricaoIdDespesa;
-    global $metodoPagamentoDescricaoDescricao;
     global $idDespesaPOST;
 
     global $valorTotalDespesa;
@@ -63,7 +62,6 @@ function cadDespesaDescricao(){
     $titularDespesaDescricao = (strip_tags(isset($_POST["titularDespesaDescricao"])) == "" ? "" : $_POST["titularDespesaDescricao"]);
     $situacaoDespesaDescricao = (strip_tags(isset($_POST["situacaoDespesaDescricao"])) == "" ? "" : $_POST["situacaoDespesaDescricao"]);
     $idDespesaDescricaoIdDespesa = $idDespesaPOST;
-    $metodoPagamentoDescricaoDescricao = (strip_tags(isset($_POST["metodoPagamentoDescricaoDescricao"])) == "" ? "" : $_POST["metodoPagamentoDescricaoDescricao"]);
     
 
     $operation->setTabela("tbdespesadescricao");
@@ -74,12 +72,11 @@ function cadDespesaDescricao(){
             tipoDespesaDescricao,
             titularDespesaDescricao,
             situacaoDespesaDescricao,
-            idDespesaDescricaoIdDespesa,
-            metodoPagamentoDescricaoDescricao
+            idDespesaDescricaoIdDespesa
             ")
         ;
 
-    $operation->setDados("'$nomeDespesaDescricao', '$valorDespesaDescricao', '$dataPagamentoDespesaDescricao', '$tipoDespesaDescricao', '$titularDespesaDescricao', '$situacaoDespesaDescricao', '$idDespesaDescricaoIdDespesa', '$metodoPagamentoDescricaoDescricao'");
+    $operation->setDados("'$nomeDespesaDescricao', '$valorDespesaDescricao', '$dataPagamentoDespesaDescricao', '$tipoDespesaDescricao', '$titularDespesaDescricao', '$situacaoDespesaDescricao', '$idDespesaDescricaoIdDespesa'");
 
     $operation->inserir();
 
