@@ -66,6 +66,10 @@ if(!empty($page)){
             case "a-inserir-cadastro-situacao-receita":
                 salveSituacaoReceita();
             break;
+
+            case "a-inserir-cadastro-situacao-receita":
+                salveSituacaoReceita();
+            break;
         }
 
 } else {

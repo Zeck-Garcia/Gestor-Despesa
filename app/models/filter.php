@@ -35,6 +35,7 @@ if($page == "a-inserir-cadastro-despesa"){
         cadDespesaDescricao();
     }
     include_once "app/views/pages/table/list-table-despesa.php";
+    // echo "<script>window.location.reload();</script>";
 }
 
 

@@ -1,6 +1,3 @@
-<!-- <input type="text" class="statusModal" name="statusModal" value="">  -->
-<!-- <p class="teste"></p> -->
-
 <?php
 
 //ACTION CAD
@@ -46,15 +43,12 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
             
             <div class="modal-header">
                 <h5 class="modal-title">Cadastro nova despesa</h5>
-                <!-- <p class="statusModal">Teste</p> -->
                             <button type="button" class="close btnCloseModal btnAcao" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             </div>
-
                             <div class="modal-body">
                                 <div class="container-fluid">
-                                    <!-- <input type="text" class="statusModal" name="statusModal" value=""> -->
                                     <div class="row">
                                         <form class="needs-validation" action="index.php?page=a-inserir-cadastro-despesa" method="post" >
                                                 <!-- CORPO DO FORM -->

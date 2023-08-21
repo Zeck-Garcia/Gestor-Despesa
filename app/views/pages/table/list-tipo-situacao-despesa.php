@@ -17,7 +17,7 @@
     $camposWherePesquisaPrincipal = "idSituacaoDespesa"; //filtro para exibir um campo da busca
     $camposPesquisaAdd = "OR nomeSituacaoDespesa LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
 
-    $orderBy = "nomeSituacaoDespesa"; //campo que será feita a ordem
+    $orderBy = "idSituacaoDespesa"; //campo que será feita a ordem
     $orderByType = "ASC"; //ASC DESC
     $quantidade = "5"; //qtd de registro a ser exibido por busca
     
@@ -87,10 +87,12 @@
 </div>
 </div>
 
-<button id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição</button>
 
-<div class="modal" tabindex="-1" role="dialog">
+
+<button id="btnShowModal" class="btnShowModal btn btn-primary" onclick="updateUrl('<?php $statusAgora = 'novo'; echo 'index.php?'.$_SERVER['QUERY_STRING'].'&action='.$statusAgora?>')">Cadastrar nova posição</button>
+
+<div class="modal" tabindex="-1" role="dialog" >
 <?= include_once "app/views/pages/modal/modal-cadastro-situacao-despesa.php"?>
 </div>
 
-
+<!-- updateUrl(newUrl) -->

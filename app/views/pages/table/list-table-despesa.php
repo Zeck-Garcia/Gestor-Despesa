@@ -18,11 +18,21 @@ $camposSelect = "*"; //campo principal a ser pesquisado
 $camposWherePesquisaPrincipal = "idDespesaDescricao"; //filtro para exibir um campo da busca
 $camposPesquisaAdd = "OR nomeDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
 
-$orderBy = "idDespesaDescricao"; //campo que será feita a ordem
+$orderBy = "tbdespesadescricao.idDespesaDescricao"; //campo que será feita a ordem
 $orderByType = "ASC"; //ASC DESC
 $quantidade = "7"; //qtd de registro a ser exibido por busca
 
 searching();
+
+            $sqlCategoriaDespesa = "SELECT 
+                            tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
+                            FROM 
+                            tbtipodespesa JOIN tbdespesadescricao
+                            WHERE 
+                            tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
+                            ";
+
+            $qryCategoriaDespesa = $operation->executarSQL($sqlCategoriaDespesa);
 
 
 
@@ -35,85 +45,85 @@ searching();
     <div class="col">
 
 
-    <div class="row">
-        <form action="#" class="form row  d-flex justify-content-around align-items-center align-self-center">
-            <div class="form-group col">
-                <label for="">Titular</label>
-                <select class="custom-select" name="">
-                    <option value="">Selecione</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                </select>
-            </div>
+        <div class="row">
+            <form action="#" class="form row  d-flex justify-content-around align-items-center align-self-center">
+                <div class="form-group col">
+                    <label for="">Titular</label>
+                    <select class="custom-select" name="">
+                        <option value="">Selecione</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                    </select>
+                </div>
 
-            <div class="form-group col">
-                <label for="">Modulo</label>
-                <select class="custom-select" name="">
-                    <option value="">Selecione</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                </select>
-            </div>
+                <div class="form-group col">
+                    <label for="">Modulo</label>
+                    <select class="custom-select" name="">
+                        <option value="">Selecione</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                    </select>
+                </div>
 
-            <div class="form-group col">
-                <label for="">Tipo</label>
-                <select class="custom-select" name="">
-                    <option value="">Selecione</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                </select>
-            </div>
+                <div class="form-group col">
+                    <label for="">Tipo</label>
+                    <select class="custom-select" name="">
+                        <option value="">Selecione</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                    </select>
+                </div>
 
-            <div class="form-group col">
-                <label for="">Mês</label>
-                <select class="custom-select" name="monthCampoFilter">
-                    <option value="">Selecione</option>
-                    <option value="1">Janeiro</option>
-                    <option value="2">Fevereiro</option>
-                    <option value="3">Março</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Maio</option>
-                    <option value="6">Junho</option>
-                    <option value="7">Julho</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Setembro</option>
-                    <option value="10">Outubro</option>
-                    <option value="11">Novembro</option>
-                    <option value="12">Dezembro</option>
-                </select>
-            </div>
+                <div class="form-group col">
+                    <label for="">Mês</label>
+                    <select class="custom-select" name="monthCampoFilter">
+                        <option value="">Selecione</option>
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                </div>
 
-            <div class="form-group col">
-                <label for="">Ano</label>
-                <select class="custom-select" name="">
-                    <option value="" selected>Selecione</option>
-                    <?php
-                        $sqlFilterAllYear = "SELECT DISTINCT anoDespesa FROM tbdespesa GROUP BY anoDespesa ORDER BY anoDespesa ASC";
-        
-                        $qryFilterAllYear = $operation->executarSQL($sqlFilterAllYear); //1
-                        
-                        while($year = $operation->listar($qryFilterAllYear)){
-                            // $yeara = $year["anoDespesa"];
-                            echo "<option value='" . $year['anoDespesa'] . "'>". $year['anoDespesa'] . "</option>";
-                        }; 
-                    ?>
-                </select>
-            </div>
+                <div class="form-group col">
+                    <label for="">Ano</label>
+                    <select class="custom-select" name="">
+                        <option value="" selected>Selecione</option>
+                        <?php
+                            $sqlFilterAllYear = "SELECT DISTINCT anoDespesa FROM tbdespesa GROUP BY anoDespesa ORDER BY anoDespesa ASC";
+            
+                            $qryFilterAllYear = $operation->executarSQL($sqlFilterAllYear); //1
+                            
+                            while($year = $operation->listar($qryFilterAllYear)){
+                                // $yeara = $year["anoDespesa"];
+                                echo "<option value='" . $year['anoDespesa'] . "'>". $year['anoDespesa'] . "</option>";
+                            }; 
+                        ?>
+                    </select>
+                </div>
 
-            <div class="col"">
-                <button class="btn btn-success" type="submit" value="Filtar">Filtar <i class="bi bi-funnel"></i></button>
-            </div>
-            <div class="col"">
-                <button class="btn btn-danger" type="submit" value="limparFiltar">Limpar <i class="bi bi-trash"></i></button>
-            </div>
-        </form>
-    </div>
+                <div class="col"">
+                    <button class="btn btn-success" type="submit" value="Filtar">Filtar <i class="bi bi-funnel"></i></button>
+                </div>
+                <div class="col"">
+                    <button class="btn btn-danger" type="submit" value="limparFiltar">Limpar <i class="bi bi-trash"></i></button>
+                </div>
+            </form>
+        </div>
 
         <table class="table table-striped table-hover">
             <thead class="thead-dark text-center">
@@ -128,45 +138,39 @@ searching();
                     <th>Ação</th>
                 </tr>
             </thead>
-        
+                    
             <tbody class="text-center">
                 <?php
-                
-                    while($dados = $operation->listar(($qry)))
-                    {
-                ?>
-        
-                        <tr>
-                            <td><?= $dados["idDespesaDescricao"]?></td>
-                            <td><?= $dados["nomeDespesaDescricao"]?></td>
-                            <td><?= $moeda. number_format($dados["valorDespesaDescricao"], 2, ',', '.') ?></td>
-                            <td><?php 
-                                    $dados["dataPagamentoDespesaDescricao"];
-                                    $date = new DateTime($dados["dataPagamentoDespesaDescricao"]);
-                                    echo $date->format("d/m/Y");
-                                ?></td>
-                            <td>
-                                <?= $dados["tipoDespesaDescricao"]?>
-                            </td>
-                            <td><?= $dados["titularDespesaDescricao"]?></td>
-                            <td><?= $dados["situacaoDespesaDescricao"]?></td>
-                            <td>
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
-                                    
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Excluir</a>
-                                        <div role="separator" class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Ver descrição</a>
-                                    </div>
+                while($categoriaDespesa = $operation->listar($qryCategoriaDespesa))
+                {
+                    $date = new DateTime($categoriaDespesa["dataPagamentoDespesaDescricao"]); 
+                    $date->format("d/m/Y");
+                    ?>
+                    
+                    <tr>
+                        <td><?=$categoriaDespesa['idDespesaDescricao']?></td>
+                        <td><?=$categoriaDespesa['nomeDespesaDescricao']?></td>
+                        <td><?=$moeda . number_format($categoriaDespesa['valorDespesaDescricao'], 2, ',', '.')?></td>
+
+                        <td><?=$date->format("d/m/Y")?></td> 
+
+                        <td><?=$categoriaDespesa['nomeCategoriaDespesa']?></td>
+                        <td><?=$categoriaDespesa['titularDespesaDescricao']?></td>
+                        <td><?=$categoriaDespesa['situacaoDespesaDescricao']?></td>
+                        <td>
+                            <div class='input-group-prepend'>
+                                <button class='btn btn-outline-secondary dropdown-toggle' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Ação</button>
+                                
+                                <div class='dropdown-menu'>
+                                    <a class='dropdown-item' href='#'>Excluir</a>
+                                    <div role='separator' class='dropdown-divider'></div>
+                                    <a class='dropdown-item btnShowModal' href='#'>Ver descrição</a>
                                 </div>
-                            </td>
-                        </tr>
-                        <?php }?>
-        
+                            </div>
+                        </td>
+                    </tr> 
+                <?php } ?>
             </tbody>
-        
-        
         </table>
     </div>
 
@@ -177,7 +181,7 @@ searching();
 
     <div class="row">
         <div class="col">
-            <button id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
+            <button id="btnShowModal" class="btnShowModal btn btn-primary" onclick="updateUrl('<?php $statusActionModal = 'new'; echo 'index.php?'.$_SERVER['QUERY_STRING'].'&action='.$statusActionModal?>')">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
         </div>
         
         <div class="modal" tabindex="-1" role="dialog">        

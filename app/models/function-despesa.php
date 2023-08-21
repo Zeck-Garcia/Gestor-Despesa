@@ -167,3 +167,22 @@ function searchBDTitular(){
 
 }
 
+function salveSituacaoDespesa(){
+
+    global $operation;
+    global $nomeSituacaoDespesa;
+
+    $nomeSituacaoReceita = (strip_tags(isset($_POST["nomeSituacaoDespesa"]) == "" ? "" : $_POST["nomeSituacaoDespesa"]));
+
+    $operation->setTabela("tbsituacaodespesa");
+    $operation->setCampos("
+        nomeSituacaoDespesa
+    ");
+    $operation->setDados("'$nomeSituacaoDespesa'");
+
+    $operation->inserir();
+
+    echo $operation->getMsg();
+    
+    
+}

@@ -52,8 +52,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
       for(var i = 0 ; i < btnShowModal.length; i++){
         btnShowModal[i].addEventListener("click", function showModal(){
-          $('.modal').modal('show'); 
-          console.log("deu bom");   
+          $('.modal').modal('show');   
         });
       };
     
@@ -63,14 +62,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
       for(var i = 0 ; i < btnCloseModal.length; i++){
         btnCloseModal[i].addEventListener('click', function(){
           $('.modal').modal('hide');
+          downdateUrl(oldUrl)
         });
       };
 
 
-    function submit(){
-      document.querySelector(".agora").submit()
-      alert("deu bom")
-    }
+    // function submit(){
+    //   document.querySelector(".agora").submit()
+    //   alert("deu bom")
+    // }
 
 
 
@@ -90,3 +90,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
       statusModal.value = id_produto;
     }
 
+
+async function updateUrl(newUrl){
+  oldUrl = await document.URL;
+  await history.pushState(null, null, newUrl);
+}
+
+function downdateUrl(oldUrl1){
+  history.pushState(null, null, oldUrl1);
+
+}
+
+$('.modal').on('hidden.bs.modal', function (e) {
+  downdateUrl(oldUrl)
+})
+
+// function downdateUrl(oldUrl){
+//   history.pushState(null, null, oldUrl);
+// }

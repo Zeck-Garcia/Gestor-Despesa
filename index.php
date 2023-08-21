@@ -134,14 +134,19 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
 
 
     <div class="container col-7 shadow bg-white">
-        <article>
-        <?php
-        include_once "app/models/filter.php";
-            include_once "app/models/link.php";
-            
 
-            ?>
-        </article>
+        <!-- <div class="row msgBox">
+
+        </div> -->
+
+        <div class="row">    
+            <article>
+                <?php
+                    include_once "app/models/filter.php";
+                    include_once "app/models/link.php";
+                ?>
+            </article>
+        </div>
     </div>
 
     <div class="col shadow-sm rounded bg-light">
