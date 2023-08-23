@@ -47,6 +47,7 @@ function cadDespesaDescricao(){
     global $situacaoDespesaDescricao;
     global $idDespesaDescricaoIdDespesa;
     global $idDespesaPOST;
+    global $msgInBox;
 
     global $valorTotalDespesa;
     global $dataDespesa;

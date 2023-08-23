@@ -45,10 +45,43 @@
 			if($this->executarSQL($this->sql))
 			{
 				$this->msg = "
-					<div class='alert alert-success' role='alert'>
-        				<h4 class='alert-heading'>Salvo</h4>
-        				<p class=''>Registro cadastrado com sucesso</p>
-    				</div>
+
+					<div class='modal modalMsgInBox show' tabindex='-1' style='display: block;' aria-modal='true' role='dialog'>        
+						<div class='modal-dialog' role='document'>
+							<div class='modal-content'>
+								<div class='modal-fluid'>
+									<div class='modal-header alert alert-success'>
+										<h5 class='modal-title alert-heading'>Salvo</h5>
+										<button type='button' class='close btnCloseModalMsgInBox' data-dismiss='modal' aria-label='Fechar'>
+										<span aria-hidden='true'>&times;</span>
+										</button>
+									</div>
+									<div class='modal-body'>
+											<p class=''>Registro cadastrado com sucesso</p>                
+									</div>
+									<div class='modal-footer'>
+										<button type='button' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</button>
+										<!-- <button type='button' class='btn btn-primary'>Salvar mudanças</button> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='modal-backdrop show'></div>
+
+				<script>
+					divModalBackdrop = document.querySelector('.modal-backdrop')
+					divmodalMsgInBox = document.querySelector('.modalMsgInBox')
+					
+					btnCloseModalMsgInBox = document.querySelectorAll('.btnCloseModalMsgInBox');
+
+					for(var i = 0 ; i < btnCloseModalMsgInBox.length; i++){
+						btnCloseModalMsgInBox[i].addEventListener('click', function(){
+							divmodalMsgInBox.parentNode.removeChild(divmodalMsgInBox)
+							divModalBackdrop.parentNode.removeChild(divModalBackdrop)
+						});
+					};
+				</script>
 				";
 			}
 		}
@@ -58,10 +91,42 @@
 			if($this->executarSQL($this->sql))
 			{
 				$this->msg = "
-					<div class='alert alert-danger' role='alert'>
-        				<h4 class='alert-heading'>Salvo</h4>
-        				<p class=''>Registro excluido com sucesso</p>
-    				</div>
+					<div class='modal modalMsgInBox show' tabindex='-1' style='display: block;' aria-modal='true' role='dialog'>        
+					<div class='modal-dialog' role='document'>
+						<div class='modal-content'>
+							<div class='modal-fluid'>
+								<div class='modal-header alert alert-danger'>
+									<h5 class='modal-title alert-heading'>Excluido</h5>
+									<button type='button' class='close btnCloseModalMsgInBox' data-dismiss='modal' aria-label='Fechar'>
+									<span aria-hidden='true'>&times;</span>
+									</button>
+								</div>
+								<div class='modal-body'>
+										<p class=''>Registro excluido com sucesso</p>                
+								</div>
+								<div class='modal-footer'>
+									<button type='button' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</button>
+									<!-- <button type='button' class='btn btn-primary'>Salvar mudanças</button> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='modal-backdrop show'></div>
+
+			<script>
+				divModalBackdrop = document.querySelector('.modal-backdrop')
+				divmodalMsgInBox = document.querySelector('.modalMsgInBox')
+				
+				btnCloseModalMsgInBox = document.querySelectorAll('.btnCloseModalMsgInBox');
+
+				for(var i = 0 ; i < btnCloseModalMsgInBox.length; i++){
+					btnCloseModalMsgInBox[i].addEventListener('click', function(){
+						divmodalMsgInBox.parentNode.removeChild(divmodalMsgInBox)
+						divModalBackdrop.parentNode.removeChild(divModalBackdrop)
+					});
+				};
+			</script>
 				";
 			}		
 		}
@@ -73,10 +138,44 @@
 			if($this->executarSQL($this->sql))
 			{
 				$this->msg = "
-					<div class='alert alert-warning' role='alert'>
-        				<h4 class='alert-heading'>Salvo</h4>
-        				<p class=''>Registro alterado com sucesso</p>
-    				</div>";
+
+					<div class='modal modalMsgInBox show' tabindex='-1' style='display: block;' aria-modal='true' role='dialog'>        
+					<div class='modal-dialog' role='document'>
+						<div class='modal-content'>
+							<div class='modal-fluid'>
+								<div class='modal-header alert alert-warning'>
+									<h5 class='modal-title alert-heading'>Alterado</h5>
+									<button type='button' class='close btnCloseModalMsgInBox' data-dismiss='modal' aria-label='Fechar'>
+									<span aria-hidden='true'>&times;</span>
+									</button>
+								</div>
+								<div class='modal-body'>
+										<p class=''>Registro alterado com sucesso</p>                
+								</div>
+								<div class='modal-footer'>
+									<button type='button' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</button>
+									<!-- <button type='button' class='btn btn-primary'>Salvar mudanças</button> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='modal-backdrop show'></div>
+
+			<script>
+				divModalBackdrop = document.querySelector('.modal-backdrop')
+				divmodalMsgInBox = document.querySelector('.modalMsgInBox')
+				
+				btnCloseModalMsgInBox = document.querySelectorAll('.btnCloseModalMsgInBox');
+
+				for(var i = 0 ; i < btnCloseModalMsgInBox.length; i++){
+					btnCloseModalMsgInBox[i].addEventListener('click', function(){
+						divmodalMsgInBox.parentNode.removeChild(divmodalMsgInBox)
+						divModalBackdrop.parentNode.removeChild(divModalBackdrop)
+					});
+				};
+			</script>
+					";
 			}		
 		
 		}

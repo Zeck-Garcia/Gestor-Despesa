@@ -134,10 +134,9 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
 
 
     <div class="container col-7 shadow bg-white">
+    <button id="btnShowModal" class="btnShowModalA btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
+        
 
-        <!-- <div class="row msgBox">
-
-        </div> -->
 
         <div class="row">    
             <article>

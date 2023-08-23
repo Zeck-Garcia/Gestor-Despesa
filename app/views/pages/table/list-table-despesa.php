@@ -13,27 +13,32 @@ include_once "app/models/function-despesa.php";
 
 //SEARCH TABLE
 $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
-$tabela = "tbdespesadescricao"; //nome da tabela a ser pesquisado
-$camposSelect = "*"; //campo principal a ser pesquisado 
-$camposWherePesquisaPrincipal = "idDespesaDescricao"; //filtro para exibir um campo da busca
+$camposSelect = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
+$tabela = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
+$camposWherePesquisaPrincipal = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
 $camposPesquisaAdd = "OR nomeDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
 
-$orderBy = "tbdespesadescricao.idDespesaDescricao"; //campo que será feita a ordem
+$orderBy = "idDespesaDescricao"; //campo que será feita a ordem
 $orderByType = "ASC"; //ASC DESC
-$quantidade = "7"; //qtd de registro a ser exibido por busca
+$quantidade = "8"; //qtd de registro a ser exibido por busca
 
 searching();
+// $qry = $operation->executarSQL($sql);
 
-            $sqlCategoriaDespesa = "SELECT 
-                            tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
-                            FROM 
-                            tbtipodespesa JOIN tbdespesadescricao
-                            WHERE 
-                            tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
-                            ";
+        //     $sql = "SELECT 
+        //                     tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
+        //                     FROM 
+        //                     tbtipodespesa JOIN tbdespesadescricao
+        //                     WHERE 
+        //                     tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
+        //                     ";
 
-            $qryCategoriaDespesa = $operation->executarSQL($sqlCategoriaDespesa);
 
+        // $qry = $operation->executarSQL($sql);
+
+        // while($dados = $operation->listar($qry)){
+        //     echo $dados["nomeDespesaDescricao"];
+        // }
 
 
 ?>
@@ -141,22 +146,22 @@ searching();
                     
             <tbody class="text-center">
                 <?php
-                while($categoriaDespesa = $operation->listar($qryCategoriaDespesa))
+                while($dados = $operation->listar($qry))
                 {
-                    $date = new DateTime($categoriaDespesa["dataPagamentoDespesaDescricao"]); 
+                    $date = new DateTime($dados["dataPagamentoDespesaDescricao"]); 
                     $date->format("d/m/Y");
                     ?>
                     
                     <tr>
-                        <td><?=$categoriaDespesa['idDespesaDescricao']?></td>
-                        <td><?=$categoriaDespesa['nomeDespesaDescricao']?></td>
-                        <td><?=$moeda . number_format($categoriaDespesa['valorDespesaDescricao'], 2, ',', '.')?></td>
+                        <td><?=$dados['idDespesaDescricao']?></td>
+                        <td><?=$dados['nomeDespesaDescricao']?></td>
+                        <td><?=$moeda . number_format($dados['valorDespesaDescricao'], 2, ',', '.')?></td>
 
                         <td><?=$date->format("d/m/Y")?></td> 
 
-                        <td><?=$categoriaDespesa['nomeCategoriaDespesa']?></td>
-                        <td><?=$categoriaDespesa['titularDespesaDescricao']?></td>
-                        <td><?=$categoriaDespesa['situacaoDespesaDescricao']?></td>
+                        <td><?=$dados['nomeCategoriaDespesa']?></td>
+                        <td><?=$dados['titularDespesaDescricao']?></td>
+                        <td><?=$dados['situacaoDespesaDescricao']?></td>
                         <td>
                             <div class='input-group-prepend'>
                                 <button class='btn btn-outline-secondary dropdown-toggle' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Ação</button>
@@ -184,7 +189,7 @@ searching();
             <button id="btnShowModal" class="btnShowModal btn btn-primary" onclick="updateUrl('<?php $statusActionModal = 'new'; echo 'index.php?'.$_SERVER['QUERY_STRING'].'&action='.$statusActionModal?>')">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
         </div>
         
-        <div class="modal" tabindex="-1" role="dialog">        
+        <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
             <?= include_once "app/views/pages/modal/modal-cadastro-despesa.php"?>
         </div>
     </div>

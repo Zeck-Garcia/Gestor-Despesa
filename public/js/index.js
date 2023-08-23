@@ -48,24 +48,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //   });
     // };
 
-      let btnShowModal = document.querySelectorAll(".btnShowModal");
+
+      let btnShowModalDespesa = document.querySelectorAll(".btnShowModal");
   
-      for(var i = 0 ; i < btnShowModal.length; i++){
-        btnShowModal[i].addEventListener("click", function showModal(){
-          $('.modal').modal('show');   
+      for(var i = 0 ; i < btnShowModalDespesa.length; i++){
+        btnShowModalDespesa[i].addEventListener("click", function showModal(){
+          $('.ModalCadastroDespesa').modal('show');   
         });
       };
-    
-     
-      let btnCloseModal = document.querySelectorAll(".btnCloseModal");
+  
+      
+      let btnCloseModal = document.querySelectorAll(".btnShowModalDespesa");
       
       for(var i = 0 ; i < btnCloseModal.length; i++){
         btnCloseModal[i].addEventListener('click', function(){
-          $('.modal').modal('hide');
-          downdateUrl(oldUrl)
+          $('.ModalCadastroDespesa').modal('hide');
+          // downdateUrl(oldUrl)
+          
         });
       };
+      
 
+      // let btnCloseModalMsgInBox = document.querySelectorAll(".btnCloseModal");
+      
+      // for(var i = 0 ; i < btnCloseModalMsgInBox.length; i++){
+      //   btnCloseModalMsgInBox[i].addEventListener('click', function(){
+      //     $('.ModalMsgInBox').modal('hide');
+      //     // downdateUrl(oldUrl)
+      //   });
+      // };
 
     // function submit(){
     //   document.querySelector(".agora").submit()
@@ -96,13 +107,14 @@ async function updateUrl(newUrl){
   await history.pushState(null, null, newUrl);
 }
 
-function downdateUrl(oldUrl1){
-  history.pushState(null, null, oldUrl1);
-
-}
 
 $('.modal').on('hidden.bs.modal', function (e) {
+  if(oldUrl != null){
+    function downdateUrl(oldUrl){
+      history.pushState(null, null, oldUrl);
+    }
   downdateUrl(oldUrl)
+  }
 })
 
 // function downdateUrl(oldUrl){

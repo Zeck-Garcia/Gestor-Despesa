@@ -43,14 +43,14 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
             
             <div class="modal-header">
                 <h5 class="modal-title">Cadastro nova despesa</h5>
-                            <button type="button" class="close btnCloseModal btnAcao" data-dismiss="modal" aria-label="Fechar">
+                            <button type="button" class="close btnShowModalDespesa btnAcao" data-dismiss="modal" aria-label="Fechar">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             </div>
                             <div class="modal-body">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <form class="needs-validation" action="index.php?page=a-inserir-cadastro-despesa" method="post" >
+                                        <form class="needs-validation" class="form-cadastro-despesa" action="index.php?page=a-inserir-cadastro-despesa" method="post" >
                                                 <!-- CORPO DO FORM -->
                                                     <div class="row">
                                                         <div class="form-group">
@@ -131,8 +131,8 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                 <!-- FIM DO CORPO DO FORM -->
                                             <div class="modal-footer mt-3">
-                                                <button type="reset" class="btnCloseModal btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</button>
-                                                <button type="sumit" class="btn btn-primary btnAcao">Salvar</button>
+                                                <button type="reset" class="btnShowModalDespesa btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</button>
+                                                <button type="sumit" class="btn btn-primary btnAcao btnSalve">Salvar</button>
                                             </div>
                                         </form>
                                     </div>

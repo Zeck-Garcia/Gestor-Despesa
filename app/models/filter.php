@@ -34,8 +34,9 @@ if($page == "a-inserir-cadastro-despesa"){
         searchDateRecord();
         cadDespesaDescricao();
     }
+
     include_once "app/views/pages/table/list-table-despesa.php";
-    // echo "<script>window.location.reload();</script>";
+    echo "<script>downdateUrl(oldUrl1);</script>";
 }
 
 

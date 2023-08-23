@@ -54,11 +54,11 @@ function searching(){
         LIMIT $inicio, $quantidade
     ";
 
-    //RDER BY flagFavoritoContato DESC, nomeContato ASC
+    //ORDER BY flagFavoritoContato DESC, nomeContato ASC
 
-    echo $qry = $operation->executarSQL($sql); //1
+    $qry = $operation->executarSQL($sql); //1
 
-    echo $qrTotal = $operation->executarSQL($sql);//2
+    $qrTotal = $operation->executarSQL($sql);//2
     // echo $numTotal = mysqli_num_rows($qrTotal);
 
     //sql2
