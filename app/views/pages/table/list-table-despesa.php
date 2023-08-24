@@ -16,25 +16,45 @@ $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa vari
 $camposSelect = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
 $tabela = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
 $camposWherePesquisaPrincipal = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
-$camposPesquisaAdd = "OR nomeDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
+$camposPesquisaAdd = "OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
 
 $orderBy = "idDespesaDescricao"; //campo que será feita a ordem
 $orderByType = "ASC"; //ASC DESC
 $quantidade = "8"; //qtd de registro a ser exibido por busca
 
-searching();
+// searching();
 // $qry = $operation->executarSQL($sql);
 
-        //     $sql = "SELECT 
-        //                     tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
-        //                     FROM 
-        //                     tbtipodespesa JOIN tbdespesadescricao
-        //                     WHERE 
-        //                     tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
-        //                     ";
+$txtPesquisaA = ""; // é necessario passar ao menos o valor vazio para essa variavel
+$camposSelectA = ""; //campo principal a ser pesquisado 
+$tabelaA = ""; //nome da tabela a ser pesquisado
+$camposWherePesquisaPrincipalA = ""; //filtro para exibir um campo da busca
+$camposPesquisaAddA;
 
 
-        // $qry = $operation->executarSQL($sql);
+    // $sql = "SELECT $camposSelect FROM $tabela 
+    // WHERE 
+    //     $camposWherePesquisaPrincipal='$txtPesquisa'
+    //     $camposPesquisaAdd
+    //     ORDER BY 
+    //     $orderBy $orderByType
+
+    //     LIMIT $inicio, $quantidade
+    // ";
+
+    // $qry = $operation->executarSQL($sql);
+
+
+            $sql = "SELECT 
+                            tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
+                            FROM 
+                            tbtipodespesa JOIN tbdespesadescricao
+                            WHERE 
+                            tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
+                            ";
+
+
+        $qry = $operation->executarSQL($sql);
 
         // while($dados = $operation->listar($qry)){
         //     echo $dados["nomeDespesaDescricao"];

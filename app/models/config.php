@@ -15,3 +15,7 @@ while($dados = $operation->listar($qryConfig)){
     // $yeara = $year["anoDespesa"];
     $moeda = $dados['moedaConfig'] . " ";
 }; 
+
+$urlCompletaAtual = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/')+1);
+
+$urlParamentros = $_SERVER["QUERY_STRING"];
