@@ -1,5 +1,7 @@
 <?php
 
+
+
 // include_once "app/models/manipulacaoDeDados.php";
 // $operation = new manipulacaoDeDados();
 $url = $_SERVER["HTTP_HOST"] . "<br>"; //localhost
@@ -12,32 +14,48 @@ include_once "app/models/searching.php";
 include_once "app/models/function-despesa.php";
 
 //SEARCH TABLE
-$txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
+$txtPlaceholderPesquisar = "Inicie sua busca!";
+echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
 $camposSelect = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
 $tabela = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
 $camposWherePesquisaPrincipal = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
-$camposPesquisaAdd = "OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
+$campoWhereAndPesquisa =  "AND nomeDespesaDescricao='%$txtPesquisa%'";
+// $camposPesquisaAdd = "OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //"OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
 
 $orderBy = "idDespesaDescricao"; //campo que será feita a ordem
 $orderByType = "ASC"; //ASC DESC
-$quantidade = "8"; //qtd de registro a ser exibido por busca
+$quantidade = "5"; //qtd de registro a ser exibido por busca
 
-// searching();
+searching();
 // $qry = $operation->executarSQL($sql);
 
-$txtPesquisaA = ""; // é necessario passar ao menos o valor vazio para essa variavel
-$camposSelectA = ""; //campo principal a ser pesquisado 
-$tabelaA = ""; //nome da tabela a ser pesquisado
-$camposWherePesquisaPrincipalA = ""; //filtro para exibir um campo da busca
-$camposPesquisaAddA;
+// $txtPesquisaA = ""; // é necessario passar ao menos o valor vazio para essa variavel
+// $camposSelectA = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
+// $tabelaA = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
+// $camposWherePesquisaPrincipalA = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
+// $camposPesquisaAddA = "";
+// $orderByA = "idDespesaDescricao"; //campo que será feita a ordem
+// $orderByTypeA = "ASC"; //ASC DESC
+// $quantidadeA = "8";
+// $inicio = 0;
 
+//         $sql = "SELECT $camposSelectA FROM $tabelaA
+            // WHERE 
+//          $camposWherePesquisaPrincipalA $camposPesquisaAddA
+//          ORDER BY 
+//          $orderByA $orderByTypeA
+//          LIMIT $inicio, $quantidadeA
+//         ";
 
-    // $sql = "SELECT $camposSelect FROM $tabela 
+    // $sql = "SELECT
+    // $camposSelectA 
+    //FROM 
+    //$tabelaA 
     // WHERE 
-    //     $camposWherePesquisaPrincipal='$txtPesquisa'
-    //     $camposPesquisaAdd
+    //     $camposWherePesquisaPrincipalA='$txtPesquisaA'
+    //     $camposPesquisaAddA
     //     ORDER BY 
-    //     $orderBy $orderByType
+    //     $orderByA $orderByTypeA
 
     //     LIMIT $inicio, $quantidade
     // ";
@@ -45,13 +63,13 @@ $camposPesquisaAddA;
     // $qry = $operation->executarSQL($sql);
 
 
-            $sql = "SELECT 
-                            tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
-                            FROM 
-                            tbtipodespesa JOIN tbdespesadescricao
-                            WHERE 
-                            tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
-                            ";
+            // $sql = "SELECT 
+            //                 tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
+            //                 FROM 
+            //                 tbtipodespesa JOIN tbdespesadescricao
+            //                 WHERE 
+            //                 tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
+            //                 ";
 
 
         $qry = $operation->executarSQL($sql);
@@ -213,3 +231,18 @@ $camposPesquisaAddA;
             <?= include_once "app/views/pages/modal/modal-cadastro-despesa.php"?>
         </div>
     </div>
+
+
+
+<?php
+
+
+echo $urlParamentros;
+echo "<br>";
+
+echo $um = str_replace("&pagina=$pageSearchStart", "", $urlParamentros,) . "&teste=aCasaEBela";
+echo "<br>";
+
+echo strpos($um, 'pagina');
+
+?>

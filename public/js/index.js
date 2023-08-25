@@ -120,3 +120,21 @@ $('.modal').on('hidden.bs.modal', function (e) {
 // function downdateUrl(oldUrl){
 //   history.pushState(null, null, oldUrl);
 // }
+
+
+btnSubMit = document.querySelectorAll('.btnSubMit')
+
+for(var i = 0 ; i < btnSubMit.length ; i++){
+  btnSubMit.addEventListener('submit', function(e){
+    e.preventDefault();
+  })
+}
+
+
+for(var i = 0 ; i < btnCloseModal.length; i++){
+  btnCloseModal[i].addEventListener('click', function(){
+    $('.ModalCadastroDespesa').modal('hide');
+    // downdateUrl(oldUrl)
+    
+  });
+};

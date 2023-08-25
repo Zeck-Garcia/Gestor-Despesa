@@ -21,6 +21,7 @@ function searching(){
     global $totalResgistro;
     global $totalPage;
     global $pageSearchStart;
+    global $campoWhereAndPesquisa;
 
     
     $pageSearchStart = (isset($_GET["pagina"]) == "" ? 1 : $_GET["pagina"]);
@@ -36,21 +37,39 @@ function searching(){
         $inicio = ($quantidade * $pageSearchStart) - $quantidade;
     }
 
-    //SQL DE BUSCA
-   $sql = "SELECT $camposSelect FROM $tabela 
-    WHERE 
-        $camposWherePesquisaPrincipal='$txtPesquisa'
-        $camposPesquisaAdd
-        ORDER BY 
-        $orderBy $orderByType
+    $campoWhereAndPesquisa = ($txtPesquisa == "" ? "" : $campoWhereAndPesquisa);
+    $camposPesquisaAdd = ($txtPesquisa = "" ? "" : $camposPesquisaAdd);
 
-        LIMIT $inicio, $quantidade
-    ";
+            $sql = "SELECT 
+                $camposSelect
+                FROM 
+                $tabela
+                WHERE 
+                $camposWherePesquisaPrincipal 
+                $campoWhereAndPesquisa
+
+                ORDER BY
+                $orderBy $orderByType
+
+                LIMIT $inicio, $quantidade
+                ";
+
+
+    //SQL DE BUSCA
+//    $sql = "SELECT $camposSelect FROM $tabela 
+//     WHERE 
+//         $camposWherePesquisaPrincipal='$txtPesquisa'
+//         $camposPesquisaAdd
+//         ORDER BY 
+//         $orderBy $orderByType
+
+//         LIMIT $inicio, $quantidade
+//     ";
 
     $qry = $operation->executarSQL($sql);
 
     //SQL PARA O PAGINADOR
-    $totalResgistro = mysqli_num_rows($operation->executarSQL("SELECT $camposSelect FROM $tabela WHERE $camposWherePesquisaPrincipal='$txtPesquisa' $camposPesquisaAdd ORDER BY $orderBy $orderByType"));
+    $totalResgistro = mysqli_num_rows($operation->executarSQL("SELECT $camposSelect FROM $tabela WHERE $camposWherePesquisaPrincipal $campoWhereAndPesquisa ORDER BY $orderBy $orderByType"));
 
     $totalPage = ceil($totalResgistro / $quantidade);
 
@@ -61,7 +80,7 @@ function searching(){
 							<div class='modal-content'>
 								<div class='modal-fluid'>
 									<div class='modal-header alert alert-warning'>
-										<h5 class='modal-title alert-heading'>Salvo</h5>
+										<h5 class='modal-title alert-heading'>Nada encontrodo</h5>
 										<button type='button' class='close btnCloseModalMsgInBox' data-dismiss='modal' aria-label='Fechar'>
 										<span aria-hidden='true'>&times;</span>
 										</button>

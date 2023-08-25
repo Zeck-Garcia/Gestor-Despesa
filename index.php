@@ -5,7 +5,7 @@ include_once "./public/php/group-link-php.php";
 include_once "app/models/manipulacaoDeDados.php";
 $operation = new manipulacaoDeDados();
 
-$nomeUser = $_SESSION["loginUser"];
+// $nomeUser = $_SESSION["loginUser"];
 $imgPerfil = $_SESSION["imgUser"];
 
 if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
@@ -107,7 +107,7 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
             <hr> 
             <div class="dropdown"> 
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> 
-                    <img src="<?= $imgPerfil?>" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> <?= $nomeUser?></strong> </a> 
+                    <img src="<?= $imgPerfil?>" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> <?= $_SESSION["loginUser"]?></strong> </a> 
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
                     
                         <li><a class="dropdown-item" href="#">Titular</a></li>
@@ -134,7 +134,7 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
 
 
     <div class="container col-7 shadow bg-white">
-    <button id="btnShowModal" class="btnShowModalA btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
+    <!-- <button id="btnShowModal" class="btnShowModalA btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button> -->
         
 
 

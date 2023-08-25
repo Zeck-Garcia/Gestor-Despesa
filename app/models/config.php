@@ -18,4 +18,6 @@ while($dados = $operation->listar($qryConfig)){
 
 $urlCompletaAtual = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/')+1);
 
+$urlSimples = $_SERVER["SCRIPT_NAME"];
+
 $urlParamentros = $_SERVER["QUERY_STRING"];

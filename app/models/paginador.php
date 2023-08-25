@@ -1,8 +1,10 @@
 <ul class="pagination justify-content-center">
 <?php
+
+
 $pageSearchStart = (isset($_GET["pagina"]) == "" ? 1 : $_GET["pagina"]);
 
-echo "<li class='page-item disabled'><span class='page-link'>Total de Registro $totalResgistro</span></li>";
+echo "<li class='page-item disabled'><span class='page-link'>$totalResgistro ite". ($totalResgistro <= 1 ? 'm' : 'ns') . "</span></li>";
 
 echo "<li class='page-item'><a class='page-link' href='?page=$pageAtual&pagina=1'>Primeira página</a></li> ";
 
@@ -33,3 +35,4 @@ if($pageSearchStart < ($totalPage - 3)){
 ?>
     <li class='page-item'><a class='page-link' href="?page=<?= $pageAtual. "&pagina=". $totalPage?>">Última página</a></li>
 </ul>
+
