@@ -2,9 +2,19 @@
 include_once "app/models/manipulacaoDeDados.php";
 $operation = new manipulacaoDeDados();
 
+// echo $txtPesquisa;
 // session_start();
-function searching(){
 
+if(isset($_POST["btnPesquisa"])){
+    echo $_SESSION["txtPesquisa"] = $_POST["txtPesquisa"];
+}
+
+if(isset($_POST["txtLimpar"])){
+    $txtPesquisa = null;
+}
+
+function searching(){
+    
     global $operation;
     global $txtPesquisa;
     global $sql;
@@ -23,8 +33,9 @@ function searching(){
     global $pageSearchStart;
     global $campoWhereAndPesquisa;
 
-    
     $pageSearchStart = (isset($_GET["pagina"]) == "" ? 1 : $_GET["pagina"]);
+
+    // $txtPesquisa = $_SESSION["txtPesquisa"];
     
     $inicio = ($quantidade * $pageSearchStart) - $quantidade;
     
@@ -36,16 +47,20 @@ function searching(){
     } else {
         $inicio = ($quantidade * $pageSearchStart) - $quantidade;
     }
-
-    $campoWhereAndPesquisa = ($txtPesquisa == "" ? "" : $campoWhereAndPesquisa);
-    $camposPesquisaAdd = ($txtPesquisa = "" ? "" : $camposPesquisaAdd);
-
-            $sql = "SELECT 
+    $_SESSION["txtPesquisa"] == "" ? "" : " AND $campoWhereAndPesquisa='{$_SESSION["txtPesquisa"]}'";
+    
+    $camposWherePesquisaPrincipal = ($camposWherePesquisaPrincipal == "" ? "" : $camposWherePesquisaPrincipal);
+    
+    $campoWhereAndPesquisa = ($_SESSION["txtPesquisa"] == "" ? "" : " AND $campoWhereAndPesquisa='{$_SESSION["txtPesquisa"]}'");
+    
+    $camposPesquisaAdd = ($_SESSION["txtPesquisa"] = "" ? "" : $camposPesquisaAdd);
+    
+     $sql = "SELECT 
                 $camposSelect
                 FROM 
                 $tabela
                 WHERE 
-                $camposWherePesquisaPrincipal 
+                $camposWherePesquisaPrincipal
                 $campoWhereAndPesquisa
 
                 ORDER BY
@@ -54,6 +69,7 @@ function searching(){
                 LIMIT $inicio, $quantidade
                 ";
 
+                // $campoWhereAndPesquisa;
 
     //SQL DE BUSCA
 //    $sql = "SELECT $camposSelect FROM $tabela 
@@ -72,6 +88,8 @@ function searching(){
     $totalResgistro = mysqli_num_rows($operation->executarSQL("SELECT $camposSelect FROM $tabela WHERE $camposWherePesquisaPrincipal $campoWhereAndPesquisa ORDER BY $orderBy $orderByType"));
 
     $totalPage = ceil($totalResgistro / $quantidade);
+
+
 
     if(!$totalResgistro){
         echo "

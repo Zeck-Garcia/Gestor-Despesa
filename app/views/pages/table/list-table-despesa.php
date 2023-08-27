@@ -15,11 +15,11 @@ include_once "app/models/function-despesa.php";
 
 //SEARCH TABLE
 $txtPlaceholderPesquisar = "Inicie sua busca!";
-echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
+// echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
 $camposSelect = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
 $tabela = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
 $camposWherePesquisaPrincipal = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
-$campoWhereAndPesquisa =  "AND nomeDespesaDescricao='%$txtPesquisa%'";
+$campoWhereAndPesquisa =  "nomeDespesaDescricao"; //tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
 // $camposPesquisaAdd = "OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //"OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
 
 $orderBy = "idDespesaDescricao"; //campo que será feita a ordem
@@ -27,25 +27,7 @@ $orderByType = "ASC"; //ASC DESC
 $quantidade = "5"; //qtd de registro a ser exibido por busca
 
 searching();
-// $qry = $operation->executarSQL($sql);
 
-// $txtPesquisaA = ""; // é necessario passar ao menos o valor vazio para essa variavel
-// $camposSelectA = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
-// $tabelaA = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
-// $camposWherePesquisaPrincipalA = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
-// $camposPesquisaAddA = "";
-// $orderByA = "idDespesaDescricao"; //campo que será feita a ordem
-// $orderByTypeA = "ASC"; //ASC DESC
-// $quantidadeA = "8";
-// $inicio = 0;
-
-//         $sql = "SELECT $camposSelectA FROM $tabelaA
-            // WHERE 
-//          $camposWherePesquisaPrincipalA $camposPesquisaAddA
-//          ORDER BY 
-//          $orderByA $orderByTypeA
-//          LIMIT $inicio, $quantidadeA
-//         ";
 
     // $sql = "SELECT
     // $camposSelectA 
@@ -61,23 +43,6 @@ searching();
     // ";
 
     // $qry = $operation->executarSQL($sql);
-
-
-            // $sql = "SELECT 
-            //                 tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao
-            //                 FROM 
-            //                 tbtipodespesa JOIN tbdespesadescricao
-            //                 WHERE 
-            //                 tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
-            //                 ";
-
-
-        $qry = $operation->executarSQL($sql);
-
-        // while($dados = $operation->listar($qry)){
-        //     echo $dados["nomeDespesaDescricao"];
-        // }
-
 
 ?>
     <?php 
@@ -235,14 +200,16 @@ searching();
 
 
 <?php
-
+echo $urlSimples;
+echo "<br>";
 
 echo $urlParamentros;
 echo "<br>";
 
-echo $um = str_replace("&pagina=$pageSearchStart", "", $urlParamentros,) . "&teste=aCasaEBela";
+echo $urlSearchStart = str_replace("&pagina=$pageSearchStart", "", $urlParamentros,) . "&pagina=1";
 echo "<br>";
 
-echo strpos($um, 'pagina');
+echo strlen($_GET["pagina"]);
+// echo strpos($um, 'pagina');
 
 ?>

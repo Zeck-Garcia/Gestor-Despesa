@@ -11,7 +11,7 @@
     $pageative = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
     $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "");
     
-    $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
+    // $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
     $tabela = "tbsituacaodespesa"; //nome da tabela a ser pesquisado
     $camposSelect = "*"; //campo principal a ser pesquisado 
     $camposWherePesquisaPrincipal = "idSituacaoDespesa"; //filtro para exibir um campo da busca

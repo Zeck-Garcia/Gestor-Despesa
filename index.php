@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 // include_once "app/models/config.php";
 include_once "./public/php/group-link-php.php";
 include_once "app/models/manipulacaoDeDados.php";
@@ -51,7 +52,7 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> 
             <svg class="bi me-2" width="40" height="32"> </svg> 
             <span class="fs-4">Gestor de gastos</span> </a> 
-            <hr> 
+            <hr> <?= session_id();?>
             <ul class="nav nav-pills flex-column mb-auto"> 
                 <li class="nav-item"> 
                     <a href="#" class="nav-link active" aria-current="page"> 

@@ -21,3 +21,5 @@ $urlCompletaAtual = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI
 $urlSimples = $_SERVER["SCRIPT_NAME"];
 
 $urlParamentros = $_SERVER["QUERY_STRING"];
+
+

@@ -102,11 +102,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
 
-async function updateUrl(newUrl){
-  oldUrl = await document.URL;
-  await history.pushState(null, null, newUrl);
-}
-
+  async function updateUrl(newUrl){
+    oldUrl = await document.URL;
+    await history.pushState(null, null, newUrl);
+  }
 
 $('.modal').on('hidden.bs.modal', function (e) {
   if(oldUrl != null){
@@ -121,16 +120,6 @@ $('.modal').on('hidden.bs.modal', function (e) {
 //   history.pushState(null, null, oldUrl);
 // }
 
-
-btnSubMit = document.querySelectorAll('.btnSubMit')
-
-for(var i = 0 ; i < btnSubMit.length ; i++){
-  btnSubMit.addEventListener('submit', function(e){
-    e.preventDefault();
-  })
-}
-
-
 for(var i = 0 ; i < btnCloseModal.length; i++){
   btnCloseModal[i].addEventListener('click', function(){
     $('.ModalCadastroDespesa').modal('hide');
@@ -138,3 +127,6 @@ for(var i = 0 ; i < btnCloseModal.length; i++){
     
   });
 };
+
+
+
