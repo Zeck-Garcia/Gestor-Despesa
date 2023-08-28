@@ -46,18 +46,31 @@
         </div>
 
         <div class="row shadow p-3 mb-2 bg-white rounded">
-            <details class="card">
-                <summary class="card-header">Henrique Garcia</summary>
+            
+            <?php
+                $sqlFilterResumoTitular = "SELECT * FROM tbreceita";
+                
+                $qryFilterResumoTitular = $operation->executarSQL($sqlFilterResumoTitular);
+                
+                while($resumoTitular = $operation->listar($qryFilterResumoTitular))
+                { ?>
+                    <details class="card mt-3">
+                    <!-- echo $resumoTitular["titularReceita"]; -->
+                    <summary class="card-header"><?= $resumoTitular["titularReceita"]?></summary>
                 <ul class="card-body">
-                    <li class="list-group-item">salario do mes</li>
-                    <li class="list-group-item">valor já pago</li>
-                    <li class="list-group-item">saldo da conta</li>
-                    <li class="list-group-item">a pagar</li>
-                    <li class="list-group-item">qtd de conta a pagar ou pagas</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item"></li>
+                    <li class="list-group-item"><?="Salário ".$moeda. number_format($resumoTitular["valorReceita"], 2, ",", ".") ?></li>
+                    <!-- <li class="list-group-item">valor já pago</li> -->
+                    <!-- <li class="list-group-item">saldo da conta</li> -->
+                    <!-- <li class="list-group-item">a pagar</li> -->
+                    <!-- <li class="list-group-item">qtd de conta a pagar ou pagas</li> -->
+                    <!-- <li class="list-group-item"></li> -->
+                    <!-- <li class="list-group-item"></li> -->
                 </ul>
             </details>
+                
+                
+                <?php }
+            ?>
         </div>
     </div>
 </div>

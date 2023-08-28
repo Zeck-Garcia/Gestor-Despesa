@@ -1,6 +1,11 @@
 <?php
 
-
+// if(isset($_POST["txtPesquisa"]) == 1){
+//     $_SESSION['txtPesquisaValue'] = $_POST["txtPesquisa"];
+//         if(!empty($_SESSION["txtPesquisaValue"])){    
+//             $txtPesquisa = $_SESSION['txtPesquisaValue'];
+//         }
+// }
 
 // include_once "app/models/manipulacaoDeDados.php";
 // $operation = new manipulacaoDeDados();
@@ -53,16 +58,27 @@ searching();
     <div class="col">
 
 
-        <div class="row">
+        <!-- <div class="row">
             <form action="#" class="form row  d-flex justify-content-around align-items-center align-self-center">
                 <div class="form-group col">
                     <label for="">Titular</label>
                     <select class="custom-select" name="">
-                        <option value="">Selecione</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
+                        <option value="" selected>Selecione</option>
+
+                    <?php
+                        $sqlFitterTitular = "SELECT * FROM tbtitular ORDER BY nomeTitular ASC";
+                        $qryFitterTitular = $operation->executarSQL($sqlFitterTitular);
+
+                        while($titular = $operation->listar($qryFitterTitular)){
+                            
+                         ?>
+
+                        <option value="<?= $titular["nomeTitular"]?>"><?= $titular["nomeTitular"]?></option>
+
+                        <?php
+
+                    } ?>
+
                     </select>
                 </div>
 
@@ -78,13 +94,21 @@ searching();
                 </div>
 
                 <div class="form-group col">
-                    <label for="">Tipo</label>
-                    <select class="custom-select" name="">
-                        <option value="">Selecione</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
+                    <label for="">Categoria</label>
+                    <select class="custom-select" name="comboxCategoria">
+                        <option value="" selected>Selecione</option>
+                        <?php
+                            $sqlFilterCategoria = "SELECT * FROM tbtipodespesa ORDER BY nomeCategoriaDespesa ASC";
+                            $qryFilterCategoria = $operation->executarSQL($sqlFilterCategoria);
+
+                            while($categoria = $operation->listar($qryFilterCategoria)){
+                                ?>
+                                <option value="<?= $categoria["nomeCategoriaDespesa"]?>"><?= $categoria["nomeCategoriaDespesa"]?></option>
+
+                            <?php
+                            }
+
+                        ?>
                     </select>
                 </div>
 
@@ -131,7 +155,7 @@ searching();
                     <button class="btn btn-danger" type="submit" value="limparFiltar">Limpar <i class="bi bi-trash"></i></button>
                 </div>
             </form>
-        </div>
+        </div> -->
 
         <table class="table table-striped table-hover">
             <thead class="thead-dark text-center">
@@ -140,7 +164,7 @@ searching();
                     <th>Despesa</th>
                     <th>Valor</th>
                     <th>Data de PGTO</th>
-                    <th>Tipo</th>
+                    <th>Categoria</th>
                     <th>Titular</th>
                     <th>Situação</th>
                     <th>Ação</th>
@@ -170,7 +194,7 @@ searching();
                                 <button class='btn btn-outline-secondary dropdown-toggle' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Ação</button>
                                 
                                 <div class='dropdown-menu'>
-                                    <a class='dropdown-item' href='#'>Excluir</a>
+                                    <a class='dropdown-item' href='#'>Excluir</a>                                    
                                     <div role='separator' class='dropdown-divider'></div>
                                     <a class='dropdown-item btnShowModal' href='#'>Ver descrição</a>
                                 </div>
@@ -197,19 +221,7 @@ searching();
         </div>
     </div>
 
-
-
 <?php
-echo $urlSimples;
-echo "<br>";
 
-echo $urlParamentros;
-echo "<br>";
-
-echo $urlSearchStart = str_replace("&pagina=$pageSearchStart", "", $urlParamentros,) . "&pagina=1";
-echo "<br>";
-
-echo strlen($_GET["pagina"]);
-// echo strpos($um, 'pagina');
 
 ?>

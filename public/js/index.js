@@ -128,5 +128,3 @@ for(var i = 0 ; i < btnCloseModal.length; i++){
   });
 };
 
-
-

@@ -1,7 +1,6 @@
 <ul class="pagination justify-content-center">
 <?php
 
-
 $pageSearchStart = (isset($_GET["pagina"]) == "" ? 1 : $_GET["pagina"]);
 
 echo "<li class='page-item disabled'><span class='page-link'>$totalResgistro ite". ($totalResgistro <= 1 ? 'm' : 'ns') . "</span></li>";

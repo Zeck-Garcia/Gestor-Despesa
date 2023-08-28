@@ -1,17 +1,20 @@
 <?php
 include_once "app/models/manipulacaoDeDados.php";
+
 $operation = new manipulacaoDeDados();
 
-// echo $txtPesquisa;
-// session_start();
+if(!empty(isset($_POST["txtPesquisa"]))){
 
-if(isset($_POST["btnPesquisa"])){
-    echo $_SESSION["txtPesquisa"] = $_POST["txtPesquisa"];
+    if(isset($_POST["txtPesquisa"])){
+        $_SESSION["txtPesquisaValue"] = $_POST["txtPesquisa"];
+        $_GET["pagina"] = 1;
+        header("Location: {$_SERVER['SCRIPT_NAME']}?{$_SESSION['urlSearchStart']}");
+    }
 }
 
-if(isset($_POST["txtLimpar"])){
-    $txtPesquisa = null;
-}
+
+
+$txtPesquisa = $_SESSION["txtPesquisaValue"];
 
 function searching(){
     
@@ -47,15 +50,15 @@ function searching(){
     } else {
         $inicio = ($quantidade * $pageSearchStart) - $quantidade;
     }
-    $_SESSION["txtPesquisa"] == "" ? "" : " AND $campoWhereAndPesquisa='{$_SESSION["txtPesquisa"]}'";
+    $txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'";
     
     $camposWherePesquisaPrincipal = ($camposWherePesquisaPrincipal == "" ? "" : $camposWherePesquisaPrincipal);
     
-    $campoWhereAndPesquisa = ($_SESSION["txtPesquisa"] == "" ? "" : " AND $campoWhereAndPesquisa='{$_SESSION["txtPesquisa"]}'");
+    $campoWhereAndPesquisa = ($txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'");
     
-    $camposPesquisaAdd = ($_SESSION["txtPesquisa"] = "" ? "" : $camposPesquisaAdd);
+    $camposPesquisaAdd = ($txtPesquisa = "" ? "" : $camposPesquisaAdd);
     
-     $sql = "SELECT 
+        $sql = "SELECT 
                 $camposSelect
                 FROM 
                 $tabela
@@ -67,7 +70,7 @@ function searching(){
                 $orderBy $orderByType
 
                 LIMIT $inicio, $quantidade
-                ";
+        ";
 
                 // $campoWhereAndPesquisa;
 

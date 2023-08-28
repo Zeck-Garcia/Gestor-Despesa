@@ -22,4 +22,3 @@ $urlSimples = $_SERVER["SCRIPT_NAME"];
 
 $urlParamentros = $_SERVER["QUERY_STRING"];
 
-

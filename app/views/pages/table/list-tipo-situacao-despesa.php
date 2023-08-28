@@ -19,7 +19,7 @@
 
     $orderBy = "idSituacaoDespesa"; //campo que será feita a ordem
     $orderByType = "ASC"; //ASC DESC
-    $quantidade = "5"; //qtd de registro a ser exibido por busca
+    $quantidade = "3"; //qtd de registro a ser exibido por busca
     
     searching();
 
