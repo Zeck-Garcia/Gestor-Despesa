@@ -51,8 +51,10 @@ function searching(){
         $inicio = ($quantidade * $pageSearchStart) - $quantidade;
     }
     $txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'";
+
+    $where = ($camposWherePesquisaPrincipal == "" ? "" : "WHERE");
     
-    $camposWherePesquisaPrincipal = ($camposWherePesquisaPrincipal == "" ? "" : $camposWherePesquisaPrincipal);
+    $camposWherePesquisaPrincipal = ($camposWherePesquisaPrincipal == "" ? "" : "$camposWherePesquisaPrincipal");
     
     $campoWhereAndPesquisa = ($txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'");
     
@@ -62,7 +64,7 @@ function searching(){
                 $camposSelect
                 FROM 
                 $tabela
-                WHERE 
+                $where
                 $camposWherePesquisaPrincipal
                 $campoWhereAndPesquisa
 

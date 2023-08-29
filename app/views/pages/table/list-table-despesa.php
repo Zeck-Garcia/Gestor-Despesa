@@ -225,6 +225,14 @@ searching();
     <?php
 
 
+$sqlA = "SELECT * FROM tbreceita ORDER BY idReceita ASC LIMIT 0, 5";
+
+$qryA = $operation->executarSQL($sqlA);
+
+while($ver = $operation->listar($qryA)){
+    echo $ver["idReceita"];
+}
+
             ?>
 
 

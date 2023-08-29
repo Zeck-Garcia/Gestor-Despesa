@@ -33,9 +33,9 @@ if(!empty($page)){
                 include_once "app/views/pages/table/list-table-despesa.php";
             break;
 
-            case "a-cadastro-despesa":
-                include_once "app/views/pages/forms/form-despesa-descricao.php";
-            break;
+            // case "a-cadastro-despesa":
+                // include_once "app/views/pages/forms/form-despesa-descricao.php";
+            // break;
 
             case "a-inserir-cadastro-despesa":
                 include_once "app/models/filter.php";
@@ -70,6 +70,10 @@ if(!empty($page)){
             case "a-inserir-cadastro-situacao-receita":
                 salveSituacaoReceita();
             break;
+
+            case "list-receita":
+                include_once "app/views/pages/table/list-table-receita.php";
+                break;
         }
 
 } else {

@@ -89,7 +89,7 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Receita</a> 
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
                             <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
-                            <li><a class="dropdown-item" href="#">Listar</a></li>  
+                            <li><a class="dropdown-item" href="index.php?page=list-receita">Listar</a></li>  
                         </ul> 
                     </div>
                 </li>
