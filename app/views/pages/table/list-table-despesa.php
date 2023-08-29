@@ -223,21 +223,7 @@ searching();
 
 
     <?php
-    $hoje = date("m/Y");
 
-    echo $sqlFilterAPagarMesAtual = "SELECT situacaoDespesaDescricao, SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$hoje' AND situacaoDespesaDescricao<>'pago'
-    ";
-    
-    $qryFilterAPagarMesAtual = $operation->executarSQL($sqlFilterAPagarMesAtual);
-    
-    while($resumoAPagarMesAtual = $operation->listar($qryFilterAPagarMesAtual))
-    { 
-
-        ?>
-                    <p>Aqui será a data <?= $resumoAPagarMesAtual["valorDespesaDescricao"] ?></p>
-
-                
-                <?php }
 
             ?>
 
