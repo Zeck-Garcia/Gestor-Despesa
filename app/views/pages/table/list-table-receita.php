@@ -87,7 +87,7 @@ searching();
                         <td><?=$date->format("d/m/Y")?></td> 
 
                         
-                        <td><?=$dados['situacaoReiceita']?></td>
+                        <td><?=$dados['situacaoReceita']?></td>
                         <td>
                         <a class="text-danger" href=""><i class="bi bi-trash3"></i></a>
                         </td>
@@ -108,7 +108,7 @@ searching();
         </div>
         
         <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
-            <?= include_once "app/views/pages/modal/modal-cadastro-despesa.php"?>
+            <?= include_once "app/views/pages/modal/modal-cadastro-receita.php"?>
         </div>
     </div>
 

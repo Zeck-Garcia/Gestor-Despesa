@@ -24,4 +24,35 @@ function salveSituacaoReceita(){
     
 }
 
+function salveCadastroReceita(){
+
+    global $operation;
+
+    $titularReceita = (strip_tags(isset($_POST["titularReceita"])) == "" ? "" : $_POST["titularReceita"]);
+    $valorReceita = (strip_tags(isset($_POST["valorReceita"])) == "" ? "" : $_POST["valorReceita"]);
+    $descricaoReceita = (strip_tags(isset($_POST["descricaoReceita"])) == "" ? "" : $_POST["descricaoReceita"]);
+    $categoriaReceita = (strip_tags(isset($_POST["categoriaReceita"])) == "" ? "" : $_POST["categoriaReceita"]);
+    $dataPagamentoReceita = (strip_tags(isset($_POST["dataPagamentoReceita"])) == "" ? "" : $_POST["dataPagamentoReceita"]);
+    $situacaoReceita = (strip_tags(isset($_POST["situacaoReceita"])) == "" ? "" : $_POST["situacaoReceita"]);
+
+    
+
+    $operation->setTabela("tbreceita");
+    $operation->setCampos("
+            titularReceita, 
+            valorReceita,
+            descricaoReceita,
+            categoriaReceita,
+            dataReceita,
+            situacaoReceita
+            ")
+        ;
+
+    $operation->setDados("'$titularReceita', '$valorReceita', '$descricaoReceita', '$categoriaReceita', '$dataPagamentoReceita', '$situacaoReceita'");
+
+    $operation->inserir();
+
+    echo $operation->getMsg();
+}
+
 ?>

@@ -67,8 +67,8 @@ if(!empty($page)){
                 salveSituacaoReceita();
             break;
 
-            case "a-inserir-cadastro-situacao-receita":
-                salveSituacaoReceita();
+            case "a-inserir-cadastro-receita":
+                salveCadastroReceita();
             break;
 
             case "list-receita":
