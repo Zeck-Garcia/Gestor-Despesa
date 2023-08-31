@@ -113,8 +113,6 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
                     
                         <li><a class="dropdown-item" href="#">Titular</a></li>
                         <li> <hr class="dropdown-divider"> </li> 
-                        <li><a class="dropdown-item" href="#">Banco</a></li>
-                        <li> <hr class="dropdown-divider"> </li> 
                         <li><a class="dropdown-item" href="index.php?page=list-tipo-situacao-despesa">Situação despesa</a></li>
                         <li><a class="dropdown-item" href="index.php?page=list-situacao-receita">Situação receita</a></li>
                         <li> <hr class="dropdown-divider"> </li> 

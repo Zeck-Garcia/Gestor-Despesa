@@ -51,6 +51,7 @@ searching();
 
 ?>
     <?php 
+        include_once "app/views/pages/header/header.php";
         include_once "app/views/pages/search/search.php";
     ?>
 
