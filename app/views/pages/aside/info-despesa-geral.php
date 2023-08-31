@@ -1,10 +1,10 @@
 <?php
-    $hoje = date("m/Y");
+    // $todayMonthYear = date("m/Y"); //todayMonthYear
 
     //INICIO FILTER RESUMO TITULAR
     $sqlFilterResumoTitular = "SELECT DISTINCT titularReceita, SUM(valorReceita) AS valorReceita, dataReceita FROM tbreceita WHERE dataReceita IN
     (    
-        SELECT dataReceita valorReceita FROM tbreceita WHERE DATE_FORMAT(dataReceita, '%m/%Y')='$hoje'
+        SELECT dataReceita valorReceita FROM tbreceita WHERE DATE_FORMAT(dataReceita, '%m/%Y')='$todayMonthYear'
     )
     GROUP BY titularReceita
     ";
@@ -12,7 +12,7 @@
     //FIM FILTER RESUMO TITULAR
 
     //INICIO FILTER SALDO MES ATUAL
-    $sqlFilterSaldoMesAtual = "SELECT dataReceita, SUM(valorReceita) AS valorReceita FROM tbreceita WHERE DATE_FORMAT(dataReceita, '%m/%Y')='$hoje'
+    $sqlFilterSaldoMesAtual = "SELECT dataReceita, SUM(valorReceita) AS valorReceita FROM tbreceita WHERE DATE_FORMAT(dataReceita, '%m/%Y')='$todayMonthYear'
     ";
     $qryFilterSaldoMesAtual = $operation->executarSQL($sqlFilterSaldoMesAtual);
 
@@ -22,7 +22,7 @@
     }//FIM FILTER SALDO MES ATUAL
 
     //INICIO FILTER DIVIDA MES ATUAL
-    $sqlFilterDividaMesAtual = "SELECT SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$hoje'
+    $sqlFilterDividaMesAtual = "SELECT SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear'
     ";
     
     $qryFilterDividaMesAtual = $operation->executarSQL($sqlFilterDividaMesAtual);
@@ -33,7 +33,7 @@
     }//FIM FILTER DIVIDA MES ATUAL
 
     //INICIO FILTER A PAGAR MES ATUAL
-    $sqlFilterAPagarMesAtual = "SELECT situacaoDespesaDescricao, SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$hoje' AND situacaoDespesaDescricao<>'pago'
+    $sqlFilterAPagarMesAtual = "SELECT situacaoDespesaDescricao, SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear' AND situacaoDespesaDescricao<>'pago'
     ";
     
     $qryFilterAPagarMesAtual = $operation->executarSQL($sqlFilterAPagarMesAtual);
@@ -44,7 +44,7 @@
     }//FIM FILTER A PAGAR MES ATUAL
 
     //INICIO FILTER TOTAL JA PAGO
-    $sqlFilterTotalJaPago = "SELECT situacaoDespesaDescricao, SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$hoje' AND situacaoDespesaDescricao='pago'
+    $sqlFilterTotalJaPago = "SELECT situacaoDespesaDescricao, SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear' AND situacaoDespesaDescricao='pago'
     ";
     
     $qryFilterTotalJaPago = $operation->executarSQL($sqlFilterTotalJaPago);

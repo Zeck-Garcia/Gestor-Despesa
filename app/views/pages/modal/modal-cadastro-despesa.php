@@ -63,7 +63,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                                     while($categoria = $operation->listar($qryCategoria)){
                                                                         ?>
-                                                                        <option value="<?= $categoria["idTipoDespesa"]?>"><?=$categoria["nomeCategoriaDespesa"];?></option>
+                                                                        <option value="<?= $categoria["nomeCategoriaDespesa"]?>"><?=$categoria["nomeCategoriaDespesa"];?></option>
                                                                     <?php }?>
                                                             </select>
                                                             <div class="valid-feedback">
@@ -105,7 +105,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                                             while($titular = $operation->listar($qryTitular)){
                                                                                 ?>
-                                                                                <option value="<?= $titular["idTitular"]?>"><?=$titular["nomeTitular"];?></option>
+                                                                                <option value="<?= $titular["nomeTitular"]?>"><?=$titular["nomeTitular"];?></option>
                                                                             <?php }?>
                                                                 </select>
                                                             </div>
@@ -121,7 +121,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                                             while($situacaoDespesa = $operation->listar($qrySituacaoDespesa)){
                                                                                 ?>
-                                                                                <option value="<?= $situacaoDespesa["idSituacaoDespesa"]?>"><?=$situacaoDespesa["nomeSituacaoDespesa"];?></option>
+                                                                                <option value="<?= $situacaoDespesa["nomeSituacaoDespesa"]?>"><?=$situacaoDespesa["nomeSituacaoDespesa"];?></option>
                                                                             <?php }?>
                                                                 </select>
                                                             </div>

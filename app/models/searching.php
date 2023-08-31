@@ -90,7 +90,7 @@ function searching(){
     $qry = $operation->executarSQL($sql);
 
     //SQL PARA O PAGINADOR
-    $totalResgistro = mysqli_num_rows($operation->executarSQL("SELECT $camposSelect FROM $tabela WHERE $camposWherePesquisaPrincipal $campoWhereAndPesquisa ORDER BY $orderBy $orderByType"));
+    $totalResgistro = mysqli_num_rows($operation->executarSQL("SELECT $camposSelect FROM $tabela $where $camposWherePesquisaPrincipal $campoWhereAndPesquisa ORDER BY $orderBy $orderByType"));
 
     $totalPage = ceil($totalResgistro / $quantidade);
 

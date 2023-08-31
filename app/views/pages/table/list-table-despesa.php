@@ -1,4 +1,6 @@
 <?php
+//TITLE PAGE
+$titleCabecalhoHeaderPage = "Lista de despesa";
 
 // if(isset($_POST["txtPesquisa"]) == 1){
 //     $_SESSION['txtPesquisaValue'] = $_POST["txtPesquisa"];
@@ -161,14 +163,13 @@ searching();
         <table class="table table-striped table-hover">
             <thead class="thead-dark text-center">
                 <tr class="">
-                    <th>ID</th>
                     <th>Despesa</th>
                     <th>Valor</th>
                     <th>Data de PGTO</th>
                     <th>Categoria</th>
                     <th>Titular</th>
                     <th>Situação</th>
-                    <th>Ação</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
                     
@@ -181,7 +182,6 @@ searching();
                     ?>
                     
                     <tr>
-                        <td><?=$dados['idDespesaDescricao']?></td>
                         <td><?=$dados['nomeDespesaDescricao']?></td>
                         <td><?=$moeda . number_format($dados['valorDespesaDescricao'], 2, ',', '.')?></td>
 
@@ -191,15 +191,11 @@ searching();
                         <td><?=$dados['titularDespesaDescricao']?></td>
                         <td><?=$dados['situacaoDespesaDescricao']?></td>
                         <td>
-                            <div class='input-group-prepend'>
-                                <button class='btn btn-outline-secondary dropdown-toggle' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Ação</button>
-                                
-                                <div class='dropdown-menu'>
-                                    <a class='dropdown-item' href='#'>Excluir</a>                                    
-                                    <div role='separator' class='dropdown-divider'></div>
-                                    <a class='dropdown-item btnShowModal' href='#'>Ver descrição</a>
-                                </div>
-                            </div>
+                            <a class="text-danger" href="">
+                <form class="" action="<?= $_SERVER["REQUEST_URI"]  . '&action=delete&id='. $dados['idDespesaDescricao']?>" method="get">
+                    <input type="text" value="<?= $dados['idDespesaDescricao']?>">
+                    <button class="btn btn-outline-warning"><i class="bi bi-trash3"></i></button>
+                </form>
                         </td>
                     </tr> 
                 <?php } ?>
@@ -224,15 +220,6 @@ searching();
 
 
     <?php
-
-
-$sqlA = "SELECT * FROM tbreceita ORDER BY idReceita ASC LIMIT 0, 5";
-
-$qryA = $operation->executarSQL($sqlA);
-
-while($ver = $operation->listar($qryA)){
-    echo $ver["idReceita"];
-}
 
             ?>
 

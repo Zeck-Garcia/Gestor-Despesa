@@ -1,25 +1,24 @@
 <?php
 
-
 ?>
 
-<div class="row bg-danger d-flex flex-row justify-content-between align-self-stretch">
+<div class=" d-flex flex-row bg-light justify-content-between shadow-sm text-muted">
 
-        <div class="col flex-grow-2">
-        <h3>Despesa</h3>
+        <div class="flex-grow-1 p-2">
+        <h3 class="font-italic"><?= $titleCabecalhoHeaderPage ?></h3>
         </div>
 
-        <div class="col bg-primary">
-        <p>data atual</p>
+        <div class=" p-2">
+        <p>Hoje - <?= $todaydate?></p>
         </div>
 
-        <div class="col">
-        <p>moeda</p>
+        <div class=" p-2">
+        <p>Moeda <?= $moeda?></p>
         </div>
 
-        <div class="col bg-primary">
+        <!-- <div class="shadow-none p-2">
         <strong> <?= $_SESSION["loginUser"]?></strong> <a href="#"><i class="bi bi-door-closed"></i></a>
-        </div>
+        </div> -->
 
 
 </div>

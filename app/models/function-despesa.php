@@ -57,7 +57,7 @@ function cadDespesaDescricao(){
     // $dataDespesa = strip_tags(isset($_POST["dataDespesa"]));
     
     $nomeDespesaDescricao = (strip_tags(isset($_POST["nomeDespesaDescricao"])) == "" ? "" : $_POST["nomeDespesaDescricao"]);
-    $valorDespesaDescricao = (strip_tags(isset($_POST["valorDespesaDescricao"])) == "" ? "" : $_POST["valorDespesaDescricao"]);
+    $valorDespesaDescricao = (strip_tags(isset($_POST["valorDespesaDescricao"])) == "" ? "" : str_replace(',', '.', $_POST["valorDespesaDescricao"]));
     $dataPagamentoDespesaDescricao = (strip_tags(isset($_POST["dataPagamentoDespesaDescricao"])) == "" ? "" : $_POST["dataPagamentoDespesaDescricao"]);
     $tipoDespesaDescricao = (strip_tags(isset($_POST["tipoDespesaDescricao"])) == "" ? "" : $_POST["tipoDespesaDescricao"]);
     $titularDespesaDescricao = (strip_tags(isset($_POST["titularDespesaDescricao"])) == "" ? "" : $_POST["titularDespesaDescricao"]);
