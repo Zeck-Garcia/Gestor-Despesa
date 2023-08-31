@@ -75,7 +75,7 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
                     <div class="dropdown nav-link"> 
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Despesas</a> 
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <li><a class="dropdown-item" href="#">Cadastrar</a></li> 
                             <li><a class="dropdown-item" href="#">Balanço</a></li> 
                             <li><a class="dropdown-item" href="index.php?page=list-despesa">Listar</a></li> 
                             <li> <hr class="dropdown-divider"> </li> 
@@ -118,8 +118,8 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
                         <li><a class="dropdown-item" href="index.php?page=list-tipo-situacao-despesa">Situação despesa</a></li>
                         <li><a class="dropdown-item" href="index.php?page=list-situacao-receita">Situação receita</a></li>
                         <li> <hr class="dropdown-divider"> </li> 
-                        <li><a class="dropdown-item" href="#">Tipo de despesa</a></li>
-                        <li><a class="dropdown-item" href="#">Tipo de receita</a></li>
+                        <li><a class="dropdown-item" href="#">Categoria de despesa</a></li>
+                        <li><a class="dropdown-item" href="#">Categoria de receita</a></li>
                         <li> <hr class="dropdown-divider"> </li> 
                         
                         <li><a class="dropdown-item" href="#">Configuração</a></li> 
