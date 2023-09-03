@@ -16,6 +16,12 @@ $url = $_SERVER["SCRIPT_NAME"] . "<br>"; ///www/agenda-02/index.php
 $url = $_SERVER["QUERY_STRING"] . "<br>"; //page=list-despesa
 $url = $_SERVER["REQUEST_URI"] . "<br>"; ///www/agenda-02/index.php?page=list-despesa
 
+//PEGA A URL ATUAL
+if(empty($_SESSION["urlEdit"])){
+    echo $_SESSION["urlEdit"] = $_SERVER["REQUEST_URI"];
+}
+
+
 include_once "app/models/searching.php";
 // include_once "app/models/filter.php";
 include_once "app/models/function-despesa.php";
@@ -163,6 +169,7 @@ searching();
         <table class="table table-striped table-hover">
             <thead class="thead-dark text-center">
                 <tr class="">
+                    <th>ID</th>
                     <th>Despesa</th>
                     <th>Valor</th>
                     <th>Data de PGTO</th>
@@ -182,6 +189,7 @@ searching();
                     ?>
                     
                     <tr>
+                        <td><?=$dados['idDespesaDescricao']?></td>
                         <td><?=$dados['nomeDespesaDescricao']?></td>
                         <td><?=$moeda . number_format($dados['valorDespesaDescricao'], 2, ',', '.')?></td>
 
@@ -192,9 +200,17 @@ searching();
                         <td><?=$dados['situacaoDespesaDescricao']?></td>
                         <td>
                             <a class="text-danger" href="">
-                <form class="" action="<?= $_SERVER["REQUEST_URI"]  . '&action=delete&id='. $dados['idDespesaDescricao']?>" method="get">
-                    <input type="text" value="<?= $dados['idDespesaDescricao']?>">
-                    <button class="btn btn-outline-warning"><i class="bi bi-trash3"></i></button>
+                <form class="teste" action="<?= "?{$_SERVER['QUERY_STRING']}&action=delete"; 
+                ?>" method="post" >
+
+                    <input type="text" name="id" value="<?= $dados['idDespesaDescricao']?>">
+                    <?php
+                        $tabela = "tbdespesadescricao";
+                        $valorNaTabela = "idDespesaDescricao";
+                        $valorPesquisa = isset($_POST["id"]) == "" ? "" : $_POST["id"];
+                        ?>
+                
+                    <button class="btn btn-outline-warning btnAcao" onsubmit="limparForm()"><i class="bi bi-trash3"></i></button>
                 </form>
                         </td>
                     </tr> 

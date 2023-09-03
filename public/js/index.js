@@ -41,13 +41,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // const btn = document.querySelector("#submit");
 
-    // const btnAcao = document.querySelectorAll(".btnAcao");
-    // for(var i = 0 ; i < btnAcao.length; i++){
-    //   btnAcao.addEventListener("click", function(e) {
-    //     e.preventDefault();
-    //   });
-    // };
+  //   btnAcao = document.getElementsByTagName("form");
+  //  for(var i = 0 ; i < btnAcao.length; i++){
+  //     btnAcao[i].addEventListener('submit', function(e) {
+  //       console.log('02')
+  //       // e.preventDefault();
+  //       console.log('01')
 
+  //     });
+  //   };
+
+    // function submitForm(event){
+    //   console.log('01')
+    //   event.preventDefault();
+    //   console.log('02')
+    //   window.history.back();
+    //   console.log('03')
+
+    // }
 
       let btnShowModalDespesa = document.querySelectorAll(".btnShowModal");
   
@@ -128,3 +139,24 @@ for(var i = 0 ; i < btnCloseModal.length; i++){
   });
 };
 
+
+//LIMPANDO DADOS DO FORM
+
+function limparForm(){
+    var elements = document.getElementsByTagName("input");
+    for (var i=0; i < elements.length; i++) {
+        if (elements[i].type == "text") {
+            elements[i].value = "";
+        } 
+        else if (elements[i].type == "radio"){
+            elements[i].checked = false;  
+        }
+        else if (elements[i].type == "checkbox"){
+            elements[i].checked = false;
+        }
+        else if (elements[i].type == "select") {
+            elements[i].selectedIndex = 0;
+        } 
+        console.log('03')
+    }
+}

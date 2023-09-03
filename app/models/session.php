@@ -18,3 +18,13 @@ if($loginUser == null || $passwordUser == null){
 } else {
     require_once "auth.php";
 }
+
+
+function verSession(){
+    if(empty(session_id())){
+        echo "sessao vazia";
+        // header('Location: ././login.php');
+        include_once "././login.php";
+        exit();
+    }
+}

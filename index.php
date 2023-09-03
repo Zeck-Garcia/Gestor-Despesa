@@ -14,16 +14,20 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
     session_unset();
     echo $msg_error = "não deu bom";
     // session_destroy();
-        
-    header('Location: ././login.php');
+    
+    if(empty(session_id())){
+    //     echo "sessao vazia";
+        header('Location: ././login.php');
+    // include_once "././login.php";
     exit();
+    }
 }
 
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
