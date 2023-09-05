@@ -4,7 +4,7 @@
     //FUNCTION
         include_once "app/models/function-receita.php";
         include_once "app/models/function-despesa.php";
-        include_once "app/models/searching.php";
+        // include_once "app/models/searching.php";
         include_once "app/models/config.php";
 
 

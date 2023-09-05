@@ -203,16 +203,8 @@ function deleteitemsDB(){
     $operation->setValorPesquisa($valorPesquisa);
 
     $operation->excluir();
+    // header("Location: {$_SESSION['urlEdit']}");
 
     echo $operation->getMsg();
-
-    echo $novo = $_SESSION["urlEdit"];
-
-    header("Location: {$_SESSION['urlEdit']}");
-
-    // echo $novo;
-
-
-
 
 }

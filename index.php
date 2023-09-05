@@ -7,18 +7,16 @@ include_once "app/models/manipulacaoDeDados.php";
 $operation = new manipulacaoDeDados();
 
 // $nomeUser = $_SESSION["loginUser"];
-$imgPerfil = $_SESSION["imgUser"];
 
-if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
+if(!$_SESSION["loginUser"] && !$_SESSION["passwordUser"]){
     echo "sessão apagada";
     session_unset();
     echo $msg_error = "não deu bom";
-    // session_destroy();
+    session_destroy();
     
     if(empty(session_id())){
     //     echo "sessao vazia";
         header('Location: ././login.php');
-    // include_once "././login.php";
     exit();
     }
 }
@@ -112,7 +110,7 @@ if(!$_SESSION["loginUser"] && !$_SESSION["imgUser"]){
             <hr> 
             <div class="dropdown"> 
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> 
-                    <img src="<?= $imgPerfil?>" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> <?= $_SESSION["loginUser"]?></strong> </a> 
+                    <img src="<?= $_SESSION["imgUser"]?>" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> <?= $_SESSION["loginUser"]?></strong> </a> 
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
                     
                         <li><a class="dropdown-item" href="#">Titular</a></li>

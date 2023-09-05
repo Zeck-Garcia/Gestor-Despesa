@@ -14,7 +14,7 @@ if(!empty(isset($_POST["txtPesquisa"]))){
 
 
 
-$txtPesquisa = $_SESSION["txtPesquisaValue"];
+$txtPesquisa = isset($_SESSION["txtPesquisaValue"]) == "" ? "" : $_SESSION["txtPesquisaValue"];
 
 function searching(){
     

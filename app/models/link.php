@@ -5,8 +5,8 @@
 // $desc = isset($_POST["action"]) == "" ? "" : $_POST["action"];
 
 $page = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
-$id = (isset($_GET["id"]) == "" ? "" : $_GET["id"]);
-$action = (isset($_GET["action"]) == "" ? "" : $_GET["action"]);
+$id = (isset($_POST["id"]) == "" ? "" : $_POST["id"]);
+$action = (isset($_POST["action"]) == "" ? "" : $_POST["action"]);
 
 // $page[1] = "app/views/pages/table/table-despesa.php";
 // $page[] = "app/views/pages/forms/form-despesa-descricao.php";
@@ -85,7 +85,6 @@ if(!empty($page)){
 if (!empty($action)) {
     switch($action){
         case "delete":
-            echo "teste";
             deleteitemsDB();
             break;
     }

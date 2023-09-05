@@ -145,6 +145,10 @@ for(var i = 0 ; i < btnCloseModal.length; i++){
 function limparForm(){
     var elements = document.getElementsByTagName("input");
     for (var i=0; i < elements.length; i++) {
+        if (elements[i].type == "hidden") {
+          elements[i].value = "";
+        } 
+
         if (elements[i].type == "text") {
             elements[i].value = "";
         } 

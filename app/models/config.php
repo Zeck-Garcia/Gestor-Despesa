@@ -7,6 +7,7 @@ $operation = new manipulacaoDeDados();
 //     echo $dados['moedaConfig'];
 // }
 
+//SELECIONAR A MOEDA PADRAO
 $sqlConfig = "SELECT moedaConfig FROM tbconfig";
         
 $qryConfig = $operation->executarSQL($sqlConfig); //1

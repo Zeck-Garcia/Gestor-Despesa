@@ -105,7 +105,7 @@
 										<p class=''>Registro excluido com sucesso</p>                
 								</div>
 								<div class='modal-footer'>
-									<button type='button' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</button>
+									<button class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</button>
 									<!-- <button type='button' class='btn btn-primary'>Salvar mudanças</button> -->
 								</div>
 							</div>
@@ -113,6 +113,8 @@
 					</div>
 				</div>
 				<div class='modal-backdrop show'></div>
+
+				
 
 			<script>
 				divModalBackdrop = document.querySelector('.modal-backdrop')
@@ -124,10 +126,12 @@
 					btnCloseModalMsgInBox[i].addEventListener('click', function(){
 						divmodalMsgInBox.parentNode.removeChild(divmodalMsgInBox)
 						divModalBackdrop.parentNode.removeChild(divModalBackdrop)
+						$('.table').load('index.php')
 					});
 				};
 			</script>
 				";
+		
 			}		
 		}
 

@@ -10,8 +10,8 @@
         
 <div class="row mt-3">
     <div class="col">    
-        <input class="form-control" type="text" name="txtPesquisa" value="<?= $_SESSION["txtPesquisaValue"]?>" placeholder="
-        <?=($txtPlaceholderPesquisar == "" ? "Digite sua pesquisa aqui!" : $txtPlaceholderPesquisar);?>">
+        <input class="form-control" type="text" name="txtPesquisa" value="<?= isset($_SESSION['txtPesquisaValue']) == '' ? '' : $_SESSION['txtPesquisaValue']?>" placeholder="
+        <?=(isset($txtPlaceholderPesquisar) == "" ? "Digite sua pesquisa aqui!" : $txtPlaceholderPesquisar);?>">
     </div>
     <div class="col">
 

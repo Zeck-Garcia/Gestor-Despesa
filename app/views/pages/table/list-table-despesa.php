@@ -200,17 +200,19 @@ searching();
                         <td><?=$dados['situacaoDespesaDescricao']?></td>
                         <td>
                             <a class="text-danger" href="">
-                <form class="teste" action="<?= "?{$_SERVER['QUERY_STRING']}&action=delete"; 
-                ?>" method="post" >
+                <form class="teste" action="" method="post" >
+                <!-- "?{$_SERVER['QUERY_STRING']}&action=delete";  -->
+                
 
-                    <input type="text" name="id" value="<?= $dados['idDespesaDescricao']?>">
+                <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="id" value="<?= $dados['idDespesaDescricao']?>">
                     <?php
                         $tabela = "tbdespesadescricao";
                         $valorNaTabela = "idDespesaDescricao";
                         $valorPesquisa = isset($_POST["id"]) == "" ? "" : $_POST["id"];
                         ?>
                 
-                    <button class="btn btn-outline-warning btnAcao" onsubmit="limparForm()"><i class="bi bi-trash3"></i></button>
+                    <button class="btn btn-outline-danger btnAcao" onsubmit="limparForm()"><i class="bi bi-trash3"></i></button>
                 </form>
                         </td>
                     </tr> 
@@ -234,8 +236,10 @@ searching();
         </div>
     </div>
 
+<input type="submit" value="aqui" class="casa">
 
     <?php
+
 
             ?>
 
