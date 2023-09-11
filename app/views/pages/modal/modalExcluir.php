@@ -13,13 +13,13 @@
 										<p class=''>Tem certeza que deseja excluir o registro atual?</p>                
 								</div>
 								<div class='modal-footer'>
-									<a href="http://localhost/www/agenda-02/index.php?page=list-situacao-receita" class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</a>
+									<a href="<?= $urlPageAtual;?>" class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</a>
 									<!-- <a href="" class='btn btn-primary'>Excluir</a> -->
 
                                     <form method="post" action="">
 
                                     <input type="hidden" name="qtdEnvio" value="<?php if($_GET["action"] == "deleted"){ echo $i = 1; } else { echo $i = 0;}?>">
-									    <a  href="http://localhost/www/agenda-02/index.php?page=list-situacao-receita&action=deleted&id=<?= $_GET['id']?>" class='btn btn-primary'>Excluir</a>
+									    <a  href="<?=$urlPageAtual . "&action=deleted&id=". $_GET['id'];?>" class='btn btn-primary'>Excluir</a>
 
                                     </form>
 								</div>

@@ -10,6 +10,7 @@
 		protected $msg;
 		protected $valorNaTabela;
 		protected $valorPesquisa;
+		protected $urlPageAtual;
 		
 		public function getSql()
 		{
@@ -41,6 +42,9 @@
 		}
 		public function inserir()
 		{
+
+			global $urlPageAtual;
+
 			$this->sql = "INSERT INTO $this->tabela ($this->campos) VALUES ($this->dados)";
 			if($this->executarSQL($this->sql))
 			{
@@ -60,7 +64,7 @@
 									<p class=''>Registro cadastrado com sucesso</p>                
 							</div>
 							<div class='modal-footer'>
-								<button type='button' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</button>
+								<a href='$urlPageAtual' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</a>
 								<!-- <button type='button' class='btn btn-primary'>Salvar mudanças</button> -->
 							</div>
 						</div>
@@ -73,6 +77,9 @@
 		}
 		public function excluir()
 		{
+
+			global $urlPageAtual;
+
 			$this->sql = "DELETE FROM $this->tabela WHERE $this->valorNaTabela = $this->valorPesquisa";
 			if($this->executarSQL($this->sql))
 			{
@@ -91,7 +98,7 @@
 									<p class=''>Registro excluido com sucesso</p>                
 							</div>
 							<div class='modal-footer'>
-								<a href='http://localhost/www/agenda-02/index.php?page=list-situacao-receita' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</a>
+								<a href='$urlPageAtual' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</a>
 								<!-- <button type='button' class='btn btn-primary'>Salvar mudanças</button> -->
 							</div>
 						</div>
@@ -106,6 +113,8 @@
 
 		public function alterar()
 		{
+			global $urlPageAtual;
+
 		// $sql = "UPDATE tabela set campos WHERE valorNaTabela = valorpesquisa ";
 			$this->sql = "UPDATE $this->tabela SET $this->campos WHERE $this->valorNaTabela = $this->valorPesquisa";
 			if($this->executarSQL($this->sql))
@@ -125,7 +134,7 @@
 									<p class=''>Registro alterado com sucesso</p>                
 							</div>
 							<div class='modal-footer'>
-								<button type='button' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</button>
+								<a  href='$urlPageAtual' class='btn btn-secondary btnCloseModalMsgInBox' data-dismiss='modal'>Fechar</a>
 								<!-- <button type='button' class='btn btn-primary'>Salvar mudanças</button> -->
 							</div>
 						</div>

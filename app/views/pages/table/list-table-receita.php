@@ -100,7 +100,6 @@ searching();
                                 <?php
                                     $tabela = "tbreceita";
                                     $valorNaTabela = "idReceita";
-                                    $valorPesquisa = isset($_POST["id"]) == "" ? "" : $_POST["id"];
                                     ?>
                             
                                 <button class="btn btn-outline-danger btnAcao" onsubmit="limparForm()"><i class="bi bi-trash3"></i></button>

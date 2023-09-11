@@ -75,7 +75,7 @@
                                 $valorNaTabela = "idSituacaoReceita";
                             ?>
                             <!-- <input type="submit" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i>  -->
-                            <a href="<?="index.php?page=list-situacao-receita&action=delete&id=" . $dados["idSituacaoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i></a>
+                            <a href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idSituacaoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i></a>
 
                         </td>
                     </tr>
