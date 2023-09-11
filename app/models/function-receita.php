@@ -20,8 +20,7 @@ function salveSituacaoReceita(){
     $operation->inserir();
 
     echo $operation->getMsg();
-    
-    
+
 }
 
 function salveCadastroReceita(){
@@ -53,7 +52,6 @@ function salveCadastroReceita(){
     $operation->inserir();
 
     echo $operation->getMsg();
-
 }
 
 ?>

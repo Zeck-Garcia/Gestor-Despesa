@@ -1,8 +1,3 @@
-<?php
-
-?>
-
-
 <form action="" method="post">
 
 <label class="" for="">Valor total</label>

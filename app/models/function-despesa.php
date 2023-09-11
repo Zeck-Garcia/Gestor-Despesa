@@ -188,23 +188,4 @@ function salveSituacaoDespesa(){
     
 }
 
-function deleteitemsDB(){
-    
-    global $operation;
-
-    global $tabela;
-    global $valorNaTabela;
-    global $valorPesquisa;
-
-    $operation->setTabela($tabela);
-
-    $operation->setValorNaTabela($valorNaTabela);
-
-    $operation->setValorPesquisa($valorPesquisa);
-
-    $operation->excluir();
-    // header("Location: {$_SESSION['urlEdit']}");
-
-    echo $operation->getMsg();
-
-}
+?>

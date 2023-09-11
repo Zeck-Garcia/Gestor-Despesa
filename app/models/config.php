@@ -28,7 +28,7 @@ $todayMonthYear = date("m/Y");
 // $dateTimeServer = time
 
 
-$urlCompletaAtual = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/')+1);
+$urlCompletaAtual = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/index.php')+1);
 
 $urlSimples = $_SERVER["SCRIPT_NAME"];
 
@@ -289,3 +289,5 @@ $listOfTimeZones = [
 //          "$key2 => {$value2} <br>";
 //     }
 // };
+
+?>

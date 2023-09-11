@@ -8,7 +8,7 @@ if($loginUser == null || $passwordUser == null){
     // echo "<script>window.location.href='./app/views/login.php'</script>";
 
     // header('Location: ././teste.php');
-    header('Location: link.php?page=login');
+    // header('Location: link.php?page=login');
 
 
     echo $msg_error = "não deu bom";
@@ -28,3 +28,5 @@ function verSession(){
         exit();
     }
 }
+
+?>

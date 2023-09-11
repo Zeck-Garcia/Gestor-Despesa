@@ -26,15 +26,17 @@ $linha = mysqli_num_rows($qry);
         
         echo "login feito";
         
-        header('Location: ././index.php?page=list-despesa');
+        // header('Location: ././index.php?page=list-despesa');
     } else {
 
         echo "sessão apagada";
         session_unset();
-        echo $msg_error = "não deu bom";
+        // echo $msg_error = "não deu bom";
         // session_destroy();
             
-        header('Location: ././login.php');
+        // header('Location: ././login.php');
         exit();
 
     }
+
+    ?>

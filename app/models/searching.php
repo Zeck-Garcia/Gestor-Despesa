@@ -1,14 +1,14 @@
 <?php
-include_once "app/models/manipulacaoDeDados.php";
+// include_once "app/models/manipulacaoDeDados.php";
 
-$operation = new manipulacaoDeDados();
+// $operation = new manipulacaoDeDados();
 
 if(!empty(isset($_POST["txtPesquisa"]))){
 
     if(isset($_POST["txtPesquisa"])){
         $_SESSION["txtPesquisaValue"] = $_POST["txtPesquisa"];
         $_GET["pagina"] = 1;
-        header("Location: {$_SERVER['SCRIPT_NAME']}?{$_SESSION['urlSearchStart']}");
+        // header("Location: {$_SERVER['SCRIPT_NAME']}?{$_SESSION['urlSearchStart']}");
     }
 }
 
@@ -35,6 +35,7 @@ function searching(){
     global $totalPage;
     global $pageSearchStart;
     global $campoWhereAndPesquisa;
+    global $sqlSelect;
 
     $pageSearchStart = (isset($_GET["pagina"]) == "" ? 1 : $_GET["pagina"]);
 
@@ -50,23 +51,18 @@ function searching(){
     } else {
         $inicio = ($quantidade * $pageSearchStart) - $quantidade;
     }
-    $txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'";
+    // $txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'";
 
-    $where = ($camposWherePesquisaPrincipal == "" ? "" : "WHERE");
+    // $where = ($camposWherePesquisaPrincipal == "" ? "" : "WHERE");
     
-    $camposWherePesquisaPrincipal = ($camposWherePesquisaPrincipal == "" ? "" : "$camposWherePesquisaPrincipal");
+    // $camposWherePesquisaPrincipal = ($camposWherePesquisaPrincipal == "" ? "" : "$camposWherePesquisaPrincipal");
     
-    $campoWhereAndPesquisa = ($txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'");
+    // $campoWhereAndPesquisa = ($txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'");
     
-    $camposPesquisaAdd = ($txtPesquisa = "" ? "" : $camposPesquisaAdd);
+    // $camposPesquisaAdd = ($txtPesquisa = "" ? "" : $camposPesquisaAdd);
     
-        $sql = "SELECT 
-                $camposSelect
-                FROM 
-                $tabela
-                $where
-                $camposWherePesquisaPrincipal
-                $campoWhereAndPesquisa
+
+        $sql = "$sqlSelect
 
                 ORDER BY
                 $orderBy $orderByType
@@ -76,24 +72,12 @@ function searching(){
 
                 // $campoWhereAndPesquisa;
 
-    //SQL DE BUSCA
-//    $sql = "SELECT $camposSelect FROM $tabela 
-//     WHERE 
-//         $camposWherePesquisaPrincipal='$txtPesquisa'
-//         $camposPesquisaAdd
-//         ORDER BY 
-//         $orderBy $orderByType
-
-//         LIMIT $inicio, $quantidade
-//     ";
-
     $qry = $operation->executarSQL($sql);
 
     //SQL PARA O PAGINADOR
-    $totalResgistro = mysqli_num_rows($operation->executarSQL("SELECT $camposSelect FROM $tabela $where $camposWherePesquisaPrincipal $campoWhereAndPesquisa ORDER BY $orderBy $orderByType"));
+    $totalResgistro = mysqli_num_rows($operation->executarSQL("$sqlSelect"));
 
     $totalPage = ceil($totalResgistro / $quantidade);
-
 
 
     if(!$totalResgistro){
@@ -121,20 +105,9 @@ function searching(){
 					</div>
 					<div class='modal-backdrop show'></div>
 
-				<script>
-					divModalBackdrop = document.querySelector('.modal-backdrop')
-					divmodalMsgInBox = document.querySelector('.modalMsgInBox')
-					
-					btnCloseModalMsgInBox = document.querySelectorAll('.btnCloseModalMsgInBox');
-
-					for(var i = 0 ; i < btnCloseModalMsgInBox.length; i++){
-						btnCloseModalMsgInBox[i].addEventListener('click', function(){
-							divmodalMsgInBox.parentNode.removeChild(divmodalMsgInBox)
-							divModalBackdrop.parentNode.removeChild(divModalBackdrop)
-						});
-					};
-				</script>
         ";
     }
 
 }
+
+?>

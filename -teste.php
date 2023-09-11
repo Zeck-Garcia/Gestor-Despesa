@@ -1,6 +1,17 @@
 <?php
 
-echo "teste";
+include_once "app/models/manipulacaoDeDados.php";
+$operation = new manipulacaoDeDados();
+
+echo "teste<br><br>";
+
+$sqlteste = "SELECT * FROM tbsituacaodespesa WHERE nomeSituacaoDespesa<>''";
+
+$qryteste = $operation->executarSQL($sqlteste);
+
+while($ver = $operation->listar($qryteste)){
+  echo $ver["nomeSituacaoDespesa"] . "<br>";
+}
 
 ?>
 

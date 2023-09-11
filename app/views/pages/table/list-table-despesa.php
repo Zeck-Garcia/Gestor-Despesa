@@ -1,6 +1,6 @@
 <?php
 //TITLE PAGE
-$titleCabecalhoHeaderPage = "Lista de despesa";
+
 
 // if(isset($_POST["txtPesquisa"]) == 1){
 //     $_SESSION['txtPesquisaValue'] = $_POST["txtPesquisa"];
@@ -28,12 +28,14 @@ include_once "app/models/function-despesa.php";
 
 //SEARCH TABLE
 $txtPlaceholderPesquisar = "Inicie sua busca!";
-// echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
-$camposSelect = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
-$tabela = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
-$camposWherePesquisaPrincipal = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
-$campoWhereAndPesquisa =  "nomeDespesaDescricao"; //tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
+echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
+// $camposSelect = "tbtipodespesa.idTipoDespesa, tbtipodespesa.nomeCategoriaDespesa, tbdespesadescricao.idDespesaDescricao, tbdespesadescricao.nomeDespesaDescricao,  tbdespesadescricao.valorDespesaDescricao, tbdespesadescricao.dataPagamentoDespesaDescricao, tbdespesadescricao.tipoDespesaDescricao, tbdespesadescricao.titularDespesaDescricao, tbdespesadescricao.situacaoDespesaDescricao"; //campo principal a ser pesquisado 
+// $tabela = "tbtipodespesa JOIN tbdespesadescricao"; //nome da tabela a ser pesquisado
+// $camposWherePesquisaPrincipal = "tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao"; //filtro para exibir um campo da busca
+// $campoWhereAndPesquisa =  "nomeDespesaDescricao"; //tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
 // $camposPesquisaAdd = "OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //"OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
+
+$sqlSelect = "SELECT* FROM tbdespesadescricao WHERE nomeDespesaDescricao='{$_SESSION['txtPesquisaValue']}' OR tipoDespesaDescricao LIKE '%{$_SESSION['txtPesquisaValue']}%'";
 
 $orderBy = "idDespesaDescricao"; //campo que será feita a ordem
 $orderByType = "ASC"; //ASC DESC
@@ -57,9 +59,10 @@ searching();
 
     // $qry = $operation->executarSQL($sql);
 
-?>
-    <?php 
+
+        $titleCabecalhoHeaderPage = "Lista de despesa";
         include_once "app/views/pages/header/header.php";
+        
         include_once "app/views/pages/search/search.php";
     ?>
 
@@ -169,7 +172,6 @@ searching();
         <table class="table table-striped table-hover">
             <thead class="thead-dark text-center">
                 <tr class="">
-                    <th>ID</th>
                     <th>Despesa</th>
                     <th>Valor</th>
                     <th>Data de PGTO</th>
@@ -185,17 +187,15 @@ searching();
                 while($dados = $operation->listar($qry))
                 {
                     $date = new DateTime($dados["dataPagamentoDespesaDescricao"]); 
-                    $date->format("d/m/Y");
                     ?>
                     
                     <tr>
-                        <td><?=$dados['idDespesaDescricao']?></td>
                         <td><?=$dados['nomeDespesaDescricao']?></td>
                         <td><?=$moeda . number_format($dados['valorDespesaDescricao'], 2, ',', '.')?></td>
 
                         <td><?=$date->format("d/m/Y")?></td> 
 
-                        <td><?=$dados['nomeCategoriaDespesa']?></td>
+                        <td><?=$dados['tipoDespesaDescricao']?></td>
                         <td><?=$dados['titularDespesaDescricao']?></td>
                         <td><?=$dados['situacaoDespesaDescricao']?></td>
                         <td>
@@ -232,15 +232,8 @@ searching();
         </div>
         
         <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
-            <?= include_once "app/views/pages/modal/modal-cadastro-despesa.php"?>
+            <?php include_once "app/views/pages/modal/modal-cadastro-despesa.php"; ?>
         </div>
     </div>
-
-<input type="submit" value="aqui" class="casa">
-
-    <?php
-
-
-            ?>
 
 

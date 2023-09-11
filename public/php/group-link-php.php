@@ -2,6 +2,7 @@
 
 //MODAL
     //FUNCTION
+        include_once "app/models/function.php";
         include_once "app/models/function-receita.php";
         include_once "app/models/function-despesa.php";
         // include_once "app/models/searching.php";
@@ -16,3 +17,4 @@
 // include_once "app/views/pages/forms/tipo-situacao-receita.php";
 // include_once "../../login.php";
 
+?>

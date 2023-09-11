@@ -1,43 +1,19 @@
 <?php
-
 // $link = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
 
 // $desc = isset($_POST["action"]) == "" ? "" : $_POST["action"];
 
 $page = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
-$id = (isset($_POST["id"]) == "" ? "" : $_POST["id"]);
-$action = (isset($_POST["action"]) == "" ? "" : $_POST["action"]);
+$id = (isset($_GET["id"]) == "" ? "" : $_GET["id"]);
+$action = (isset($_GET["action"]) == "" ? "" : $_GET["action"]);
 
-// $page[1] = "app/views/pages/table/table-despesa.php";
-// $page[] = "app/views/pages/forms/form-despesa-descricao.php";
-// $page["cadastroDespesa"] = "app/views/pages/forms/form-despesa-descricao.php";
-
-// $page["cadastro"] = "app/models/filter.php";
-
-// $page["index.php?page=1&action=cadastro"] =  "app/models/filter.php";
-
-// $desc["cadastroDespesa"] = "app/models/filter.php";
-
-// if(!empty($link)){
-//     if(file_exists($page[$link])){
-//         include_once $page[$link];
-//     } else {
-//         include_once "index.php";
-//     }
-// } else {
-//     include_once "index.php";
-// }
+$statusAction = isset($_GET["statusAction"]) == "" ? "" : $_GET["statusAction"];
 
 if(!empty($page)){
         switch($page){
             case "list-despesa":
                 include_once "app/views/pages/table/list-table-despesa.php";
             break;
-
-            // case "a-cadastro-despesa":
-                // include_once "app/views/pages/forms/form-despesa-descricao.php";
-            // break;
-
 
             case "a-inserir-cadastro-despesa":
                 include_once "app/models/filter.php";
@@ -56,12 +32,17 @@ if(!empty($page)){
                 include_once "../../login.php";
             break;
 
-            case "list-tipo-situacao-despesa";
+            case "list-situacao-despesa";
                 include_once "app/views/pages/table/list-tipo-situacao-despesa.php";
             break;
 
             case "list-situacao-receita";
             include_once "app/views/pages/table/list-tipo-situacao-receita.php";
+            break;
+
+            case "a-inserir-cadastro-situacao-receita";
+            include_once "app/views/pages/table/list-tipo-situacao-receita.php";
+                salveSituacaoReceita();
             break;
 
 
@@ -78,14 +59,32 @@ if(!empty($page)){
                 break;
         }
 
+        
 } else {
     echo "pagina não encontrada";
 }
 
+
+
 if (!empty($action)) {
     switch($action){
         case "delete":
+            include_once 'app/views/pages/modal/modalExcluir.php';
+            break;
+
+            case "deleted":
             deleteitemsDB();
             break;
+
     }
 }
+
+// if (!empty($statusAction)) {
+//     switch($statusAction){
+//         case "a-inserir-cadastro-situacao-receita":
+//             salveSituacaoReceita();
+//             break;
+//     }
+// }
+
+?>

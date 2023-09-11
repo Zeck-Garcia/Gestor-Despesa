@@ -20,16 +20,18 @@ include_once "app/models/function-despesa.php";
 
 //SEARCH TABLE
 $txtPlaceholderPesquisar = "Inicie sua busca!";
-// echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
-$camposSelect = "*"; //campo principal a ser pesquisado 
-$tabela = "tbreceita"; //nome da tabela a ser pesquisado
-$camposWherePesquisaPrincipal = "idReceita"; //filtro para exibir um campo da busca
-$campoWhereAndPesquisa =  "titularReceita"; //tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
+echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
+// $camposSelect = "*"; //campo principal a ser pesquisado 
+// $tabela = "tbreceita"; //nome da tabela a ser pesquisado
+// $camposWherePesquisaPrincipal = "idReceita"; //filtro para exibir um campo da busca
+// $campoWhereAndPesquisa =  "titularReceita"; //tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
 // $camposPesquisaAdd = "OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //"OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
+
+$sqlSelect = "SELECT * FROM  tbreceita WHERE titularReceita='{$_SESSION['txtPesquisaValue']}' OR categoriaReceita LIKE '%{$_SESSION['txtPesquisaValue']}%'";
 
 $orderBy = "dataReceita"; //campo que será feita a ordem
 $orderByType = "ASC"; //ASC DESC
-$quantidade = "5"; //qtd de registro a ser exibido por busca
+$quantidade = "7"; //qtd de registro a ser exibido por busca
 
 searching();
 
@@ -50,8 +52,7 @@ searching();
     // $qry = $operation->executarSQL($sql);
 
 
-?>
-    <?php 
+
         include_once "app/views/pages/search/search.php";
     ?>
 
@@ -89,7 +90,21 @@ searching();
                         
                         <td><?=$dados['situacaoReceita']?></td>
                         <td>
-                        <a class="text-danger" href=""><i class="bi bi-trash3"></i></a>
+                            <a class="text-danger" href="">
+                            <form class="" action="" method="post" >
+                            <!-- "?{$_SERVER['QUERY_STRING']}&action=delete";  -->
+                            
+
+                            <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="id" value="<?= $dados['idReceita']?>">
+                                <?php
+                                    $tabela = "tbreceita";
+                                    $valorNaTabela = "idReceita";
+                                    $valorPesquisa = isset($_POST["id"]) == "" ? "" : $_POST["id"];
+                                    ?>
+                            
+                                <button class="btn btn-outline-danger btnAcao" onsubmit="limparForm()"><i class="bi bi-trash3"></i></button>
+                            </form>
                         </td>
                     </tr> 
                 <?php } ?>
@@ -108,14 +123,9 @@ searching();
         </div>
         
         <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
-            <?= include_once "app/views/pages/modal/modal-cadastro-receita.php"?>
+            <?php include_once "app/views/pages/modal/modal-cadastro-receita.php"; ?>
         </div>
     </div>
 
-
-    <?php
-
-
-            ?>
 
 
