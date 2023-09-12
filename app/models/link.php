@@ -76,15 +76,20 @@ if (!empty($action)) {
             deleteitemsDB();
             break;
 
+            case "caddespesa":
+                include_once "app/views/pages/modal/modal-cadastro-despesa.php";
+                // include_once 'app/views/pages/modal/modalExcluir.php';
+                break;
+
+            case "caddespesasalve":
+                if(searchDateRecord()){
+                    echo "01";
+                }
+
+                break;
+
     }
 }
 
-// if (!empty($statusAction)) {
-//     switch($statusAction){
-//         case "a-inserir-cadastro-situacao-receita":
-//             salveSituacaoReceita();
-//             break;
-//     }
-// }
 
 ?>

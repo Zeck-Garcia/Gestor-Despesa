@@ -1,6 +1,6 @@
 <?php
 //TITLE PAGE
-
+$urlPageAtual = "index.php?page=list-despesa" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
 
 // if(isset($_POST["txtPesquisa"]) == 1){
 //     $_SESSION['txtPesquisaValue'] = $_POST["txtPesquisa"];
@@ -199,21 +199,22 @@ searching();
                         <td><?=$dados['titularDespesaDescricao']?></td>
                         <td><?=$dados['situacaoDespesaDescricao']?></td>
                         <td>
-                            <a class="text-danger" href="">
-                <form class="teste" action="" method="post" >
-                <!-- "?{$_SERVER['QUERY_STRING']}&action=delete";  -->
-                
 
-                <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="id" value="<?= $dados['idDespesaDescricao']?>">
-                    <?php
-                        $tabela = "tbdespesadescricao";
-                        $valorNaTabela = "idDespesaDescricao";
-                        $valorPesquisa = isset($_POST["id"]) == "" ? "" : $_POST["id"];
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=edit&id=" . $dados["idDespesaDescricao"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Alterar</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idDespesaDescricao"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Excluir</a>
+                            </div>
+                            </div>
+                
+                        <?php
+                            $tabela = "tbdespesadescricao";
+                            $valorNaTabela = "idDespesaDescricao";
                         ?>
                 
-                    <button class="btn btn-outline-danger btnAcao" onsubmit="limparForm()"><i class="bi bi-trash3"></i></button>
-                </form>
                         </td>
                     </tr> 
                 <?php } ?>
@@ -228,12 +229,12 @@ searching();
 
     <div class="row">
         <div class="col">
-            <button id="btnShowModal" class="btnShowModal btn btn-primary" onclick="updateUrl('<?php $statusActionModal = 'new'; echo 'index.php?'.$_SERVER['QUERY_STRING'].'&action='.$statusActionModal?>')">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
+            <a href="<?= $urlPageAtual."&action=caddespesa"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
         </div>
         
-        <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
-            <?php include_once "app/views/pages/modal/modal-cadastro-despesa.php"; ?>
-        </div>
+        <!-- <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
+            <?php //include_once "app/views/pages/modal/modal-cadastro-despesa.php"; ?>
+        </div> -->
     </div>
 
 

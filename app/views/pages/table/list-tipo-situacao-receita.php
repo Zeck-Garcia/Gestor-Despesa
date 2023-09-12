@@ -1,5 +1,7 @@
 <?php
-    $urlPageAtual = "index.php?page=list-situacao-receita";
+    $urlPageAtual = "index.php?page=list-situacao-receita" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+
+    echo isset($_GET["pagina"]) == "" ? "" : "&pagina=".$_GET["pagina"];
     
     //CONEXAO COM O FILE SEARCHIG PARA REALIZAÇÃO DE CONSULTA, 
     include_once "app/models/searching.php";
@@ -7,16 +9,10 @@
     include_once "app/models/manipulacaoDeDados.php";
     $operation = new manipulacaoDeDados();
 
-    // include_once "app/models/function-despesa.php";
-
     $pageative = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
     $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "");
     
-    $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
-    // $tabela = "tbsituacaoreceita"; //nome da tabela a ser pesquisado
-    // $camposSelect = "*"; //campo principal a ser pesquisado 
-    // $camposWherePesquisaPrincipal = "idSituacaoReceita"; //filtro para exibir um campo da busca
-    // $camposPesquisaAdd = "OR nomeSituacaoReceita LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
+    $txtPesquisa = "";
 
     $sqlSelect = "SELECT * FROM  tbsituacaoreceita";
 
@@ -25,7 +21,6 @@
     $quantidade = "5"; //qtd de registro a ser exibido por busca
     
     searching();
-
 
     if($pageative == "a-cadastro-situacao-receita"){
        $dados['nomeSituacaoReceita'] = "";
@@ -38,7 +33,6 @@
         echo $dados["nomeSituacaoReceita"];
 
     } else if($pageative == "a-excluir-cadastro-despesa"){
-
 
     }
     ?>
@@ -70,11 +64,17 @@
                         <td><?= $dados["idSituacaoReceita"]?></td>
                         <td><?= $dados["nomeSituacaoReceita"]?></td>
                         <td>
+                            <!-- <div class="dropdown nav-link"> 
+                                <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Ação</a> 
+                                <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1"> 
+                                    <li><a class="dropdown-item" href="<?=$urlPageAtual . "&action=edit&id=" . $dados["idSituacaoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Alterar</a></li> 
+                                    <li><a class="dropdown-item" href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idSituacaoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Excluir</a></li>  
+                                </ul> 
+                            </div> -->
                             <?php
                                 $tabela = "tbsituacaoreceita";
                                 $valorNaTabela = "idSituacaoReceita";
                             ?>
-                            <!-- <input type="submit" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i>  -->
                             <a href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idSituacaoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i></a>
 
                         </td>
@@ -99,7 +99,3 @@
 
     ?>
 </div>
-
-<!-- <div class="modal modalMsgInBox" tabindex="-1" role="dialog">
-    <?php //include_once "app/views/pages/modal/modalExcluir.php";?>
-</div> -->

@@ -1,6 +1,7 @@
                 <div class='modal modalMsgInBox show' tabindex='-1' style='display: block;' aria-modal='true' role='dialog'>        
 					<div class='modal-dialog' role='document'>
 						<div class='modal-content'>
+
 							<div class='modal-fluid'>
 								<div class='modal-header alert alert-danger'>
 									<h5 class='modal-title alert-heading'>Excluindo</h5>
@@ -24,6 +25,7 @@
                                     </form>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
