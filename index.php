@@ -119,8 +119,8 @@ if(!session_start()){
                         <li><a class="dropdown-item" href="index.php?page=list-situacao-despesa">Situação despesa</a></li>
                         <li><a class="dropdown-item" href="index.php?page=list-situacao-receita">Situação receita</a></li>
                         <li> <hr class="dropdown-divider"> </li> 
-                        <li><a class="dropdown-item" href="#">Categoria de despesa</a></li>
-                        <li><a class="dropdown-item" href="#">Categoria de receita</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=list-categoria-despesa">Categoria de despesa</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=list-categoria-receita">Categoria de receita</a></li>
                         <li> <hr class="dropdown-divider"> </li> 
                         
                         <li><a class="dropdown-item" href="#">Configuração</a></li> 

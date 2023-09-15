@@ -57,13 +57,20 @@ if(!empty($page)){
             case "list-receita":
                 include_once "app/views/pages/table/list-table-receita.php";
                 break;
+
+            case "list-categoria-despesa":
+                include_once "app/views/pages/table/list-categoria-despesa.php";
+                break;
+
+            case "list-categoria-receita":
+                include_once "app/views/pages/table/list-categoria-receita.php";
+                break;
         }
 
         
 } else {
     echo "pagina não encontrada";
 }
-
 
 
 if (!empty($action)) {
@@ -82,11 +89,40 @@ if (!empty($action)) {
                 break;
 
             case "caddespesasalve":
-                if(searchDateRecord()){
+                    searchDateRecord();
+                echo "04";
+                if($idDespesaPOST){
+                    cadDespesaDescricao();
+                    echo "02";
+                } else {
+                    cadDespesa();
+                    searchDateRecord();
+                    cadDespesaDescricao();
                     echo "01";
                 }
+                break;
+
+            case "editdespesa":
+                include_once "app/views/pages/modal/modal-cadastro-despesa.php";
 
                 break;
+
+            case "editeddespesa":
+                // include_once "app/views/pages/modal/modal-cadastro-despesa.php";
+                
+                break;
+
+            case "salvecategoriareceita":
+                // include_once "app/views/pages/modal/modal-categoria-cadastro-receita.php";
+                echo "01";
+                break;
+            
+            case "cadcategoriareceita":
+                include_once "app/views/pages/modal/modal-categoria-cadastro-receita.php";
+
+                break; 
+
+                
 
     }
 }

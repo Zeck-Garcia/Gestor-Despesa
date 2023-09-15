@@ -20,7 +20,7 @@
                                     <form method="post" action="">
 
                                     <input type="hidden" name="qtdEnvio" value="<?php if($_GET["action"] == "deleted"){ echo $i = 1; } else { echo $i = 0;}?>">
-									    <a  href="<?=$urlPageAtual . "&action=deleted&id=". $_GET['id'];?>" class='btn btn-primary'>Excluir</a>
+									    <a  href="<?=$urlPageAtual . "&action=deleted&id=". $_GET['id'];?>" class='btn btn-danger'>Excluir</a>
 
                                     </form>
 								</div>

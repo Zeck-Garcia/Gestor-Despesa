@@ -204,7 +204,7 @@ searching();
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=edit&id=" . $dados["idDespesaDescricao"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Alterar</a>
+                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=editdespesa&id=" . $dados["idDespesaDescricao"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Alterar</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idDespesaDescricao"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Excluir</a>
                             </div>

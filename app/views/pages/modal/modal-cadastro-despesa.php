@@ -1,9 +1,32 @@
 <?php
 
-//ACTION CAD
-
 $pageative = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
-$id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
+$id = (isset($_GET["id"]) != "" ? $_GET["id"] : "");
+$action = (isset($_GET["action"]) == "" ? "" : $_GET["action"]);
+
+if($action == "editdespesa"){
+
+    $sqlEditDespesa = "SELECT * FROM tbdespesadescricao WHERE idDespesaDescricao='$id'";
+    $qryEditDespesa = $operation->executarSQL($sqlEditDespesa);
+
+    while($ver = $operation->listar($qryEditDespesa)){
+        $ver["nomeDespesaDescricao"];
+        $nomeDespesaDescricao = $ver["nomeDespesaDescricao"];
+        $valorDespesaDescricao = str_replace(".", ",", $ver["valorDespesaDescricao"]);
+        $dataPagamentoDespesaDescricao = $ver["dataPagamentoDespesaDescricao"];
+        $tipoDespesaDescricao = $ver["tipoDespesaDescricao"];
+        $titularDespesaDescricao = $ver["titularDespesaDescricao"];
+        $situacaoDespesaDescricao = $ver["situacaoDespesaDescricao"];
+    }
+
+} else {
+    $nomeDespesaDescricao = "";
+    $valorDespesaDescricao = "";
+    $dataPagamentoDespesaDescricao = "";
+    $tipoDespesaDescricao = "";
+    $titularDespesaDescricao = "";
+    $situacaoDespesaDescricao = "";
+}
 
 ?>
 
@@ -21,7 +44,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                                 <div class="modal-body">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <form class="needs-validation" class="form-cadastro-despesa" action="index.php?page=a-inserir-cadastro-despesa" method="post" >
+                                        <form class="needs-validation" class="form-cadastro-despesa" action="<?= "$urlPageAtual&action=caddespesasalve"?>" method="post" >
                                                     <!-- CORPO DO FORM -->
                                                         <div class="row">
                                                             <div class="form-group">
@@ -34,7 +57,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                                         while($categoria = $operation->listar($qryCategoria)){
                                                                             ?>
-                                                                            <option value="<?= $categoria["nomeCategoriaDespesa"]?>"><?=$categoria["nomeCategoriaDespesa"];?></option>
+                                                                            <option value="<?= $categoria['nomeCategoriaDespesa'] ;?>" ><?= $categoria["nomeCategoriaDespesa"];?></option>
                                                                         <?php }?>
                                                                 </select>
                                                                 <div class="valid-feedback">
@@ -44,7 +67,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                                                             
                                                                 <div class="form-group">
                                                                     <label class="" for="valorDespesa">Despesa</label>
-                                                                    <input class="form-control" name="nomeDespesaDescricao" type="text" value="" placeholder="Digite uma descrição para a sua despesa">
+                                                                    <input class="form-control" name="nomeDespesaDescricao" type="text" value="<?= $nomeDespesaDescricao;?>" placeholder="Digite uma descrição para a sua despesa">
                                                                     
                                                                     <div class="valid-feedback">
                                                                         Tudo certo!
@@ -53,57 +76,54 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                                 <div class="form-group">
                                                                     <label class="" for="dataDespesa">Data de PGTO</label>
-                                                                    <input type="date" class="form-control" id="dataPagamentoDespesaDescricao" name="dataPagamentoDespesaDescricao" value="" placeholder="" required>
+                                                                    <input type="date" class="form-control" id="dataPagamentoDespesaDescricao" name="dataPagamentoDespesaDescricao" value="<?= $dataPagamentoDespesaDescricao; ?>" placeholder="" required>
                                                                 </div>
                                                                 
                                                                 <div class="form-group">
                                                                     <label class="" for="valorDespesa">Valor</label>
-                                                                    <input type="double" class="form-control" id="valorDespesaDescricao" name="valorDespesaDescricao" value="" placeholder="<?= $moeda?> 135,00" required>
+                                                                    <input type="double" class="form-control" id="valorDespesaDescricao" name="valorDespesaDescricao" value="<?= $valorDespesaDescricao; ?>" placeholder="<?= $moeda?> 135,00" required>
 
                                                                     <div class="valid-feedback">
                                                                         Tudo certo!
                                                                     </div>
                                                                 </div>
-                                                                    
 
                                                                 <div class="form-group">
                                                                     <label class="" for="">Titular</label>
                                                                     <select class="custom-select" id="titularDespesaDescricao" name="titularDespesaDescricao" required>
-                                                                        <option class="" value="" selected>Selecione</option>
+                                                                        <option class="" value="<?= $titularDespesaDescricao; ?>" selected>Selecione</option>
                                                                             <?php
                                                                                 $sqlTitular = "SELECT * FROM tbtitular";
                                                                                 $qryTitular = $operation->executarSQL($sqlTitular);
 
                                                                                 while($titular = $operation->listar($qryTitular)){
                                                                                     ?>
-                                                                                    <option value="<?= $titular["nomeTitular"]?>"><?=$titular["nomeTitular"];?></option>
+                                                                                    <option value="<?= $titular["nomeTitular"] ;?>" ><?= $titular["nomeTitular"] ;?></option>
                                                                                 <?php }?>
                                                                     </select>
                                                                 </div>
                                                                 
-                                                                
                                                                 <div class="form-group">
                                                                     <label class="" for="">Situação</label>
                                                                     <select class="custom-select" id="situacaoDespesaDescricao" name="situacaoDespesaDescricao" required>
-                                                                    <option class="" value="" selected>Selecione</option>
+                                                                    <option class="" value="<?= $situacaoDespesaDescricao; ?>" selected>Selecione</option>
                                                                             <?php
                                                                                 $sqlSituacaoDespesa = "SELECT * FROM  tbsituacaodespesa";
                                                                                 $qrySituacaoDespesa = $operation->executarSQL($sqlSituacaoDespesa);
 
                                                                                 while($situacaoDespesa = $operation->listar($qrySituacaoDespesa)){
                                                                                     ?>
-                                                                                    <option value="<?= $situacaoDespesa["nomeSituacaoDespesa"]?>"><?=$situacaoDespesa["nomeSituacaoDespesa"];?></option>
+                                                                                    <option value="<?= $situacaoDespesa["nomeSituacaoDespesa"] ;?>" ><?=$situacaoDespesa["nomeSituacaoDespesa"] ;?></option>
                                                                                 <?php }?>
                                                                     </select>
                                                                 </div>
 
                                                         </div>
 
-
                                                     <!-- FIM DO CORPO DO FORM -->
                                                 <div class="modal-footer mt-3">
-                                                    <a type="reset" href="<?= $urlPageAtual;?>" class="btnShowModalDespesa btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</a>
-                                                    <a type="sumit" href="<?= $urlPageAtual;?>&action=caddespesasalve" class="btn btn-primary btnAcao btnSalve">Salvar</a>
+                                                    <a href="<?= $urlPageAtual;?>" class="btnShowModalDespesa btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</a>
+                                                    <button type="submit" href="" class="btn btnAcao btnSalve <?= $_GET["action"] == "editdespesa" ? "btn-warning" : "btn-primary" ?>"><?= $_GET["action"] == "editdespesa" ? "Alterar" : "Salvar" ?></button>
                                                 </div>
                                             </form>
                                         </div>

@@ -45,13 +45,13 @@ $('#modalMsgInBox').on('hidden.bs.modal', function (e) {
 
 
     // //SHOW MODAL
-      let btnShowModal = document.querySelectorAll(".btnShowModal");
+      // let btnShowModal = document.querySelectorAll(".btnShowModal");
   
-      for(var i = 0 ; i < btnShowModal.length; i++){
-        btnShowModal[i].addEventListener("click", function showModal(){
-          $('.modalShow').modal('show');   
-        });
-      };
+      // for(var i = 0 ; i < btnShowModal.length; i++){
+      //   btnShowModal[i].addEventListener("click", function showModal(){
+      //     $('.modalShow').modal('show');   
+      //   });
+      // };
   
     //   // HIDE MODAL
       let btnCloseModal = document.querySelectorAll(".btnCloseModal");
