@@ -22,19 +22,19 @@
     
     searching();
 
-    if($pageative == "a-cadastro-situacao-receita"){
-       $dados['nomeSituacaoReceita'] = "";
+    // if($pageative == "a-cadastro-situacao-receita"){
+    //    $dados['nomeSituacaoReceita'] = "";
 
-    } else if($pageative == "editar-situacao-receita"){
-        $camposWherePesquisaPrincipal = "idSituacaoReceita";
-        $txtPesquisa = $id;
-        // searchBDdespesa();
+    // } else if($pageative == "editar-situacao-receita"){
+    //     $camposWherePesquisaPrincipal = "idSituacaoReceita";
+    //     $txtPesquisa = $id;
+    //     // searchBDdespesa();
 
-        echo $dados["nomeSituacaoReceita"];
+    //     echo $dados["nomeSituacaoReceita"];
 
-    } else if($pageative == "a-excluir-cadastro-despesa"){
+    // } else if($pageative == "a-excluir-cadastro-despesa"){
 
-    }
+    // }
     ?>
 
 <div class="container">
@@ -64,21 +64,11 @@
                         <td><?= $dados["idTipoDespesa"]?></td>
                         <td><?= $dados["nomeCategoriaDespesa"]?></td>
                         <td>
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=editdespesa&id=" . $dados["idTipoDespesa"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Alterar</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idTipoDespesa"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Excluir</a>
-                            </div>
-                            </div>
-
-                        <?php
-                            $tabela = "tbsituacaoreceita";
-                            $valorNaTabela = "idSituacaoReceita";
-                        ?>
-
+                            <?php
+                                $tabela = "tbtipodespesa";
+                                $valorNaTabela = "idTipoDespesa";
+                            ?>
+                            <a href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idTipoDespesa"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i></a>
                         </td>
                     </tr>
                         <?php } ?>
@@ -91,13 +81,7 @@
     </div>
 </div>
 
-<button id="btnShowModal" class="btnShowModal btn btn-primary" name="action" value="cadastro">Cadastrar nova posição</button>
+        <div class="col">
+            <a href="<?= $urlPageAtual."&action=cadcategoriadespesa"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
+        </div>
 
-
-<div class="modal modalShow" tabindex="-1" role="dialog">
-    
-    <?php
-            include_once "app/views/pages/modal/modal-cadastro-situacao-receita.php";
-
-    ?>
-</div>

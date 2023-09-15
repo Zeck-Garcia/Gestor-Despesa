@@ -5,7 +5,7 @@
     <div class="modal-fluid">
 
       <div class="modal-header">
-        <h5 class="modal-title">Cadastro categoria receita</h5>
+        <h5 class="modal-title">Cadastro categoria despesa</h5>
         <button type="button" class="close btnCloseModal" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -15,9 +15,9 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <form class="needs-validation" action="<?=$urlPageAtual.'&action=salvecategoriareceita' ?>" method="post" >
+                    <form class="needs-validation" action="<?=$urlPageAtual.'&action=salvecategoriadespesa' ?>" method="post" >
                         <label>Categoria</label>
-                        <input type="text" class="form-control" class="" id="" name="categoriaTipoReceita" placeholder="Digite um nova categoria">
+                        <input type="text" class="form-control" class="" id="" name="nomeCategoriaDespesa" placeholder="Digite um nova categoria">
                         <div class="modal-footer mt-3">
                             <button type="reset" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="sumit" class="btn btn-primary">Salvar</button>

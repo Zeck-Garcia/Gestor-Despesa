@@ -64,13 +64,6 @@
                         <td><?= $dados["idSituacaoReceita"]?></td>
                         <td><?= $dados["nomeSituacaoReceita"]?></td>
                         <td>
-                            <!-- <div class="dropdown nav-link"> 
-                                <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Ação</a> 
-                                <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1"> 
-                                    <li><a class="dropdown-item" href="<?=$urlPageAtual . "&action=edit&id=" . $dados["idSituacaoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Alterar</a></li> 
-                                    <li><a class="dropdown-item" href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idSituacaoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Excluir</a></li>  
-                                </ul> 
-                            </div> -->
                             <?php
                                 $tabela = "tbsituacaoreceita";
                                 $valorNaTabela = "idSituacaoReceita";

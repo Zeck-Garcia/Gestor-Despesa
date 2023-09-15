@@ -54,4 +54,23 @@ function salveCadastroReceita(){
     echo $operation->getMsg();
 }
 
+function salveCategoriaReceita(){
+
+    global $operation;
+    global $categoriaTipoReceita;
+
+    $categoriaTipoReceita = (strip_tags(isset($_POST["categoriaTipoReceita"]) == "" ? "" : $_POST["categoriaTipoReceita"]));
+
+    $operation->setTabela("tbtiporeceita ");
+    $operation->setCampos("
+        categoriaTipoReceita
+    ");
+    $operation->setDados("'$categoriaTipoReceita'");
+
+    $operation->inserir();
+
+    echo $operation->getMsg();
+
+}
+
 ?>

@@ -65,6 +65,11 @@ if(!empty($page)){
             case "list-categoria-receita":
                 include_once "app/views/pages/table/list-categoria-receita.php";
                 break;
+
+            case "list-titular":
+                include_once "app/views/pages/table/list-titular.php";
+                break;
+                
         }
 
         
@@ -79,51 +84,70 @@ if (!empty($action)) {
             include_once 'app/views/pages/modal/modalExcluir.php';
             break;
 
-            case "deleted":
-            deleteitemsDB();
+        case "deleted":
+        deleteitemsDB();
+        break;
+
+        //DESPESA DESCRICAO
+        case "caddespesa":
+            include_once "app/views/pages/modal/modal-cadastro-despesa.php";
+            // include_once 'app/views/pages/modal/modalExcluir.php';
             break;
 
-            case "caddespesa":
-                include_once "app/views/pages/modal/modal-cadastro-despesa.php";
-                // include_once 'app/views/pages/modal/modalExcluir.php';
-                break;
-
-            case "caddespesasalve":
-                    searchDateRecord();
-                echo "04";
-                if($idDespesaPOST){
-                    cadDespesaDescricao();
-                    echo "02";
-                } else {
-                    cadDespesa();
-                    searchDateRecord();
-                    cadDespesaDescricao();
-                    echo "01";
-                }
-                break;
-
-            case "editdespesa":
-                include_once "app/views/pages/modal/modal-cadastro-despesa.php";
-
-                break;
-
-            case "editeddespesa":
-                // include_once "app/views/pages/modal/modal-cadastro-despesa.php";
-                
-                break;
-
-            case "salvecategoriareceita":
-                // include_once "app/views/pages/modal/modal-categoria-cadastro-receita.php";
+        case "caddespesasalve":
+                searchDateRecord();
+            echo "04";
+            if($idDespesaPOST){
+                cadDespesaDescricao();
+                echo "02";
+            } else {
+                cadDespesa();
+                searchDateRecord();
+                cadDespesaDescricao();
                 echo "01";
-                break;
+            }
+            break;
+
+        case "editdespesa":
+            include_once "app/views/pages/modal/modal-cadastro-despesa.php";
+
+            break;
+
+        case "editeddespesa":
+            // include_once "app/views/pages/modal/modal-cadastro-despesa.php";
+            //A FAZER
+            break;
+
+            //CATEGORIA DE RECEITA
+        case "salvecategoriareceita":
+            salveCategoriaReceita();
+            break;
+        
+        case "cadcategoriareceita":
+            include_once "app/views/pages/modal/modal-categoria-cadastro-receita.php";
+
+            break; 
+
+            //CATEGORIA DE DESPESA
+        case "salvecategoriadespesa":
+            salveCategoriaDespesa();
+            break;
+        
+        case "cadcategoriadespesa":
+            include_once "app/views/pages/modal/modal-categoria-cadastro-despesa.php";
+
+            break; 
+
+            //TITULAR
+        case "cadtitular":
+            include_once "app/views/pages/modal/modal-titular.php";
+
+            break;
+                  
+        case "salvetitular":
+            salveTitular();
+            break;
             
-            case "cadcategoriareceita":
-                include_once "app/views/pages/modal/modal-categoria-cadastro-receita.php";
-
-                break; 
-
-                
-
     }
 }
 

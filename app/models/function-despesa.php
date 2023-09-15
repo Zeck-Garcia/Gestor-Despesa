@@ -182,4 +182,23 @@ function editeddespesa(){
     echo $operation->getMsg();
 }
 
+function salveCategoriaDespesa(){
+
+    global $operation;
+    global $nomeCategoriaDespesa;
+
+    $nomeCategoriaDespesa = (strip_tags(isset($_POST["nomeCategoriaDespesa"]) == "" ? "" : $_POST["nomeCategoriaDespesa"]));
+
+    $operation->setTabela("tbtipodespesa ");
+    $operation->setCampos("
+        nomeCategoriaDespesa
+    ");
+    $operation->setDados("'$nomeCategoriaDespesa'");
+
+    $operation->inserir();
+
+    echo $operation->getMsg();
+
+}
+
 ?>

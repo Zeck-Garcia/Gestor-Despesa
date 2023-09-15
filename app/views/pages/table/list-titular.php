@@ -1,7 +1,7 @@
 <?php
-    $urlPageAtual = "index.php?page=list-categoria-receita" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+    $urlPageAtual = "index.php?page=list-titular" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
 
-    isset($_GET["pagina"]) == "" ? "" : "&pagina=".$_GET["pagina"];
+    echo isset($_GET["pagina"]) == "" ? "" : "&pagina=".$_GET["pagina"];
     
     //CONEXAO COM O FILE SEARCHIG PARA REALIZAÇÃO DE CONSULTA, 
     include_once "app/models/searching.php";
@@ -14,23 +14,23 @@
     
     $txtPesquisa = "";
 
-    $sqlSelect = "SELECT * FROM  tbtiporeceita";
+    $sqlSelect = "SELECT * FROM  tbtitular";
 
-    $orderBy = "categoriaTipoReceita"; //campo que será feita a ordem
+    $orderBy = "nomeTitular"; //campo que será feita a ordem
     $orderByType = "ASC"; //ASC DESC
     $quantidade = "5"; //qtd de registro a ser exibido por busca
     
     searching();
 
     // if($pageative == "a-cadastro-situacao-receita"){
-    //    $dados['categoriaTipoReceita'] = "";
+    //    $dados['nomeSituacaoReceita'] = "";
 
     // } else if($pageative == "editar-situacao-receita"){
     //     $camposWherePesquisaPrincipal = "idSituacaoReceita";
     //     $txtPesquisa = $id;
     //     // searchBDdespesa();
 
-    //     echo $dados["categoriaTipoReceita"];
+    //     echo $dados["nomeSituacaoReceita"];
 
     // } else if($pageative == "a-excluir-cadastro-despesa"){
 
@@ -41,7 +41,7 @@
 
     <div class="row bg-secondary text-light mb-3">
         <?php
-            $titleCabecalhoHeaderPage = "Lista de categoria de receita";
+            $titleCabecalhoHeaderPage = "Lista de titular";
             include_once "app/views/pages/header/header.php";
         ?>
     </div>
@@ -61,14 +61,14 @@
                     
                     ?>
                     <tr>
-                        <td><?= $dados["idTipoReceita"]?></td>
-                        <td><?= $dados["categoriaTipoReceita"]?></td>
+                        <td><?= $dados["idTitular"]?></td>
+                        <td><?= $dados["nomeTitular"]?></td>
                         <td>
                             <?php
-                                $tabela = "tbtiporeceita";
-                                $valorNaTabela = "idTipoReceita";
+                                $tabela = "tbtitular";
+                                $valorNaTabela = "idTitular";
                             ?>
-                            <a href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idTipoReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i></a>
+                            <a href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idTitular"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox"><i class="bi bi-trash3"></i></a>
 
                         </td>
                     </tr>
@@ -82,8 +82,8 @@
     </div>
 </div>
 
-        <div class="col">
-            <a href="<?= $urlPageAtual."&action=cadcategoriareceita"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
-        </div>
+<!-- <button id="btnShowModal" class="btnShowModal btn btn-primary" name="action" value="cadastro">Cadastrar novo titular</button> -->
 
-
+    <div class="col">
+        <a href="<?= $urlPageAtual."&action=cadtitular"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
+    </div>

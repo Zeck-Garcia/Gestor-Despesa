@@ -114,7 +114,7 @@ if(!session_start()){
                     <img src="<?= $_SESSION["imgUser"]?>" alt="" width="32" height="32" class="rounded-circle me-2"> <strong> <?= $_SESSION["loginUser"]?></strong> </a> 
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
                     
-                        <li><a class="dropdown-item" href="#">Titular</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=list-titular">Titular</a></li>
                         <li> <hr class="dropdown-divider"> </li> 
                         <li><a class="dropdown-item" href="index.php?page=list-situacao-despesa">Situação despesa</a></li>
                         <li><a class="dropdown-item" href="index.php?page=list-situacao-receita">Situação receita</a></li>

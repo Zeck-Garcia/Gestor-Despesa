@@ -71,4 +71,23 @@ function searchBDdespesa(){
     $dados = $operation->listar($qrySearchBDdespesa);
 }
 
+function salveTitular(){
+
+    global $operation;
+    global $nomeTitular;
+
+    $nomeTitular = (strip_tags(isset($_POST["nomeTitular"]) == "" ? "" : $_POST["nomeTitular"]));
+
+    $operation->setTabela("tbtitular ");
+    $operation->setCampos("
+        nomeTitular
+    ");
+    $operation->setDados("'$nomeTitular'");
+
+    $operation->inserir();
+
+    echo $operation->getMsg();
+
+}
+
 ?>
