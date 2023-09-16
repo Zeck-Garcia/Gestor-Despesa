@@ -54,6 +54,18 @@
             $TotalJaPago = $resumoTotalJaPago["valorDespesaDescricao"];
     }//FIM FILTER TOTAL JA PAGO
 
+        //INICIO FILTER TOTAL JA PAGO POR TITULAR
+    // $sqlFilterTotalJaPagoPorTitular = "SELECT situacaoDespesaDescricao, titularDespesaDescricao, SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear' AND situacaoDespesaDescricao='pago' AND titularDespesaDescricao='{$resumoTitular['titularReceita']}'  
+    // ";
+
+    // $qryFilterTotalJaPagoPorTitular = $operation->executarSQL($sqlFilterTotalJaPagoPorTitular);
+
+    // while($resumoTotalJaPagoPorTitular = $operation->listar($qryFilterTotalJaPagoPorTitular))
+    // { 
+    //     echo $TotalJaPagoPorTitular = $moeda . " " . number_format($resumoTotalJaPagoPorTitular["valorDespesaDescricao"], 2);
+    //     $TotalJaPagoPorTitular = $resumoTotalJaPagoPorTitular["titularDespesaDescricao"];
+    // }//FIM FILTER TOTAL JA PAGO
+
 
 
 ?>
@@ -122,9 +134,7 @@
                     <!-- echo $resumoTitular["titularReceita"]; -->
                     <summary class="card-header"><?= $resumoTitular["titularReceita"] ?></summary>
                 <ul class="card-body">
-                    <li class="list-group-item"><?= "Salário: ".$moeda. number_format($resumoTitular["valorReceita"], 2, ",", ".") ?></li>
-                    <!-- <li class="list-group-item"></li> -->
-                    <!-- <li class="list-group-item">valor já pago</li> -->
+                    <li class="list-group-item"><?= "Salário: ".$moeda. number_format($resumoTitular["valorReceita"], 2, ",", ".") ?></li>                    <!-- <li class="list-group-item">valor já pago</li> -->
                     <!-- <li class="list-group-item">saldo da conta</li> -->
                     <!-- <li class="list-group-item">a pagar</li> -->
                     <!-- <li class="list-group-item">qtd de conta a pagar ou pagas</li> -->
@@ -140,7 +150,10 @@
 </div>
 
 
+<?php
 
+
+?>
 
 
 

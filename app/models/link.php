@@ -141,7 +141,6 @@ if (!empty($action)) {
             //TITULAR
         case "cadtitular":
             include_once "app/views/pages/modal/modal-titular.php";
-
             break;
                   
         case "salvetitular":

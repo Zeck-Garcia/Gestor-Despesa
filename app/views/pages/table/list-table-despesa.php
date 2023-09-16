@@ -231,10 +231,13 @@ searching();
         <div class="col">
             <a href="<?= $urlPageAtual."&action=caddespesa"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
         </div>
-        
-        <!-- <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
-            <?php //include_once "app/views/pages/modal/modal-cadastro-despesa.php"; ?>
-        </div> -->
     </div>
 
+
+    <?php
+
+
+
+
+?>
 
