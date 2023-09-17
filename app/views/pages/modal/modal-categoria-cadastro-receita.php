@@ -15,11 +15,11 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <form class="needs-validation" action="<?=$urlPageAtual.'&action=salvecategoriareceita' ?>" method="post" >
+                    <form class="needs-validation" action="<?=$urlPageAtual.'&action=salvecategoriareceita'; ?>" method="post" >
                         <label>Categoria</label>
                         <input type="text" class="form-control" class="" id="" name="categoriaTipoReceita" placeholder="Digite um nova categoria">
                         <div class="modal-footer mt-3">
-                            <button type="reset" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <a href="<?= $urlPageAtual;?>" class="btnShowModalDespesa btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</a>
                             <button type="sumit" class="btn btn-primary">Salvar</button>
                         </div>
                     </form>
@@ -30,5 +30,5 @@
 </div>
 </div>
 </div>
-				<!-- <div class='modal-backdrop show'></div> -->
-<!-- </div> -->
+</div>
+<div class='modal-backdrop show'></div>

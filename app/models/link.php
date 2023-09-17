@@ -40,15 +40,15 @@ if(!empty($page)){
             include_once "app/views/pages/table/list-tipo-situacao-receita.php";
             break;
 
-            case "a-inserir-cadastro-situacao-receita";
-            include_once "app/views/pages/table/list-tipo-situacao-receita.php";
-                salveSituacaoReceita();
-            break;
+            // case "a-inserir-cadastro-situacao-receita";
+            // include_once "app/views/pages/table/list-tipo-situacao-receita.php";
+            //     salveSituacaoReceita();
+            // break;
 
 
-            case "a-inserir-cadastro-situacao-receita":
-                salveSituacaoReceita();
-            break;
+            // case "a-inserir-cadastro-situacao-receita":
+            //     salveSituacaoReceita();
+            // break;
 
             case "a-inserir-cadastro-receita":
                 salveCadastroReceita();
@@ -136,7 +136,6 @@ if (!empty($action)) {
         
         case "cadcategoriadespesa":
             include_once "app/views/pages/modal/modal-categoria-cadastro-despesa.php";
-
             break; 
 
             //TITULAR
@@ -146,6 +145,34 @@ if (!empty($action)) {
                   
         case "salvetitular":
             salveTitular();
+            break;
+
+            //CADASTRO SITUACAO DESPESA
+        case "salvesituacaodespesa":
+            include_once "app/views/pages/modal/modal-cadastro-situacao-despesa.php";
+            break;
+    
+        case "salvedsituacaodespesa":
+            salveSituacaoDespesa();
+            break;
+
+            //CADASTRO SITUACAO RECEITA
+        case "salvesituacaoreceita":
+            include_once "app/views/pages/modal/modal-cadastro-situacao-receita.php";
+            break;
+
+        case "salvedsituacaoreceita":
+            salveSituacaoReceita();
+            break;
+
+        //CADASTRO RECEITA
+        case "salvereceita":
+            include_once "app/views/pages/modal/modal-cadastro-receita.php";
+            break;
+
+        case "salvedReceita":
+            echo "01";
+            // salveReceita();
             break;
             
     }

@@ -1,4 +1,8 @@
 <?php
+    $urlPageAtual = "index.php?page=list-receita" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+    $nomePage = "Receita";
+    $titleCabecalhoHeaderPage = "Lista de receita";
+    $modalCadastro = $urlPageAtual."&action=cadreceita";
 
 // if(isset($_POST["txtPesquisa"]) == 1){
 //     $_SESSION['txtPesquisaValue'] = $_POST["txtPesquisa"];
@@ -13,6 +17,8 @@ $url = $_SERVER["HTTP_HOST"] . "<br>"; //localhost
 $url = $_SERVER["SCRIPT_NAME"] . "<br>"; ///www/agenda-02/index.php
 $url = $_SERVER["QUERY_STRING"] . "<br>"; //page=list-despesa
 $url = $_SERVER["REQUEST_URI"] . "<br>"; ///www/agenda-02/index.php?page=list-despesa
+
+include_once "app/views/pages/header/header.php";
 
 include_once "app/models/searching.php";
 // include_once "app/models/filter.php";
@@ -90,25 +96,30 @@ searching();
                         
                         <td><?=$dados['situacaoReceita']?></td>
                         <td>
-                            <a class="text-danger" href="">
-                            <form class="" action="" method="post" >
-                            <!-- "?{$_SERVER['QUERY_STRING']}&action=delete";  -->
-                            
 
-                            <input type="hidden" name="action" value="delete">
-                                <input type="hidden" name="id" value="<?= $dados['idReceita']?>">
-                                <?php
-                                    $tabela = "tbreceita";
-                                    $valorNaTabela = "idReceita";
-                                    ?>
-                            
-                                <button class="btn btn-outline-danger btnAcao" onsubmit="limparForm()"><i class="bi bi-trash3"></i></button>
-                            </form>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=editreceita&id=" . $dados["idReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Alterar</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?=$urlPageAtual . "&action=delete&id=" . $dados["idReceita"];?>" class="btn btn-outline-danger btnAcao btnModalMsgInBox">Excluir</a>
+                            </div>
+                            </div>
+                
+                        <?php
+                            $tabela = "tbreceita";
+                            $valorNaTabela = "idReceita";
+                        ?>
+                
                         </td>
                     </tr> 
                 <?php } ?>
             </tbody>
         </table>
+
+        <?php verRegistro(); ?>
+
     </div>
 
 <?php
@@ -116,13 +127,9 @@ searching();
 ?>
 
 
-    <div class="row">
+<div class="row">
         <div class="col">
-            <button id="btnShowModal" class="btnShowModal btn btn-primary" onclick="updateUrl('<?php $statusActionModal = 'new'; echo 'index.php?'.$_SERVER['QUERY_STRING'].'&action='.$statusActionModal?>')">Cadastrar nova posição <i class="bi bi-plus-circle"></i></button>
-        </div>
-        
-        <div class="modal ModalCadastroDespesa" tabindex="-1" role="dialog">        
-            <?php include_once "app/views/pages/modal/modal-cadastro-receita.php"; ?>
+            <a href="<?= $urlPageAtual."&action=salvereceita"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
         </div>
     </div>
 

@@ -1,6 +1,8 @@
 <?php
-    //TITLE PAGE
+    //CONFIG PAGE
     $urlPageAtual = "index.php?page=list-despesa" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+    $nomePage = "Despesa";
+    $titleCabecalhoHeaderPage = "Lista de despesa";
     $modalCadastro = $urlPageAtual."&action=caddespesa";
 
     if(isset($_POST["txtPesquisa"]) == 1){
@@ -50,7 +52,7 @@
 
     searching();
 
-    $titleCabecalhoHeaderPage = "Lista de despesa";
+
     include_once "app/views/pages/header/header.php";
     
     include_once "app/views/pages/search/search.php";
@@ -171,7 +173,7 @@
                     <th>Ação</th>
                 </tr>
             </thead>
-                    
+
             <tbody class="text-center">
                 <?php
                 while($dados = $operation->listar($qry))
@@ -210,6 +212,9 @@
                 <?php } ?>
             </tbody>
         </table>
+
+            <?php verRegistro(); ?>
+
     </div>
 
 <?php

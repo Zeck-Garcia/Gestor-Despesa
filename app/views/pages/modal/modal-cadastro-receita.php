@@ -1,42 +1,11 @@
 <?php
 
-//ACTION CAD
-
 $pageative = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
 $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
-// $statusModal = (isset($_POST["statusModal"]) == "" ? "" : $_POST["statusModal"])."<br>";
-
-// searchBDdespesa();
-
-// if($pageative == "list-despesa"){
-//     // echo "novo contato";
-//     // $moeda = "";
-//     echo $dados['idDespesaDescricao'] = "";
-//     $dados['nomeDespesaDescricao'] = "";
-//     $dados['valorDespesaDescricao'] = "";
-//     $dados['dataPagamentoDespesaDescricao'] = "";
-//     $dados['tipoDespesaDescricao'] = "";
-//     $dados['titularDespesaDescricao'] = "";
-//     $dados['situacaoDespesaDescricao'] = "";
-//     $dados['idDespesaDescricaoIdDespesa'] = "";
-//     $dados['metodoPagamentoDescricaoDescricao'] = "";
-    
-// } else if($pageative == "editar-cadastro-despesa"){
-//     $camposWherePesquisaPrincipal = "idDespesaDescricao";
-//     $txtPesquisa = $id;
-//     searchBDdespesa();
-    
-//     echo $dados["nomeDespesaDescricao"];
-    
-// } else if($pageative == "a-excluir-cadastro-despesa"){
-    
-    
-// }
-
 ?>
 
-
+<div class='modal modalMsgInBox show' tabindex='-1' style='display: block;' aria-modal='true' role='dialog'> 
 <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-fluid">
@@ -50,7 +19,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                             <div class="modal-body">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <form class="needs-validation" class="form-cadastro-receita" action="index.php?page=a-inserir-cadastro-receita" method="post" >
+                                        <form class="needs-validation" class="form-cadastro-receita" action="<?= "$urlPageAtual&action=salvedreceita"?>" method="post" >
                                                 <!-- CORPO DO FORM -->
                                                     <div class="row">
 
@@ -134,7 +103,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                 <!-- FIM DO CORPO DO FORM -->
                                             <div class="modal-footer mt-3">
-                                                <button type="reset" class="btnShowModalReceita btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</button>
+                                                <a href="<?= $urlPageAtual;?>" class="btnShowModalDespesa btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</a>
                                                 <button type="sumit" class="btn btn-primary btnAcao btnSalve">Salvar</button>
                                             </div>
                                         </form>
@@ -144,3 +113,5 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                         </div>
                     </div>
                 </div>
+</div>
+<div class='modal-backdrop show'></div>

@@ -14,7 +14,7 @@ $dataPagamentoDespesaDescricao = (strip_tags(isset($_POST["dataPagamentoDespesaD
 //     $valor = $date["idDespesa"];
 // };
 
-
+//FUNCTION PARA INICIAR O CADASTRO, REALIZADA UMA BUSCA NO BD PARA BUSCAR REGISTRO COM O MESMO MES CADASTRADO
 function searchDateRecord(){
 
     global $operation;
@@ -36,6 +36,7 @@ function searchDateRecord(){
     };
 }
 
+//FUNCTION CADASTRO NOVA DESPESA
 function cadDespesaDescricao(){
 
     global $operation;
@@ -86,6 +87,7 @@ function cadDespesaDescricao(){
    
 }
 
+//FUNCTION CADASTRO NOVA DESPESA, PARA ESSA FUNCTION SER CHAMADO A FUNCTION searchDateRecord() TEM QUE RETORNAR 0
 function cadDespesa(){
     
     global $operation;
@@ -110,12 +112,13 @@ function cadDespesa(){
     // echo $operation->getMsg();
 }
 
+//FUNCTION SALVANDO SITUACAO DESPESA
 function salveSituacaoDespesa(){
 
     global $operation;
     global $nomeSituacaoDespesa;
 
-    $nomeSituacaoReceita = (strip_tags(isset($_POST["nomeSituacaoDespesa"]) == "" ? "" : $_POST["nomeSituacaoDespesa"]));
+    $nomeSituacaoDespesa = (strip_tags(isset($_POST["nomeSituacaoDespesa"]) == "" ? "" : $_POST["nomeSituacaoDespesa"]));
 
     $operation->setTabela("tbsituacaodespesa");
     $operation->setCampos("
@@ -134,6 +137,8 @@ function editDespesa(){
     
 }
 
+//FUNCTION EDIT DESPESA 
+//NÃO FINALIZADO AINDA
 function editeddespesa(){
     global $operation;
 
@@ -182,6 +187,7 @@ function editeddespesa(){
     echo $operation->getMsg();
 }
 
+//FUNCTION SALVE CATEGORIA DESPESA
 function salveCategoriaDespesa(){
 
     global $operation;
@@ -200,5 +206,6 @@ function salveCategoriaDespesa(){
     echo $operation->getMsg();
 
 }
+
 
 ?>

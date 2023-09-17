@@ -85,6 +85,7 @@ function searching(){
     $totalPage = ceil($totalResgistro / $quantidade);
 
 
+    if(isset($_GET["action"]) == ""){
     if(!$totalResgistro){
        if($_SESSION["txtPesquisaValue"]){
             echo "
@@ -139,8 +140,23 @@ function searching(){
         ";
     }
     }
+}
 
 
 }
+
+function verRegistro(){ 
+    global $operation;
+    global $sqlSelect;
+    global $nomePage;
+    
+       if(!mysqli_num_rows($operation->executarSQL("$sqlSelect"))){
+           echo "
+           <div class='alert alert-warning' role='alert'>
+           Sem registro! Cadastre um novo registro!
+         </div>
+           ";
+       }
+   }
 
 ?>

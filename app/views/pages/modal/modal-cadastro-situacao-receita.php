@@ -1,4 +1,6 @@
-  <div class="modal-dialog" role="document">
+
+<div class='modal modalMsgInBox show' tabindex='-1' style='display: block;' aria-modal='true' role='dialog'> 
+<div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-fluid">
 
@@ -13,7 +15,7 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <form class="needs-validation" action="" method="post" >
+                    <form class="needs-validation" action="<?= $urlPageAtual.'&action=salvedsituacaoreceita'; ?>" method="post" >
 
                         <label>Situação</label>
                         <input type="text" class="form-control" name="action" value="cadastro">
@@ -21,8 +23,8 @@
                         <input type="text" class="form-control" class="" id="" name="nomeSituacaoReceita" placeholder="Digite um novo titulo" required>
 
                         <div class="modal-footer mt-3">
-                            <button type="reset" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="sumit" class="btn btn-primary btnSalvar" value="">Salvar</button>
+                            <a href="<?= $urlPageAtual;?>" class="btnShowModalDespesa btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</a>
+                            <button type="sumit" class="btn btn-primary">Salvar</button>
                         </div>
                     </form>
                 </div>
@@ -32,3 +34,5 @@
 </div>
 </div>
   </div>
+  </div>
+  <div class='modal-backdrop show'></div>

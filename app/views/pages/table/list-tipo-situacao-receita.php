@@ -1,5 +1,6 @@
 <?php
     $urlPageAtual = "index.php?page=list-situacao-receita" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+    $modalCadastro = $urlPageAtual."&action=salvesituacaoreceita";
 
     echo isset($_GET["pagina"]) == "" ? "" : "&pagina=".$_GET["pagina"];
     
@@ -75,6 +76,9 @@
                         <?php } ?>
                 </tbody>
             </table>
+            
+            <?php verRegistro(); ?>
+
         </div>
         <div class="row">
             <?php include_once "app/models/paginador.php";?>
@@ -82,13 +86,8 @@
     </div>
 </div>
 
-<button id="btnShowModal" class="btnShowModal btn btn-primary" name="action" value="cadastro">Cadastrar nova posição</button>
-
-
-<div class="modal modalShow" tabindex="-1" role="dialog">
-    
-    <?php
-            include_once "app/views/pages/modal/modal-cadastro-situacao-receita.php";
-
-    ?>
-</div>
+    <div class="row">
+        <div class="col">
+            <a href="<?= $urlPageAtual."&action=salvesituacaoreceita"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
+        </div>
+    </div>

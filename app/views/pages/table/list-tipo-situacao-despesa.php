@@ -1,5 +1,8 @@
 <?php
-    $urlPageAtual = "index.php?page=list-situacao-despesa";
+    $urlPageAtual = "index.php?page=list-situacao-despesa" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+    $nomePage = "";
+    $titleCabecalhoHeaderPage = "Lista de situação da despesa";
+    $modalCadastro = $urlPageAtual."&action=salvesituacaodespesa";
     
     //CONEXAO COM O FILE SEARCHIG PARA REALIZAÇÃO DE CONSULTA, 
     include_once "app/models/searching.php";
@@ -39,7 +42,6 @@
 
     <div class="row bg-secondary text-light mb-3">
         <?php
-            $titleCabecalhoHeaderPage = "Lista de situação da despesa";
             include_once "app/views/pages/header/header.php";
         ?>
     </div>
@@ -72,6 +74,9 @@
                         <?php } ?>
                 </tbody>
             </table>
+
+            <?php verRegistro(); ?>
+                
         </div>
         <div class="row">
             <?php include_once "app/models/paginador.php";?>
@@ -79,13 +84,8 @@
 </div>
 </div>
 
-<button id="btnShowModal" class="btnShowModal btn btn-primary" name="action" value="cadastro">Cadastrar nova posição</button>
-
-
-<div class="modal modalShow" tabindex="-1" role="dialog">
-    
-    <?php
-            include_once "app/views/pages/modal/modal-cadastro-situacao-receita.php";
-
-    ?>
-</div>
+    <div class="row">
+        <div class="col">
+            <a href="<?= $urlPageAtual."&action=salvesituacaodespesa"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
+        </div>
+    </div>

@@ -1,5 +1,6 @@
 <?php
     $urlPageAtual = "index.php?page=list-titular" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+    $modalCadastro = $urlPageAtual."&action=cadtitular";
 
     echo isset($_GET["pagina"]) == "" ? "" : "&pagina=".$_GET["pagina"];
     
@@ -75,6 +76,9 @@
                         <?php } ?>
                 </tbody>
             </table>
+
+            <?php verRegistro(); ?>
+            
         </div>
         <div class="row">
             <?php include_once "app/models/paginador.php";?>

@@ -1,5 +1,6 @@
 <!-- <div class="modal" tabindex="-1" role="dialog"> -->
    
+<div class='modal modalMsgInBox show' tabindex='-1' style='display: block;' aria-modal='true' role='dialog'> 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-fluid">
@@ -15,20 +16,11 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <form class="needs-validation" action="index.php?page=<?php
-                                                if($statusAgora == "list-situacao-despesa"){
-                                                    echo "a-inserir-cadastro-situacao-despesa";
-                                                } else if($statusAgora == "editar-cadastro-situacao-despesa"){
-                                                    echo "atualizar-cadastro-situacao-despesa";
-                                                } else if($statusAgora == "a-excluir-cadastro-situacao-despesa"){
-                                                    echo "excluir-cadastro-situacao-despesa";
-                                                }
-                                                    ?>
-                                                    " method="post" >
+                    <form class="needs-validation" action="<?= $urlPageAtual.'&action=salvedsituacaodespesa' ?>" method="post" >
                         <label>Situação</label>
                         <input type="text" class="form-control" class="" id="" name="nomeSituacaoDespesa" placeholder="Digite um nova despesa">
                         <div class="modal-footer mt-3">
-                            <button type="reset" class="btnCloseModal btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <a href="<?= $urlPageAtual;?>" class="btnShowModalDespesa btn btn-secondary btnAcao" id="btnCloseModal" data-dismiss="modal">Cancelar</a>
                             <button type="sumit" class="btn btn-primary">Salvar</button>
                         </div>
                     </form>
@@ -38,4 +30,5 @@
 
 </div>
 </div>
-<!-- </div> -->
+</div>
+<div class='modal-backdrop show'></div>

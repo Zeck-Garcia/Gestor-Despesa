@@ -1,5 +1,6 @@
 <?php
     $urlPageAtual = "index.php?page=list-categoria-receita" . (isset($_GET['pagina']) == '' ? '' : '&pagina='.$_GET['pagina']);
+    $modalCadastro = $urlPageAtual."&action=cadcategoriareceita";
 
     isset($_GET["pagina"]) == "" ? "" : "&pagina=".$_GET["pagina"];
     
@@ -18,7 +19,7 @@
 
     $orderBy = "categoriaTipoReceita"; //campo que será feita a ordem
     $orderByType = "ASC"; //ASC DESC
-    $quantidade = "5"; //qtd de registro a ser exibido por busca
+    $quantidade = "2"; //qtd de registro a ser exibido por busca
     
     searching();
 
@@ -75,6 +76,9 @@
                         <?php } ?>
                 </tbody>
             </table>
+
+            <?php verRegistro(); ?>
+            
         </div>
         <div class="row">
             <?php include_once "app/models/paginador.php";?>
