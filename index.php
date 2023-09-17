@@ -16,8 +16,8 @@ if(!session_start()){
     session_destroy();
     
     if(empty(session_id())){
-    //     echo "sessao vazia";
-        // header('Location: ././login.php');
+        echo "sessao vazia";
+        header('Location: ././login.php');
     exit();
     }
 }
@@ -143,7 +143,6 @@ if(!session_start()){
         <div class="row">    
             <article>
                 <?php
-                    // include_once "app/models/filter.php";
                     include_once "app/models/link.php";
                 ?>
             </article>
