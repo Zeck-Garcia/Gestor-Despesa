@@ -242,21 +242,18 @@
 
 // order by b.titularDespesaDescricao;
 
-    $sqlFilterResumoTitular = "SELECT DISTINCT b.valorDespesaDescricao, b.titularDespesaDescricao, b.dataPagamentoDespesaDescricao, b.situacaoDespesaDescricao
-        FROM tbtitular a INNER JOIN tbdespesadescricao b ON (b.titularDespesaDescricao = a.nomeTitular AND b.situacaoDespesaDescricao = 'pago' AND b.dataPagamentoDespesaDescricao IN (SELECT dataPagamentoDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear')) INNER JOIN tbreceita c ON (c.titularReceita = a.nomeTitular ) ORDER BY b.titularDespesaDescricao
-    ";
-    $qryFilterResumoTitular = $operation->executarSQL($sqlFilterResumoTitular);
+    // $sqlFilterResumoTitular = "SELECT DISTINCT b.valorDespesaDescricao, b.titularDespesaDescricao, b.dataPagamentoDespesaDescricao, b.situacaoDespesaDescricao
+    //     FROM tbtitular a INNER JOIN tbdespesadescricao b ON (b.titularDespesaDescricao = a.nomeTitular AND b.situacaoDespesaDescricao = 'pago' AND b.dataPagamentoDespesaDescricao IN (SELECT dataPagamentoDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear')) INNER JOIN tbreceita c ON (c.titularReceita = a.nomeTitular ) ORDER BY b.titularDespesaDescricao
+    // ";
+    // $qryFilterResumoTitular = $operation->executarSQL($sqlFilterResumoTitular);
 
-    while($ver = $operation->listar($qryFilterResumoTitular)){
-        echo $ver["titularDespesaDescricao"];
-        echo "<br>";
-        echo $ver["valorDespesaDescricao"];
-        echo "<br>";
-
-
-    }
+    // while($ver = $operation->listar($qryFilterResumoTitular)){
+    //     echo $ver["titularDespesaDescricao"];
+    //     echo "<br>";
+    //     echo $ver["valorDespesaDescricao"];
+    //     echo "<br>";
 
 
-
+    // }
 ?>
 

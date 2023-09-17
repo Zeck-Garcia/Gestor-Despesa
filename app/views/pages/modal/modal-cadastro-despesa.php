@@ -49,6 +49,12 @@ if($action == "editdespesa"){
                                                         <div class="row">
                                                             <div class="form-group">
                                                                 <label class="" for="">Categoria</label>
+                                                                <?php
+                                                                    if(!mysqli_num_rows($operation->executarSQL($sqlCategoria))){
+                                                                        echo "<a href='$urlPageAtual&action=cadcategoriadespesa' class='custom-select btn btn-secondary'><option value=''>Sem categoria cadastrata. Cadastre nova posição</option></a>";
+
+                                                                    } else {
+                                                                ?>
                                                                 <select class="custom-select" id="tipoDespesaDescricao" name="tipoDespesaDescricao" required>
                                                                     <option class="" value="" selected>Selecione</option>
                                                                     <?php
@@ -58,7 +64,9 @@ if($action == "editdespesa"){
                                                                         while($categoria = $operation->listar($qryCategoria)){
                                                                             ?>
                                                                             <option value="<?= $categoria['nomeCategoriaDespesa'] ;?>" ><?= $categoria["nomeCategoriaDespesa"];?></option>
-                                                                        <?php }?>
+
+
+                                                                        <?php }}?>
                                                                 </select>
                                                                 <div class="valid-feedback">
                                                                     Tudo certo!
@@ -90,31 +98,43 @@ if($action == "editdespesa"){
 
                                                                 <div class="form-group">
                                                                     <label class="" for="">Titular</label>
+                                                                    <?php
+                                                                        $sqlTitular = "SELECT * FROM tbtitular";
+                                                                        $qryTitular = $operation->executarSQL($sqlTitular);
+                                                                        if(!mysqli_num_rows($operation->executarSQL($sqlTitular))){
+                                                                            echo "<a href='$urlPageAtual&action=cadtitular' class='custom-select btn btn-secondary'><option value=''>Sem titular cadastrato. Cadastre nova posição</option></a>";
+
+                                                                        } else {
+                                                                ?>
                                                                     <select class="custom-select" id="titularDespesaDescricao" name="titularDespesaDescricao" required>
                                                                         <option class="" value="<?= $titularDespesaDescricao; ?>" selected>Selecione</option>
                                                                             <?php
-                                                                                $sqlTitular = "SELECT * FROM tbtitular";
-                                                                                $qryTitular = $operation->executarSQL($sqlTitular);
 
                                                                                 while($titular = $operation->listar($qryTitular)){
                                                                                     ?>
                                                                                     <option value="<?= $titular["nomeTitular"] ;?>" ><?= $titular["nomeTitular"] ;?></option>
-                                                                                <?php }?>
+                                                                                <?php }}?>
                                                                     </select>
                                                                 </div>
                                                                 
                                                                 <div class="form-group">
                                                                     <label class="" for="">Situação</label>
+                                                                    <?php
+                                                                        $sqlSituacaoDespesa = "SELECT * FROM  tbsituacaodespesa";
+                                                                        $qrySituacaoDespesa = $operation->executarSQL($sqlSituacaoDespesa);
+
+                                                                        if(!mysqli_num_rows($operation->executarSQL($sqlSituacaoDespesa))){
+                                                                            echo "<a href='$urlPageAtual&action=salvesituacaodespesa' class='custom-select btn btn-secondary'><option value=''>Sem situação cadastrata. Cadastre nova posição</option></a>";
+
+                                                                        } else {
+                                                                ?>
                                                                     <select class="custom-select" id="situacaoDespesaDescricao" name="situacaoDespesaDescricao" required>
                                                                     <option class="" value="<?= $situacaoDespesaDescricao; ?>" selected>Selecione</option>
                                                                             <?php
-                                                                                $sqlSituacaoDespesa = "SELECT * FROM  tbsituacaodespesa";
-                                                                                $qrySituacaoDespesa = $operation->executarSQL($sqlSituacaoDespesa);
-
                                                                                 while($situacaoDespesa = $operation->listar($qrySituacaoDespesa)){
                                                                                     ?>
                                                                                     <option value="<?= $situacaoDespesa["nomeSituacaoDespesa"] ;?>" ><?=$situacaoDespesa["nomeSituacaoDespesa"] ;?></option>
-                                                                                <?php }?>
+                                                                                <?php }}?>
                                                                     </select>
                                                                 </div>
 
