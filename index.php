@@ -52,13 +52,13 @@ if(!session_start()){
 
     <div class="col-2">
         <div class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark" style="width: 250px;"> 
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> 
+        <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> 
             <svg class="bi me-2" width="40" height="32"> </svg> 
             <span class="fs-4">Gestor de gastos</span> </a> 
             <hr> 
             <ul class="nav nav-pills flex-column mb-auto"> 
                 <li class="nav-item"> 
-                    <a href="#" class="nav-link active" aria-current="page"> 
+                    <a href="#" class="nav-link" aria-current="page"> 
                         <i class="fa fa-home"></i>
                         <span class="ms-2">Início</span> 
                     </a> 
@@ -75,29 +75,27 @@ if(!session_start()){
                 </li>
 
                 <li> 
-                    <div class="dropdown nav-link"> 
+                    <div class="dropdown nav-link <?php $isso = isset($_GET['page']) == '' ? '' : $_GET['page']; echo $isso == 'list-despesa' ? 'active' : ''?>"> 
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Despesas</a> 
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                            <li><a class="dropdown-item" href="#">Cadastrar</a></li> 
-                            <li><a class="dropdown-item" href="#">Balanço</a></li> 
+                            <!-- <li><a class="dropdown-item" href="#">Cadastrar</a></li>  -->
+                            <!-- <li><a class="dropdown-item" href="#">Balanço</a></li>  -->
                             <li><a class="dropdown-item" href="index.php?page=list-despesa">Listar</a></li> 
-                            <li> <hr class="dropdown-divider"> </li> 
-                            <li><a class="dropdown-item" href="#">Sign out</a></li> 
                         </ul> 
                     </div>
                 </li> 
 
                 <li>
-                    <div class="dropdown nav-link"> 
+                    <div class="dropdown nav-link <?php $isso = isset($_GET['page']) == '' ? '' : $_GET['page']; echo $isso == 'list-receita' ? 'active' : ''?>"> 
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Receita</a> 
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
-                            <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li> 
+                            <!-- <li><a class="dropdown-item" href="index.php?page=a-cadastro-despesa">Cadastrar</a></li>  -->
                             <li><a class="dropdown-item" href="index.php?page=list-receita">Listar</a></li>  
                         </ul> 
                     </div>
                 </li>
 
-                <li>
+                <!-- <li>
                     <div class="dropdown nav-link"> 
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">Balanço</a> 
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1"> 
@@ -105,7 +103,7 @@ if(!session_start()){
                             <li><a class="dropdown-item" href="#">Listar</a></li>  
                         </ul> 
                     </div>
-                </li>
+                </li> -->
             </ul> 
 
             <hr> 

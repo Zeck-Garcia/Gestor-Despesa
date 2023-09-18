@@ -25,6 +25,14 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
 
                                                             <div class="form-group">
                                                                 <label class="" for="">Titular</label>
+                                                                <?php
+                                                                    $sqlTitular = "SELECT * FROM tbtitular";
+                                                                    $qryTitular = $operation->executarSQL($sqlTitular);
+                                                                    if(!mysqli_num_rows($operation->executarSQL($sqlTitular))){
+                                                                        echo "<a href='$urlPageAtual&action=cadtitular' class='custom-select btn btn-secondary'><option value=''>Sem titular cadastrata. Cadastre nova posição</option></a>";
+
+                                                                    } else {
+                                                                ?>                                                                
                                                                 <select class="custom-select" id="titularReceita" name="titularReceita" required>
                                                                     <option class="" value="" selected>Selecione</option>
                                                                         <?php
@@ -34,7 +42,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                                                                             while($titular = $operation->listar($qryTitular)){
                                                                                 ?>
                                                                                 <option value="<?= $titular["nomeTitular"]?>"><?=$titular["nomeTitular"];?></option>
-                                                                            <?php }?>
+                                                                            <?php }}?>
                                                                 </select>
                                                             </div>
                                                             
@@ -60,6 +68,14 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
     
                                                             <div class="form-group">
                                                                 <label class="" for="categoriaReceita">Categoria</label>
+                                                                <?php
+                                                                    $sqlCategoriaReceita = "SELECT * FROM tbtiporeceita";
+                                                                    $qryCategoriaReceita = $operation->executarSQL($sqlCategoriaReceita);
+                                                                    if(!mysqli_num_rows($operation->executarSQL($sqlCategoriaReceita))){
+                                                                        echo "<a href='$urlPageAtual&action=cadcategoriareceita' class='custom-select btn btn-secondary'><option value=''>Sem categoria cadastrata. Cadastre nova posição</option></a>";
+
+                                                                    } else {
+                                                                ?>  
                                                                 <select class="custom-select" id="tipoReceita" name="categoriaReceita" required>
                                                                     <option class="" value="" selected>Selecione</option>
                                                                     <?php
@@ -69,7 +85,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                                                                         while($categoriaReceita = $operation->listar($qryCategoriaReceita)){
                                                                             ?>
                                                                             <option value="<?= $categoriaReceita["categoriaTipoReceita"]?>"><?=$categoriaReceita["categoriaTipoReceita"];?></option>
-                                                                        <?php }?>
+                                                                        <?php }}?>
                                                                 </select>
                                                                 <div class="valid-feedback">
                                                                     Tudo certo!
@@ -85,6 +101,14 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                                                             
                                                             <div class="form-group">
                                                                 <label class="" for="">Situação</label>
+                                                                <?php
+                                                                    $sqlSituacaoReceita = "SELECT * FROM  tbsituacaoreceita ORDER BY idSituacaoReceita";
+                                                                    $qrySituacaoReceita = $operation->executarSQL($sqlSituacaoReceita);
+                                                                    if(!mysqli_num_rows($operation->executarSQL($sqlSituacaoReceita))){
+                                                                        echo "<a href='$urlPageAtual&action=salvesituacaoreceita' class='custom-select btn btn-secondary'><option value=''>Sem situação cadastrata. Cadastre nova posição</option></a>";
+
+                                                                    } else {
+                                                                ?>  
                                                                 <select class="custom-select" id="situacaoReceita" name="situacaoReceita" required>
                                                                 <option class="" value="" selected>Selecione</option>
                                                                         <?php
@@ -94,7 +118,7 @@ $id = (isset($_GET["id"]) != "" ? $_GET["id"] : "")."<br>";
                                                                             while($situacaoReceita = $operation->listar($qrySituacaoReceita)){
                                                                                 ?>
                                                                                 <option value="<?= $situacaoReceita["nomeSituacaoReceita"]?>"><?=$situacaoReceita["nomeSituacaoReceita"];?></option>
-                                                                            <?php }?>
+                                                                            <?php }}?>
                                                                 </select>
                                                             </div>
 
