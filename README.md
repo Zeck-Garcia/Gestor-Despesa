@@ -1,6 +1,6 @@
 # 🚀 Gestor-Despesa
 
-Gesto finaceiro pessoal, é um sistema básico para gestão de despessa pessoal.
+Gesto finaceiro pessoal, é um sistema básico para gestão de despesa pessoal.
 
 # 🔧 Pré-requisitos
 
