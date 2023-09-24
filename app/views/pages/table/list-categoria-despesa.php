@@ -22,20 +22,6 @@
     $quantidade = "5"; //qtd de registro a ser exibido por busca
     
     searching();
-
-    // if($pageative == "a-cadastro-situacao-receita"){
-    //    $dados['nomeSituacaoReceita'] = "";
-
-    // } else if($pageative == "editar-situacao-receita"){
-    //     $camposWherePesquisaPrincipal = "idSituacaoReceita";
-    //     $txtPesquisa = $id;
-    //     // searchBDdespesa();
-
-    //     echo $dados["nomeSituacaoReceita"];
-
-    // } else if($pageative == "a-excluir-cadastro-despesa"){
-
-    // }
     ?>
 
 <div class="container">

@@ -1,5 +1,4 @@
 <?php
-    // $todayMonthYear = date("m/Y"); //todayMonthYear
 
     //INICIO FILTER RESUMO TITULAR
     $sqlFilterResumoTitular = "SELECT DISTINCT titularReceita, SUM(valorReceita) AS valorReceita, dataReceita FROM tbreceita WHERE dataReceita IN
@@ -53,20 +52,6 @@
     { 
             $TotalJaPago = $resumoTotalJaPago["valorDespesaDescricao"];
     }//FIM FILTER TOTAL JA PAGO
-
-        //INICIO FILTER TOTAL JA PAGO POR TITULAR
-    // $sqlFilterTotalJaPagoPorTitular = "SELECT situacaoDespesaDescricao, titularDespesaDescricao, SUM(valorDespesaDescricao) AS valorDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear' AND situacaoDespesaDescricao='pago' AND titularDespesaDescricao='{$resumoTitular['titularReceita']}'  
-    // ";
-
-    // $qryFilterTotalJaPagoPorTitular = $operation->executarSQL($sqlFilterTotalJaPagoPorTitular);
-
-    // while($resumoTotalJaPagoPorTitular = $operation->listar($qryFilterTotalJaPagoPorTitular))
-    // { 
-    //     echo $TotalJaPagoPorTitular = $moeda . " " . number_format($resumoTotalJaPagoPorTitular["valorDespesaDescricao"], 2);
-    //     $TotalJaPagoPorTitular = $resumoTotalJaPagoPorTitular["titularDespesaDescricao"];
-    // }//FIM FILTER TOTAL JA PAGO
-
-
 
 ?>
 
@@ -124,8 +109,6 @@
         <div class="row shadow p-3 mb-2 bg-white rounded">
             
             <?php
-                // $date = new DateTime($resumoTitular["dataReceita"]); 
-                // $date->format("m/Y");
 
                 while($resumoTitular = $operation->listar($qryFilterResumoTitular))
                 { 

@@ -31,10 +31,7 @@ $linha = mysqli_num_rows($qry);
 
         echo "sessão apagada";
         session_unset();
-        // echo $msg_error = "não deu bom";
         session_destroy();
-            
-        // header('Location: ././login.php');
         exit();
 
     }

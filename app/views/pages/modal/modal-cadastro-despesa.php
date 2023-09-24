@@ -50,6 +50,8 @@ if($action == "editdespesa"){
                                                             <div class="form-group">
                                                                 <label class="" for="">Categoria</label>
                                                                 <?php
+                                                                    $sqlCategoria = "SELECT * FROM tbtipodespesa";
+                                                                    $qryCategoria = $operation->executarSQL($sqlCategoria);
                                                                     if(!mysqli_num_rows($operation->executarSQL($sqlCategoria))){
                                                                         echo "<a href='$urlPageAtual&action=cadcategoriadespesa' class='custom-select btn btn-secondary'><option value=''>Sem categoria cadastrata. Cadastre nova posição</option></a>";
 
@@ -58,8 +60,7 @@ if($action == "editdespesa"){
                                                                 <select class="custom-select" id="tipoDespesaDescricao" name="tipoDespesaDescricao" required>
                                                                     <option class="" value="" selected>Selecione</option>
                                                                     <?php
-                                                                        $sqlCategoria = "SELECT * FROM tbtipodespesa";
-                                                                        $qryCategoria = $operation->executarSQL($sqlCategoria);
+
 
                                                                         while($categoria = $operation->listar($qryCategoria)){
                                                                             ?>

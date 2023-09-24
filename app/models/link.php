@@ -1,7 +1,4 @@
 <?php
-// $link = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
-
-// $desc = isset($_POST["action"]) == "" ? "" : $_POST["action"];
 
 $page = (isset($_GET["page"]) == "" ? "" : $_GET["page"]);
 $id = (isset($_GET["id"]) == "" ? "" : $_GET["id"]);
@@ -24,7 +21,6 @@ if(!empty($page)){
             break;
 
             case "validation";
-            // echo "deu bom";
                 include_once "app/models/session.php";
             break;
 

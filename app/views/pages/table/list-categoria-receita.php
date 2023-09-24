@@ -23,19 +23,6 @@
     
     searching();
 
-    // if($pageative == "a-cadastro-situacao-receita"){
-    //    $dados['categoriaTipoReceita'] = "";
-
-    // } else if($pageative == "editar-situacao-receita"){
-    //     $camposWherePesquisaPrincipal = "idSituacaoReceita";
-    //     $txtPesquisa = $id;
-    //     // searchBDdespesa();
-
-    //     echo $dados["categoriaTipoReceita"];
-
-    // } else if($pageative == "a-excluir-cadastro-despesa"){
-
-    // }
     ?>
 
 <div class="container">

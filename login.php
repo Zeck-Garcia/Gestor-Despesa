@@ -1,48 +1,6 @@
 <?php
 
-
 include_once "app/models/link.php";
-// include_once "app/models/session.php";
-
-// isset($acao) == "" ? "login" : isset($_GET["$acao"]);
-
-// $msg_error = "";
-
-
-    // if(isset($_POST["loginUser"]) && isset($_POST["senhaUser"]))
-    // {
-    //     $loginUser = strip_tags($_POST["loginUser"]);
-
-
-    //     $senhaUser = strip_tags(hash('sha256', $_POST["senhaUser"]));
-
-    //     // $sql = "SELECT * FROM tbusuarios WHERE loginUser = '$loginUser' AND senhaUser = '$senhaUser'";
-
-    //     $sql = "SELECT * FROM tbusuarios WHERE loginUser = '{$loginUser}' and senhaUser = '{$senhaUser}'";
-
-    //     $qry = $operation->executarSQL($sql);
-    //     $dados = $operation->listar($qry);
-
-    //     $linha = mysqli_num_rows($qry);
-
-    //     if($linha != 0)
-    //     {
-    //         session_start();
-
-    //         $_SESSION["loginUser"] = $loginUser;
-    //         $_SESSION["senhaUser"] = $senhaUser;
-    //         $_SESSION["nomeUser"] = $dados["nomeUser"];
-
-    //         header('Location: index.php');
-
-    //     } else {
-    //         $msg_error = "
-    //         <div class='alert alert-danger mt-3'>
-    //             <p>Usuário ou senha invalida</p>
-    //         </div>";
-    //     }
-    // }
-
 
 ?>
 
@@ -100,10 +58,6 @@ include_once "app/models/link.php";
                                 Digite a senha.
                             </div>
                         </div>
-
-                        <?php
-                            // echo $msg_error;
-                        ?>
                     </div>
 
                     <div class="form-group">

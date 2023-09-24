@@ -115,7 +115,6 @@
 		{
 			global $urlPageAtual;
 
-		// $sql = "UPDATE tabela set campos WHERE valorNaTabela = valorpesquisa ";
 			$this->sql = "UPDATE $this->tabela SET $this->campos WHERE $this->valorNaTabela = $this->valorPesquisa";
 			if($this->executarSQL($this->sql))
 			{

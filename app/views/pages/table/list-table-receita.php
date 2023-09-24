@@ -4,34 +4,14 @@
     $titleCabecalhoHeaderPage = "Lista de receita";
     $modalCadastro = $urlPageAtual."&action=cadreceita";
 
-// if(isset($_POST["txtPesquisa"]) == 1){
-//     $_SESSION['txtPesquisaValue'] = $_POST["txtPesquisa"];
-//         if(!empty($_SESSION["txtPesquisaValue"])){    
-//             $txtPesquisa = $_SESSION['txtPesquisaValue'];
-//         }
-// }
-
-// include_once "app/models/manipulacaoDeDados.php";
-// $operation = new manipulacaoDeDados();
-$url = $_SERVER["HTTP_HOST"] . "<br>"; //localhost
-$url = $_SERVER["SCRIPT_NAME"] . "<br>"; ///www/agenda-02/index.php
-$url = $_SERVER["QUERY_STRING"] . "<br>"; //page=list-despesa
-$url = $_SERVER["REQUEST_URI"] . "<br>"; ///www/agenda-02/index.php?page=list-despesa
-
 include_once "app/views/pages/header/header.php";
 
 include_once "app/models/searching.php";
-// include_once "app/models/filter.php";
 include_once "app/models/function-despesa.php";
 
 //SEARCH TABLE
 $txtPlaceholderPesquisar = "Inicie sua busca!";
 echo $txtPesquisa = ""; // é necessario passar ao menos o valor vazio para essa variavel
-// $camposSelect = "*"; //campo principal a ser pesquisado 
-// $tabela = "tbreceita"; //nome da tabela a ser pesquisado
-// $camposWherePesquisaPrincipal = "idReceita"; //filtro para exibir um campo da busca
-// $campoWhereAndPesquisa =  "titularReceita"; //tbtipodespesa.idTipoDespesa=tbdespesadescricao.tipoDespesaDescricao
-// $camposPesquisaAdd = "OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //"OR tipoDespesaDescricao LIKE '%$txtPesquisa%'"; //segundo campo para pesquisa
 
 $sqlSelect = "SELECT * FROM  tbreceita WHERE titularReceita='{$_SESSION['txtPesquisaValue']}' OR categoriaReceita LIKE '%{$_SESSION['txtPesquisaValue']}%'";
 
@@ -40,24 +20,6 @@ $orderByType = "ASC"; //ASC DESC
 $quantidade = "7"; //qtd de registro a ser exibido por busca
 
 searching();
-
-
-    // $sql = "SELECT
-    // $camposSelectA 
-    //FROM 
-    //$tabelaA 
-    // WHERE 
-    //     $camposWherePesquisaPrincipalA='$txtPesquisaA'
-    //     $camposPesquisaAddA
-    //     ORDER BY 
-    //     $orderByA $orderByTypeA
-
-    //     LIMIT $inicio, $quantidade
-    // ";
-
-    // $qry = $operation->executarSQL($sql);
-
-
 
         include_once "app/views/pages/search/search.php";
     ?>

@@ -29,7 +29,6 @@
     } else if($pageative == "editar-situacao-despesa"){
         $camposWherePesquisaPrincipal = "idSituacaoDespesa";
         $txtPesquisa = $id;
-        // searchBDdespesa();
 
         echo $dados["nomeSituacaoDespesa"];
 

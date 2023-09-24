@@ -1,18 +1,11 @@
 <?php
-// session_start();
 
-// include_once "app/models/config.php";
 include_once "./public/php/group-link-php.php";
 include_once "app/models/manipulacaoDeDados.php";
 $operation = new manipulacaoDeDados();
-
-// $nomeUser = $_SESSION["loginUser"];
-// if(!$_SESSION["loginUser"] && !$_SESSION["passwordUser"]){
-
 if(!session_start()){
     echo "sessão apagada";
     session_unset();
-    // echo $msg_error = "não deu bom";
     session_destroy();
     
     if(empty(session_id())){

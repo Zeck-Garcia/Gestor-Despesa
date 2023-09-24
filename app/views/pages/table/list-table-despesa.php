@@ -14,12 +14,10 @@
         $_SESSION['txtPesquisaValue'] = "";
     }
 
-    // include_once "app/models/manipulacaoDeDados.php";
-    // $operation = new manipulacaoDeDados();
-    $url = $_SERVER["HTTP_HOST"] . "<br>"; //localhost
-    $url = $_SERVER["SCRIPT_NAME"] . "<br>"; ///www/agenda-02/index.php
-    $url = $_SERVER["QUERY_STRING"] . "<br>"; //page=list-despesa
-    $url = $_SERVER["REQUEST_URI"] . "<br>"; ///www/agenda-02/index.php?page=list-despesa
+    $url = $_SERVER["HTTP_HOST"] . "<br>";
+    $url = $_SERVER["SCRIPT_NAME"] . "<br>";
+    $url = $_SERVER["QUERY_STRING"] . "<br>";
+    $url = $_SERVER["REQUEST_URI"] . "<br>";
 
     //PEGA A URL ATUAL
     if(empty($_SESSION["urlEdit"])){
@@ -28,7 +26,6 @@
 
 
     include_once "app/models/searching.php";
-    // include_once "app/models/filter.php";
     include_once "app/models/function-despesa.php";
 
     //SEARCH TABLE
@@ -41,10 +38,7 @@
     $monthCampoFilter = isset($_POST["monthCampoFilter"]) == "" ? "" : $_POST["monthCampoFilter"]; 
     $yearFilter = isset($_POST["yearFilter"]) == "" ? "" : $_POST["yearFilter"]; 
 
-
         $sqlSelect = "SELECT * FROM tbdespesadescricao WHERE nomeDespesaDescricao='{$_SESSION['txtPesquisaValue']}' OR tipoDespesaDescricao LIKE '%{$_SESSION['txtPesquisaValue']}%' OR titularDespesaDescricao LIKE '%{$_SESSION['txtPesquisaValue']}%'";
-
-
 
     $orderBy = "idDespesaDescricao"; //campo que será feita a ordem
     $orderByType = "ASC"; //ASC DESC
@@ -145,7 +139,6 @@
                             $qryFilterAllYear = $operation->executarSQL($sqlFilterAllYear); //1
                             
                             while($year = $operation->listar($qryFilterAllYear)){
-                                // $yeara = $year["anoDespesa"];
                                 echo "<option value='" . $year['anoDespesa'] . "'>". $year['anoDespesa'] . "</option>";
                             }; 
                         ?>
@@ -229,31 +222,4 @@
     </div>
 
 
-    <?php
-// select DISTINCT b.valorDespesaDescricao, b.titularDespesaDescricao, b.dataPagamentoDespesaDescricao, b.situacaoDespesaDescricao
-// from 
-// tbtitular a
-
-// INNER JOIN tbdespesadescricao b
-// on (b.titularDespesaDescricao = a.nomeTitular and b.situacaoDespesaDescricao = 'pago' and b.dataPagamentoDespesaDescricao IN (SELECT dataPagamentoDespesaDescricao  FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear'))
-
-// INNER JOIN tbreceita c
-// on (c.titularReceita = a.nomeTitular )
-
-// order by b.titularDespesaDescricao;
-
-    // $sqlFilterResumoTitular = "SELECT DISTINCT b.valorDespesaDescricao, b.titularDespesaDescricao, b.dataPagamentoDespesaDescricao, b.situacaoDespesaDescricao
-    //     FROM tbtitular a INNER JOIN tbdespesadescricao b ON (b.titularDespesaDescricao = a.nomeTitular AND b.situacaoDespesaDescricao = 'pago' AND b.dataPagamentoDespesaDescricao IN (SELECT dataPagamentoDespesaDescricao FROM tbdespesadescricao WHERE DATE_FORMAT(dataPagamentoDespesaDescricao, '%m/%Y')='$todayMonthYear')) INNER JOIN tbreceita c ON (c.titularReceita = a.nomeTitular ) ORDER BY b.titularDespesaDescricao
-    // ";
-    // $qryFilterResumoTitular = $operation->executarSQL($sqlFilterResumoTitular);
-
-    // while($ver = $operation->listar($qryFilterResumoTitular)){
-    //     echo $ver["titularDespesaDescricao"];
-    //     echo "<br>";
-    //     echo $ver["valorDespesaDescricao"];
-    //     echo "<br>";
-
-
-    // }
-?>
 

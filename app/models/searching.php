@@ -1,22 +1,12 @@
 <?php
-// include_once "app/models/manipulacaoDeDados.php";
-
-// $operation = new manipulacaoDeDados();
 
 if(!empty(isset($_POST["txtPesquisa"]))){
 
     if(isset($_POST["txtPesquisa"])){
         $_SESSION["txtPesquisaValue"] = $_POST["txtPesquisa"];
         $_GET["pagina"] = 1;
-        // header("Location: {$_SERVER['SCRIPT_NAME']}?{$_SESSION['urlSearchStart']}");
     }
 }
-
-// $titularFilter = isset($_GET["titularFilter"]) == "" ? "" : $_GET["titularFilter"]; 
-// $moduloFilter = isset($_GET["moduloFilter"]) == "" ? "" : $_GET["moduloFilter"]; 
-// $categoriaFilter = isset($_GET["categoriaFilter"]) == "" ? "" : $_GET["categoriaFilter"]; 
-// $monthCampoFilter = isset($_GET["monthCampoFilter"]) == "" ? "" : $_GET["monthCampoFilter"]; 
-// $yearFilter = isset($_GET["yearFilter"]) == "" ? "" : $_GET["yearFilter"]; 
 
 $txtPesquisa = isset($_SESSION["txtPesquisaValue"]) == "" ? "" : $_SESSION["txtPesquisaValue"];
 
@@ -56,16 +46,6 @@ function searching(){
     } else {
         $inicio = ($quantidade * $pageSearchStart) - $quantidade;
     }
-    // $txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'";
-
-    // $where = ($camposWherePesquisaPrincipal == "" ? "" : "WHERE");
-    
-    // $camposWherePesquisaPrincipal = ($camposWherePesquisaPrincipal == "" ? "" : "$camposWherePesquisaPrincipal");
-    
-    // $campoWhereAndPesquisa = ($txtPesquisa == "" ? "" : " AND $campoWhereAndPesquisa='$txtPesquisa'");
-    
-    // $camposPesquisaAdd = ($txtPesquisa = "" ? "" : $camposPesquisaAdd);
-    
 
         $sql = "$sqlSelect
 
@@ -74,8 +54,6 @@ function searching(){
 
                 LIMIT $inicio, $quantidade
         ";
-
-                // $campoWhereAndPesquisa;
 
     $qry = $operation->executarSQL($sql);
 

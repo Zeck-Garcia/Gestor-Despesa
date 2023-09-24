@@ -22,20 +22,6 @@
     $quantidade = "5"; //qtd de registro a ser exibido por busca
     
     searching();
-
-    // if($pageative == "a-cadastro-situacao-receita"){
-    //    $dados['nomeSituacaoReceita'] = "";
-
-    // } else if($pageative == "editar-situacao-receita"){
-    //     $camposWherePesquisaPrincipal = "idSituacaoReceita";
-    //     $txtPesquisa = $id;
-    //     // searchBDdespesa();
-
-    //     echo $dados["nomeSituacaoReceita"];
-
-    // } else if($pageative == "a-excluir-cadastro-despesa"){
-
-    // }
     ?>
 
 <div class="container">
@@ -85,9 +71,6 @@
         </div>
     </div>
 </div>
-
-<!-- <button id="btnShowModal" class="btnShowModal btn btn-primary" name="action" value="cadastro">Cadastrar novo titular</button> -->
-
     <div class="col">
         <a href="<?= $urlPageAtual."&action=cadtitular"; ?>" id="btnShowModal" class="btnShowModal btn btn-primary">Cadastrar nova posição <i class="bi bi-plus-circle"></i></a>
     </div>
